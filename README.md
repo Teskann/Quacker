@@ -21,9 +21,6 @@
   <a href="https://github.com/TheHCJ/Quacker/actions" alt="Build Status">
     <img src="https://github.com/TheHCJ/Quacker/workflows/ci/badge.svg" alt="Build Status">
   </a>
-  <a href="https://hosted.weblate.org/engage/quacker/" alt="Translation Status">
-    <img src="https://hosted.weblate.org/widgets/quacker/-/svg-badge.svg" alt="Translation Status">
-  </a>
 </p>
 
 ## Features:
@@ -60,5 +57,5 @@ If you'd like to help make Quacker even better, here are a few ways you can cont
 ## Translations
 
 You can help by translating the app into your preferred language(s)!
-1. Use [Weblate](https://hosted.weblate.org/projects/quacker/quacker/) for translations **(RECOMMENDED)**
-2. Use the [⚐ Translations](https://github.com/TheHCJ/Quacker/issues/new?assignees=&labels=needs+triage&projects=&template=--translations.md&title=%5BTRANSLATION%5D) issue template
+1. Create a [⚐ Translations](https://github.com/TheHCJ/Quacker/issues/new?assignees=&labels=needs+triage&projects=&template=--translations.md&title=%5BTRANSLATION%5D) issue using the template! **Slower to merge**
+2. Create a pull request with the updates to the l10n files **Quicker to merge**
