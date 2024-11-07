@@ -6,9 +6,6 @@
 <p align="center">The continuation of <a href="https://fritter.cc">fritter</a> with feeds</p>
 
 <p align="center">
-  <a href="https://f-droid.org/en/packages/com.thehcj.quacker/">
-    <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">
-  </a>
   <a href="https://github.com/TheHCJ/Quacker/releases">
     <img src="assets/readme/get-it-on-github.png" alt="Get it on GitHub" height="80">
   </a>
@@ -17,9 +14,6 @@
 <p align="center">
   <a href="https://github.com/TheHCJ/Quacker/releases" alt="GitHub release">
     <img src="https://img.shields.io/github/v/release/TheHCJ/Quacker?style=flat&logo=github&color=2dba4e" alt="GitHub release">
-  </a>
-  <a href="https://f-droid.org/packages/com.thehcj.quacker/">
-    <img src="https://img.shields.io/f-droid/v/com.thehcj.quacker?logo=fdroid&color=%232278CF" alt="F-Droid Version">
   </a>
   <a href="/LICENSE" alt="License: MIT">
     <img src="https://img.shields.io/github/license/TheHCJ/Quacker?logo=opensourceinitiative&logoColor=FFFFFF&color=750014" alt="License: MIT">
