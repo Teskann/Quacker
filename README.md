@@ -1,8 +1,3 @@
-<h1 align="center">Quacker is UNARCHIVED</h1>
-<h2 align="center">Blog post: <a href="https://thehcj.is-a.dev/blog/13-11-2024_Quacker-Unarchived.html">thehcj.is-a.dev/blog/13-11-2024_Quacker-Unarchived.html</a></h2>
-<br>
-<br>
-<br>
 <h1 align="center">Quacker</h1>
 <p align="center">
   <img src="assets/icon.png" alt="Quacker Logo" width="144">
