@@ -157,14 +157,9 @@ class _HomeScreenState extends State<_HomeScreen> {
 class ScaffoldWithBottomNavigation extends StatefulWidget {
   final List<NavigationPage> pages;
   final int initialPage;
-  final List<Widget> Function(Map<int, ScrollController> scrollControllers) builder;
+  final List<Widget> Function(Map<int, ScrollController> scrollControllers) builder; // changed here
 
-  const ScaffoldWithBottomNavigation({
-    Key? key,
-    required this.pages,
-    required this.initialPage,
-    required this.builder,
-  }) : super(key: key);
+  const ScaffoldWithBottomNavigation({Key? key, required this.pages, required this.initialPage, required this.builder}) : super(key: key);
 
   @override
   State<ScaffoldWithBottomNavigation> createState() => _ScaffoldWithBottomNavigationState();
@@ -173,22 +168,41 @@ class ScaffoldWithBottomNavigation extends StatefulWidget {
 class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigation> {
   late PageController _pageController;
   late int _currentPage;
+  final Map<int, ScrollController> _scrollControllers = {};
 
   @override
   void initState() {
     super.initState();
     _currentPage = widget.initialPage;
     _pageController = PageController(initialPage: widget.initialPage);
+    for (int i = 0; i < widget.pages.length; i++) {
+      _scrollControllers[i] = ScrollController();
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant ScaffoldWithBottomNavigation oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.pages.length != oldWidget.pages.length) {
+      // Dispose controllers that are no longer needed.
+      _scrollControllers.keys
+          .where((k) => k >= widget.pages.length)
+          .toList()
+          .forEach((k) {
+        _scrollControllers[k]?.dispose();
+        _scrollControllers.remove(k);
+      });
+      // Create controllers for new pages.
+      for (int i = 0; i < widget.pages.length; i++) {
+        if (!_scrollControllers.containsKey(i)) {
+          _scrollControllers[i] = ScrollController();
+        }
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    Map<int, ScrollController> _scrollControllers = Map<int, ScrollController>.fromIterable(
-      Iterable<int>.generate(widget.pages.length),
-      key: (pageIndex) => pageIndex,
-      value: (_) => ScrollController(),
-    );
-
     return Scaffold(
       body: PageView(
         controller: _pageController,
@@ -200,30 +214,33 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
         children: widget.builder(_scrollControllers),
       ),
       bottomNavigationBar: NavigationBar(
-          selectedIndex: _currentPage,
-          destinations: widget.pages
-              .map(
-                (e) => NavigationDestination(
-                  icon: e.icon,
-                  selectedIcon: e.selectedIcon,
-                  label: e.titleBuilder(context),
-                ),
-              )
-              .toList(),
-          onDestinationSelected: (index) {
-            _pageController.animateToPage(
-              index,
-              duration: const Duration(milliseconds: 400),
-              curve: Curves.ease,
-            );
-          },
-      )
-        );
+        selectedIndex: _currentPage,
+        destinations: widget.pages
+            .map(
+              (e) => NavigationDestination(
+                icon: e.icon,
+                selectedIcon: e.selectedIcon,
+                label: e.titleBuilder(context),
+              ),
+            )
+            .toList(),
+        onDestinationSelected: (index) {
+          _pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.ease,
+          );
+        },
+      ),
+    );
   }
 
   @override
   void dispose() {
     _pageController.dispose();
+    for (final controller in _scrollControllers.values) {
+      controller.dispose();
+    }
     super.dispose();
   }
 }
