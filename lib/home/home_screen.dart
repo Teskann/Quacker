@@ -112,41 +112,39 @@ class _HomeScreenState extends State<_HomeScreen> {
           pages: _pages,
           initialPage: _initialPage,
           builder: (scrollControllers) {
-            return [
-              ..._pages.map((e) {
-                if (e.id.startsWith('group-')) {
-                  return SubscriptionGroupScreen(
-                    scrollController: scrollControllers[_pages.indexOf(e)]!,
-                    id: e.id.replaceAll('group-', ''),
-                    actions: createCommonAppBarActions(context),
-                    name: '',
+            return List.generate(_pages.length, (index) {
+              final page = _pages[index];
+              if (page.id.startsWith('group-')) {
+                return SubscriptionGroupScreen(
+                  scrollController: scrollControllers[index]!,
+                  id: page.id.replaceAll('group-', ''),
+                  actions: createCommonAppBarActions(context),
+                  name: '',
+                );
+              }
+              switch (page.id) {
+                case 'feed':
+                  return FeedScreen(
+                    scrollController: scrollControllers[index]!,
+                    id: '-1',
+                    name: L10n.current.feed,
                   );
-                }
-
-                switch (e.id) {
-                  case 'feed':
-                    return FeedScreen(
-                      scrollController: scrollControllers[_pages.indexOf(e)]!,
-                      id: '-1',
-                      name: L10n.current.feed,
-                    );
-                  case 'subscriptions':
-                    return SubscriptionsScreen(
-                      scrollController: scrollControllers[_pages.indexOf(e)]!,
-                    );
-                  case 'trending':
-                    return TrendsScreen(
-                      scrollController: scrollControllers[_pages.indexOf(e)]!,
-                    );
-                  case 'saved':
-                    return SavedScreen(
-                      scrollController: scrollControllers[_pages.indexOf(e)]!,
-                    );
-                  default:
-                    return const MissingScreen();
-                }
-              })
-            ];
+                case 'subscriptions':
+                  return SubscriptionsScreen(
+                    scrollController: scrollControllers[index]!,
+                  );
+                case 'trending':
+                  return TrendsScreen(
+                    scrollController: scrollControllers[index]!,
+                  );
+                case 'saved':
+                  return SavedScreen(
+                    scrollController: scrollControllers[index]!,
+                  );
+                default:
+                  return const MissingScreen();
+              }
+            });
           },
         );
       },
