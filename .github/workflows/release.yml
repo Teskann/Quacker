@@ -8,7 +8,7 @@ on:
 
 jobs:
   create_release:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2204
     steps:
       - name: Clone the repository
         uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install and set up Java
-        uses: actions/setup-java@v1
+        uses: useblacksmith/setup-java@v5
         with:
           java-version: '17.x'
       
