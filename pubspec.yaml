@@ -82,7 +82,6 @@ dependencies:
   dynamic_color: ^1.7.0
   webview_flutter: ^4.7.0
   webview_cookie_manager: ^2.0.6
-  hideable_widget: ^1.0.3
 
 dev_dependencies:
   flutter_test:

@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-import 'package:hideable_widget/hideable_widget.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 import 'package:quacker/constants.dart';
@@ -174,7 +173,6 @@ class ScaffoldWithBottomNavigation extends StatefulWidget {
 class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigation> {
   late PageController _pageController;
   late int _currentPage;
-  Key _hideableWidgetKey = UniqueKey(); // Add this line
 
   @override
   void initState() {
@@ -197,15 +195,11 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
         onPageChanged: (page) {
           setState(() {
             _currentPage = page;
-            _hideableWidgetKey = UniqueKey(); // Update the key here
           });
         },
         children: widget.builder(_scrollControllers),
       ),
-      bottomNavigationBar: HideableWidget(
-        key: _hideableWidgetKey, // Add this line
-        scrollController: _scrollControllers[_currentPage]!,
-        child: NavigationBar(
+      bottomNavigationBar: NavigationBar(
           selectedIndex: _currentPage,
           destinations: widget.pages
               .map(
@@ -223,9 +217,7 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
               curve: Curves.ease,
             );
           },
-        ),
-      ),
-    );
+        );
   }
 
   @override
