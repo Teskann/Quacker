@@ -217,6 +217,7 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
               curve: Curves.ease,
             );
           },
+      )
         );
   }
 
