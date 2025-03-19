@@ -40,7 +40,7 @@ if (keystoreFile != null && !keystoreFile.isEmpty()) {
 }
 
 android {
-    compileSdkVersion 34
+    compileSdkVersion 35
 
     dependenciesInfo {
         includeInApk = false
@@ -58,7 +58,7 @@ android {
     defaultConfig {
         applicationId "com.thehcj.quacker"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 35
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
