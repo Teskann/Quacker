@@ -43,8 +43,7 @@ import 'package:quacker/utils/urls.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:uni_links2/uni_links.dart';
-import 'client/client_regular_account.dart';
+import 'package:app_links/app_links.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 Future checkForUpdates() async {
@@ -518,7 +517,7 @@ class DefaultPage extends StatefulWidget {
 class _DefaultPageState extends State<DefaultPage> {
   Object? _migrationError;
   StackTrace? _migrationStackTrace;
-  StreamSubscription? _sub;
+  StreamSubscription<Uri>? _sub;
 
   void handleInitialLink(Uri link) {
     // Assume it's a username if there's only one segment (or two segments with the second empty, meaning the URI ends with /)
@@ -588,15 +587,17 @@ class _DefaultPageState extends State<DefaultPage> {
       return e;
     });
 
-    getInitialUri().then((link) {
+    final appLinks = AppLinks();
+
+    appLinks.getInitialLink().then((link) {
       if (link != null) {
         handleInitialLink(link);
       }
+    });
 
-      // Attach a listener to the stream
-      _sub = uriLinkStream.listen((link) => handleInitialLink(link!), onError: (err) {
-        // TODO: Handle exception by warning the user their action did not succeed
-      });
+    // Attach a listener to the stream
+    _sub = appLinks.uriLinkStream.listen((link) => handleInitialLink(link), onError: (err) {
+      // TODO: Handle exception by warning the user their action did not succeed
     });
   }
 
@@ -635,8 +636,8 @@ class _DefaultPageState extends State<DefaultPage> {
 
   @override
   void dispose() {
-    super.dispose();
     _sub?.cancel();
+    super.dispose();
   }
 }
 

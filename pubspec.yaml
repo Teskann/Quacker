@@ -71,7 +71,7 @@ dependencies:
   sqflite_common: ^2.4.0+2
   sqflite_migration_plan: ^1.0.0
   timeago: ^3.3.0
-  uni_links2: ^0.6.0+2
+  app_links: ^6.4.0
   url_launcher: ^6.1.7
   uuid: ^4.3.3
   video_player: ^2.4.9
