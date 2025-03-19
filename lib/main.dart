@@ -323,9 +323,9 @@ class _FritterAppState extends State<FritterApp> {
     // TODO: This doesn't work on iOS
     void setDisableScreenshots(final bool secureModeEnabled) async {
       if (secureModeEnabled) {
-        await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+        await FlutterWindowManagerPlus.addFlags(FlutterWindowManagerPlus.FLAG_SECURE);
       } else {
-        await FlutterWindowManager.clearFlags(FlutterWindowManager.FLAG_SECURE);
+        await FlutterWindowManagerPlus.clearFlags(FlutterWindowManagerPlus.FLAG_SECURE);
       }
     }
 
