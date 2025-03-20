@@ -83,7 +83,7 @@ dependencies:
   flutter_local_notifications: ^17.0.0
   dynamic_color: ^1.7.0
   webview_flutter: ^4.7.0
-  webview_cookie_manager: ^2.0.6
+  webview_cookie_manager_plus: ^2.0.16
 
 dev_dependencies:
   flutter_test:

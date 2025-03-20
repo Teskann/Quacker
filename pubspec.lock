@@ -1341,14 +1341,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.1"
-  webview_cookie_manager:
+  webview_cookie_manager_plus:
     dependency: "direct main"
     description:
-      name: webview_cookie_manager
-      sha256: "425a9feac5cd2cb62a71da3dda5ac2eaf9ece5481ee8d79f3868dc5ba8223ad3"
+      name: webview_cookie_manager_plus
+      sha256: c9eea4b96872a31ea124d6c85d6bf9d65ce90ae7e8302061f8d8fb77dbc84399
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.6"
+    version: "2.0.16"
   webview_flutter:
     dependency: "direct main"
     description:
@@ -1423,4 +1423,4 @@ packages:
     version: "3.1.3"
 sdks:
   dart: ">=3.7.0 <3.13.0"
-  flutter: ">=3.27.0"
+  flutter: ">=3.29.0"
