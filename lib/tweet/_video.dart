@@ -89,7 +89,7 @@ class _TweetVideoState extends State<TweetVideo> {
       customControls: const FritterMaterialControls(),
       additionalOptions: (context) => [
         OptionItem(
-          onTap: () async {
+          onTap: (BuildContext _) async {
             var video = downloadUrl;
             if (video == null) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(

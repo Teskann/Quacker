@@ -300,7 +300,7 @@ class _MaterialControlsState extends State<FritterMaterialControls> with SingleT
     VideoPlayerController controller,
   ) {
     return GestureDetector(
-      onTap: chewieController.additionalOptions!(context)[0].onTap,
+      onTap: () => chewieController.additionalOptions!(context)[0].onTap(context),
       child: AnimatedOpacity(
         opacity: notifier.hideStuff ? 0.0 : 1.0,
         duration: const Duration(milliseconds: 300),
