@@ -80,7 +80,7 @@ dependencies:
 
   flutter_localizations:
     sdk: flutter
-  flutter_local_notifications: ^17.0.0
+  flutter_local_notifications: ^19.0.0
   dynamic_color: ^1.7.0
   webview_flutter: ^4.7.0
   webview_cookie_manager_plus: ^2.0.16
