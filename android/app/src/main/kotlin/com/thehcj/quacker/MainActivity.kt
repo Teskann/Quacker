@@ -1,4 +1,4 @@
-package com.example.quacker
+package com.thehcj.quacker
 
 import io.flutter.embedding.android.FlutterActivity
 
