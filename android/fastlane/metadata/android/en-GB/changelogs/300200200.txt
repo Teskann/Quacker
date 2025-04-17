@@ -5,4 +5,5 @@
 - Feed switcher is now an icon
 - Revert search page
 - Revert home page
+- Shrink APK size
 - + many more small changes
