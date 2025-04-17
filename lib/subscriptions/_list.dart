@@ -23,7 +23,8 @@ class _SubscriptionUsersState extends State<SubscriptionUsers> {
   Widget build(BuildContext context) {
     var model = context.read<SubscriptionsModel>();
 
-    return ScopedBuilder<SubscriptionsModel, List<Subscription>>.transition(
+    return SizedBox(
+        child: ScopedBuilder<SubscriptionsModel, List<Subscription>>.transition(
       store: model,
       onLoading: (_) => const Center(child: CircularProgressIndicator()),
       onError: (_, e) =>
@@ -57,7 +58,7 @@ class _SubscriptionUsersState extends State<SubscriptionUsers> {
           scrollController: widget.scrollController,
         );
       },
-    );
+    ));
   }
 }
 

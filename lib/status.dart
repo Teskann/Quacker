@@ -64,6 +64,7 @@ class _StatusScreenState extends State<_StatusScreen> {
   @override
   void dispose() {
     _pagingController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 

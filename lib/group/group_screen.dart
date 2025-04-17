@@ -25,15 +25,37 @@ class GroupScreenArguments {
   }
 }
 
-class GroupScreen extends StatelessWidget {
+class GroupScreen extends StatefulWidget {
   const GroupScreen({Key? key}) : super(key: key);
+
+  @override
+  State<GroupScreen> createState() => _GroupScreenState();
+}
+
+class _GroupScreenState extends State<GroupScreen> {
+  late final ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as GroupScreenArguments;
-
     return SubscriptionGroupScreen(
-        scrollController: ScrollController(), id: args.id, name: args.name, actions: const []);
+      scrollController: _scrollController,
+      id: args.id,
+      name: args.name,
+      actions: const [],
+    );
   }
 }
 
