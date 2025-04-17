@@ -5,7 +5,6 @@ import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_windowmanager_plus/flutter_windowmanager_plus.dart';
 
@@ -39,7 +38,7 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'package:app_links/app_links.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-Future checkForUpdates() async {
+Future checkForUpdates(context) async {
   Logger.root.info('Checking for updates');
 
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
@@ -54,20 +53,28 @@ Future checkForUpdates() async {
     final Map<dynamic, dynamic> map = json.decode(contentAsString);
     if (map["tag_name"] != null) {
       if (map["tag_name"] != 'v${packageInfo.version}') {
-        await FlutterLocalNotificationsPlugin().show(
-            0,
-            'An update for Quacker is available! 🚀',
-            'View version ${map["tag_name"]} on Github',
-            const NotificationDetails(
-                android: AndroidNotificationDetails(
-              'updates',
-              'Updates',
-              channelDescription: 'When a new app update is available show a notification',
-              importance: Importance.max,
-              priority: Priority.high,
-              showWhen: false,
-            )),
-            payload: map['html_url']);
+        await showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('An update for Quacker is available! 🚀'),
+              content: Text('View version ${map["tag_name"]} on Github'),
+              actions: [
+                TextButton(
+                  child: const Text('Dismiss'),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+                TextButton(
+                  child: const Text('View on GitHub'),
+                  onPressed: () async {
+                    await openUri(map['html_url']);
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
       } else if (map['html_url'].isEmpty) {
         Logger.root.severe('Unable to check for updates');
       }
@@ -172,26 +179,6 @@ Future<void> main() async {
   });
 
   try {
-    if (Platform.isAndroid) {
-      FlutterLocalNotificationsPlugin notifications = FlutterLocalNotificationsPlugin();
-
-      const InitializationSettings settings =
-          InitializationSettings(android: AndroidInitializationSettings('@drawable/ic_notification'));
-
-      await notifications.initialize(settings, onDidReceiveNotificationResponse: (response) async {
-        var payload = response.payload;
-        if (payload != null && payload.startsWith('https://')) {
-          await openUri(payload);
-        }
-      });
-
-      var shouldCheckForUpdates = prefService.get(optionShouldCheckForUpdates);
-      if (shouldCheckForUpdates) {
-        // Don't check for updates if user disabled it.
-        checkForUpdates();
-      }
-    }
-
     // Run the migrations early, so models work. We also do this later on so we can display errors to the user
     try {
       await Repository().migrate();
@@ -249,6 +236,7 @@ class _FritterAppState extends State<FritterApp> {
   String _themeColor = 'orange';
   bool _disableAnimations = false;
   bool _trueBlack = false;
+  bool _checkUpdates = false;
   Locale? _locale;
 
   @override
@@ -286,6 +274,7 @@ class _FritterAppState extends State<FritterApp> {
       _themeColor = prefService.get(optionThemeColor);
       _trueBlack = prefService.get(optionThemeTrueBlack);
       _disableAnimations = prefService.get(optionDisableAnimations);
+      _checkUpdates = prefService.get(optionShouldCheckForUpdates);
       setDisableScreenshots(prefService.get(optionDisableScreenshots));
     });
 
@@ -444,6 +433,11 @@ class _FritterAppState extends State<FritterApp> {
           routeStatus: (context) => const StatusScreen(),
         },
         builder: (context, child) {
+          if (_checkUpdates) {
+            // Don't check for updates if user disabled it.
+            checkForUpdates(context);
+          }
+
           // Replace the default red screen of death with a slightly friendlier one
           ErrorWidget.builder = (FlutterErrorDetails details) => FullPageErrorWidget(
                 error: details.exception,
