@@ -1,0 +1,8 @@
+## v3.5.0
+- [MAJOR] Login fixed
+- True black tweet cards are fixed (#27)
+- Added storage permissions (#22)
+- Feed switcher is now an icon
+- Revert search page
+- Revert home page
+- + many more small changes
