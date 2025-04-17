@@ -414,6 +414,7 @@ class _FritterAppState extends State<FritterApp> {
                   : ColorScheme.fromSeed(
                       seedColor: themeColors[_themeColor]!.harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
                       brightness: Brightness.dark))),
+          navigationBarTheme: (_trueBlack == true ? NavigationBarThemeData(backgroundColor: Colors.black) : null),
           pageTransitionsTheme: _disableAnimations == true
               ? PageTransitionsTheme(
                   builders: {
