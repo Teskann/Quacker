@@ -45,6 +45,12 @@ class _ForYouTweetsState extends State<ForYouTweets> with AutomaticKeepAliveClie
     });
   }
 
+  @override
+  void dispose() {
+    widget.pagingController.dispose();
+    super.dispose();
+  }
+
   void incrementLoadTweetsCounter() {
     ++loadTweetsCounter;
   }

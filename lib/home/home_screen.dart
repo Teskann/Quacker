@@ -157,7 +157,8 @@ class ScaffoldWithBottomNavigation extends StatefulWidget {
   final int initialPage;
   final List<Widget> Function(Map<int, ScrollController> scrollControllers) builder; // changed here
 
-  const ScaffoldWithBottomNavigation({Key? key, required this.pages, required this.initialPage, required this.builder}) : super(key: key);
+  const ScaffoldWithBottomNavigation({Key? key, required this.pages, required this.initialPage, required this.builder})
+      : super(key: key);
 
   @override
   State<ScaffoldWithBottomNavigation> createState() => _ScaffoldWithBottomNavigationState();
@@ -183,10 +184,7 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
     super.didUpdateWidget(oldWidget);
     if (widget.pages.length != oldWidget.pages.length) {
       // Dispose controllers that are no longer needed.
-      _scrollControllers.keys
-          .where((k) => k >= widget.pages.length)
-          .toList()
-          .forEach((k) {
+      _scrollControllers.keys.where((k) => k >= widget.pages.length).toList().forEach((k) {
         _scrollControllers[k]?.dispose();
         _scrollControllers.remove(k);
       });
