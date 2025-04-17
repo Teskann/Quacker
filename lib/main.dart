@@ -232,12 +232,15 @@ class FritterApp extends StatefulWidget {
 class _FritterAppState extends State<FritterApp> {
   static final log = Logger('_MyAppState');
 
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>(); // NEW: Navigator key
+
   String _themeMode = 'system';
   String _themeColor = 'orange';
   bool _disableAnimations = false;
   bool _trueBlack = false;
   bool _checkUpdates = false;
   Locale? _locale;
+  bool _updateDialogShown = false;
 
   @override
   void didChangeDependencies() {
@@ -335,6 +338,7 @@ class _FritterAppState extends State<FritterApp> {
 
     return DynamicColorBuilder(builder: (lightDynamic, darkDynamic) {
       return MaterialApp(
+        navigatorKey: _navigatorKey, // NEW: Set navigatorKey
         localeListResolutionCallback: (locales, supportedLocales) {
           List supportedLocalesCountryCode = [];
           for (var item in supportedLocales) {
@@ -433,9 +437,12 @@ class _FritterAppState extends State<FritterApp> {
           routeStatus: (context) => const StatusScreen(),
         },
         builder: (context, child) {
-          if (_checkUpdates) {
-            // Don't check for updates if user disabled it.
-            checkForUpdates(context);
+          if (_checkUpdates && !_updateDialogShown) {
+            _updateDialogShown = true;
+            // Use navigatorKey's context for showDialog
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              checkForUpdates(_navigatorKey.currentContext!);
+            });
           }
 
           // Replace the default red screen of death with a slightly friendlier one
