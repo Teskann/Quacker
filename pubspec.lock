@@ -226,22 +226,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.11"
-  device_info_plus:
-    dependency: "direct main"
-    description:
-      name: device_info_plus
-      sha256: a7fd703482b391a87d60b6061d04dfdeab07826b96f9abd8f5ed98068acc0074
-      url: "https://pub.dev"
-    source: hosted
-    version: "10.1.2"
-  device_info_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: device_info_plus_platform_interface
-      sha256: "0b04e02b30791224b31969eb1b50d723498f402971bff3630bca2ba839bd1ed2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.0.2"
   dynamic_color:
     dependency: "direct main"
     description:
@@ -920,22 +904,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.8.4+1"
-  sentry:
-    dependency: transitive
-    description:
-      name: sentry
-      sha256: "3a64dd001bff768ce5ab6fc3608deef4dde22acd4b5d947763557b20db9e2a32"
-      url: "https://pub.dev"
-    source: hosted
-    version: "8.14.0"
-  sentry_flutter:
-    dependency: "direct main"
-    description:
-      name: sentry_flutter
-      sha256: "3d361f2d5f805783e2e4ed1bd475ef126b36cf525b359dc3627a765a3fb7424d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "8.14.0"
   share_plus:
     dependency: "direct main"
     description:
@@ -1397,14 +1365,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.12.0"
-  win32_registry:
-    dependency: transitive
-    description:
-      name: win32_registry
-      sha256: "21ec76dfc731550fd3e2ce7a33a9ea90b828fdf19a5c3bcf556fa992cfa99852"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.5"
   xdg_directories:
     dependency: transitive
     description:

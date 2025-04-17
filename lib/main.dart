@@ -3,14 +3,11 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_triple/flutter_triple.dart';
 import 'package:flutter_windowmanager_plus/flutter_windowmanager_plus.dart';
-import 'package:quacker/catcher/errors.dart';
 
 import 'package:quacker/constants.dart';
 import 'package:quacker/database/repository.dart';
@@ -24,7 +21,6 @@ import 'package:quacker/profile/profile.dart';
 import 'package:quacker/saved/saved_tweet_model.dart';
 import 'package:quacker/search/search.dart';
 import 'package:quacker/search/search_model.dart';
-import 'package:quacker/settings/_general.dart';
 import 'package:quacker/settings/_home.dart';
 import 'package:quacker/settings/settings.dart';
 import 'package:quacker/settings/settings_export_screen.dart';
@@ -38,7 +34,6 @@ import 'package:logging/logging.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 import 'package:quacker/utils/urls.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:app_links/app_links.dart';
@@ -176,108 +171,66 @@ Future<void> main() async {
     }),
   });
 
-  TripleObserver.addListener((triple) {
-    if (triple.error != null) {
-      Catcher.reportException(triple.error);
-    }
-  });
-
   try {
-    await SentryFlutter.init((options) async {
-      // The native SDK tries to contact Sentry on startup, which we can't do as Sentry is opt-in, so check first
-      options.autoInitializeNativeSdk = prefService.get(optionGlitchTipErrorsEnabled) ?? false;
-      options.attachStacktrace = true;
-      options.dsn = 'https://8a722cbafe35450b8fcdccd8f0152355@app.glitchtip.com/6595';
-      options.sendDefaultPii = false;
-      options.enableAppLifecycleBreadcrumbs = true;
-      options.enableAutoNativeBreadcrumbs = true;
+    if (Platform.isAndroid) {
+      FlutterLocalNotificationsPlugin notifications = FlutterLocalNotificationsPlugin();
 
-      options.beforeSend = (event, {hint}) {
-        var enabled = prefService.get(optionGlitchTipErrorsEnabled);
-        if (enabled == null || enabled == false) {
-          return null;
-        }
+      const InitializationSettings settings =
+          InitializationSettings(android: AndroidInitializationSettings('@drawable/ic_notification'));
 
-        // We don't want to report SocketExceptions as there's so many of them, and they're not super useful
-        if (event.throwable is SocketException) {
-          return null;
-        }
-
-        return event;
-      } as BeforeSendCallback?;
-    }, appRunner: () async {
-      var deviceInfo = DeviceInfoPlugin();
-
-      Sentry.configureScope((scope) async {
-        scope.setTag('flavor', getFlavor());
-
-        if (Platform.isAndroid) {
-          var androidDeviceInfo = await deviceInfo.androidInfo;
-          scope.setTag('versionSdk', androidDeviceInfo.version.sdkInt.toString());
+      await notifications.initialize(settings, onDidReceiveNotificationResponse: (response) async {
+        var payload = response.payload;
+        if (payload != null && payload.startsWith('https://')) {
+          await openUri(payload);
         }
       });
 
-      if (Platform.isAndroid) {
-        FlutterLocalNotificationsPlugin notifications = FlutterLocalNotificationsPlugin();
-
-        const InitializationSettings settings =
-            InitializationSettings(android: AndroidInitializationSettings('@drawable/ic_notification'));
-
-        await notifications.initialize(settings, onDidReceiveNotificationResponse: (response) async {
-          var payload = response.payload;
-          if (payload != null && payload.startsWith('https://')) {
-            await openUri(payload);
-          }
-        });
-
-        var shouldCheckForUpdates = prefService.get(optionShouldCheckForUpdates);
-        if (shouldCheckForUpdates) {
-          // Don't check for updates if user disabled it.
-          checkForUpdates();
-        }
+      var shouldCheckForUpdates = prefService.get(optionShouldCheckForUpdates);
+      if (shouldCheckForUpdates) {
+        // Don't check for updates if user disabled it.
+        checkForUpdates();
       }
+    }
 
-      // Run the migrations early, so models work. We also do this later on so we can display errors to the user
-      try {
-        await Repository().migrate();
-      } catch (_) {
-        // Ignore, as we'll catch it later instead
-      }
+    // Run the migrations early, so models work. We also do this later on so we can display errors to the user
+    try {
+      await Repository().migrate();
+    } catch (_) {
+      // Ignore, as we'll catch it later instead
+    }
 
-      var importDataModel = ImportDataModel();
+    var importDataModel = ImportDataModel();
 
-      var groupsModel = GroupsModel(prefService);
-      await groupsModel.reloadGroups();
+    var groupsModel = GroupsModel(prefService);
+    await groupsModel.reloadGroups();
 
-      var homeModel = HomeModel(prefService, groupsModel);
-      await homeModel.loadPages();
+    var homeModel = HomeModel(prefService, groupsModel);
+    await homeModel.loadPages();
 
-      var subscriptionsModel = SubscriptionsModel(prefService, groupsModel);
-      await subscriptionsModel.reloadSubscriptions();
+    var subscriptionsModel = SubscriptionsModel(prefService, groupsModel);
+    await subscriptionsModel.reloadSubscriptions();
 
-      var trendLocationModel = UserTrendLocationModel(prefService);
+    var trendLocationModel = UserTrendLocationModel(prefService);
 
-      runApp(PrefService(
-          service: prefService,
-          child: MultiProvider(
-            providers: [
-              Provider(create: (context) => groupsModel),
-              Provider(create: (context) => homeModel),
-              ChangeNotifierProvider(create: (context) => importDataModel),
-              Provider(create: (context) => subscriptionsModel),
-              Provider(create: (context) => SavedTweetModel()),
-              Provider(create: (context) => SearchTweetsModel()),
-              Provider(create: (context) => SearchUsersModel()),
-              Provider(create: (context) => trendLocationModel),
-              Provider(create: (context) => TrendLocationsModel()),
-              Provider(create: (context) => TrendsModel(trendLocationModel)),
-              ChangeNotifierProvider(create: (_) => VideoContextState(prefService.get(optionMediaDefaultMute))),
-            ],
-            child: FritterApp(),
-          )));
-    });
+    runApp(PrefService(
+        service: prefService,
+        child: MultiProvider(
+          providers: [
+            Provider(create: (context) => groupsModel),
+            Provider(create: (context) => homeModel),
+            ChangeNotifierProvider(create: (context) => importDataModel),
+            Provider(create: (context) => subscriptionsModel),
+            Provider(create: (context) => SavedTweetModel()),
+            Provider(create: (context) => SearchTweetsModel()),
+            Provider(create: (context) => SearchUsersModel()),
+            Provider(create: (context) => trendLocationModel),
+            Provider(create: (context) => TrendLocationsModel()),
+            Provider(create: (context) => TrendsModel(trendLocationModel)),
+            ChangeNotifierProvider(create: (_) => VideoContextState(prefService.get(optionMediaDefaultMute))),
+          ],
+          child: FritterApp(),
+        )));
   } catch (e, stackTrace) {
-    Catcher.reportException(e, stackTrace);
     log('Unable to start Fritter', error: e, stackTrace: stackTrace);
   }
 }

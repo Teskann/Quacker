@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
-import 'package:quacker/catcher/errors.dart';
 
 import 'package:quacker/constants.dart';
 import 'package:quacker/generated/l10n.dart';
@@ -63,7 +62,6 @@ Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileN
     await File(savedFile).writeAsBytes(response);
     onSuccess();
   } catch (e, s) {
-    Catcher.reportException(UnableToSaveMedia(uri, e), s);
     showSnackBar(context, icon: '🙊', message: e.toString());
   }
 }

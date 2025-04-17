@@ -35,7 +35,6 @@ dependencies:
   dart_twitter_api: # this is a fork which is up to date
     git: 
       url: https://github.com/TheHCJ/twitter_api.git
-  device_info_plus: ^10.1.0
   extended_image: ^8.2.0
   extended_nested_scroll_view: ^6.0.0
   faker: ^2.1.0
@@ -65,7 +64,6 @@ dependencies:
   provider: ^6.0.4
   quiver: ^3.1.0
   scroll_to_index: ^3.0.1
-  sentry_flutter: ^8.14.0
   share_plus: ^8.0.3
   sqflite: ^2.2.2
   sqflite_common: ^2.4.0+2

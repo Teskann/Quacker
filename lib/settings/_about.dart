@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -15,36 +14,25 @@ class SettingsAboutFragment extends StatelessWidget {
   const SettingsAboutFragment({Key? key, required this.appVersion}) : super(key: key);
 
   Future<void> _appInfo(BuildContext context) async {
-    var deviceInfo = DeviceInfoPlugin();
     var packageInfo = await PackageInfo.fromPlatform();
     Map<String, Object>? metadata;
 
     if (Platform.isAndroid && context.mounted) {
-      var info = await deviceInfo.androidInfo;
-
       if (context.mounted) {
         metadata = {
-          'abis': info.supportedAbis,
-          'device': info.device,
           'flavor':
               const String.fromEnvironment('app.flavor') != '' ? const String.fromEnvironment('app.flavor') : 'fdroid',
           'locale': Localizations.localeOf(context).languageCode,
           'os': 'android',
-          'system': info.version.sdkInt.toString(),
-          'version': packageInfo.buildNumber,
         };
       }
     } else {
-      var info = await deviceInfo.iosInfo;
-
       if (context.mounted) {
         metadata = {
           'abis': [],
-          'device': info.utsname.machine,
           'flavor': String.fromEnvironment('app.flavor') != '' ? String.fromEnvironment('app.flavor') : 'fdroid',
           'locale': Localizations.localeOf(context).languageCode,
           'os': 'ios',
-          'system': info.systemVersion,
           'version': packageInfo.buildNumber,
         };
       }

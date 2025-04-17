@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:ffcache/ffcache.dart';
-import 'package:quacker/catcher/errors.dart';
 import 'package:quacker/catcher/exceptions.dart';
 import 'package:quacker/client/client_regular_account.dart';
 import 'package:quacker/client/client_unauthenticated.dart';
@@ -206,14 +205,12 @@ class Twitter {
           if (code == 'Suspended') {
             throw TwitterError(code: 63, message: result['reason'], uri: uri.toString());
           } else {
-            Catcher.reportSyntheticException(UnknownProfileUnavailableReason(code, uri.toString()));
             throw TwitterError(code: -1, message: result['reason'], uri: uri.toString());
           }
         case 'User':
           // This means everything's fine
           break;
         default:
-          Catcher.reportSyntheticException(UnknownProfileResultType(resultType, result['reason'], uri.toString()));
           break;
       }
     }
@@ -275,8 +272,6 @@ class Twitter {
             if (item['item']['itemContent']['tweet_results']?['result'] != null) {
               tweets.add(TweetWithCard.fromGraphqlJson(item['item']['itemContent']['tweet_results']['result']));
             }
-          } else {
-            Catcher.reportSyntheticException(UnknownTimelineItemType(itemType, entryId));
           }
         }
 

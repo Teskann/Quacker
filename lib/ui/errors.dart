@@ -6,7 +6,6 @@ import 'package:dynamic_color/dynamic_color.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quacker/catcher/errors.dart';
 import 'package:quacker/catcher/exceptions.dart';
 
 import 'package:quacker/client/client.dart';
@@ -76,7 +75,6 @@ EmojiErrorWidget createEmojiError(TwitterError error) {
       message = L10n.current.bad_guest_token;
       break;
     default:
-      Catcher.reportSyntheticException(UnknownTwitterErrorCode(error.code, error.message, error.uri));
       emoji = '💥';
       message = L10n.current.catastrophic_failure;
       break;
@@ -293,13 +291,6 @@ class FullPageErrorWidget extends FritterErrorWidget {
               child: Text('$error', textAlign: TextAlign.left, style: TextStyle(color: Theme.of(context).hintColor)),
             ),
           )),
-          Container(
-            margin: const EdgeInsets.only(top: 12),
-            child: ElevatedButton(
-              child: Text(L10n.of(context).report),
-              onPressed: () => Catcher.reportException(ManuallyReportedException(error), stackTrace),
-            ),
-          ),
           if (onRetry != null)
             Container(
               margin: const EdgeInsets.only(top: 12),
