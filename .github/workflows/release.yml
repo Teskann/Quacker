@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
-          java-version: '17.x'
+          java-version: '21.x'
       
       - name:
         run: echo $SIGNING_KEY | base64 -d > android/app/key.jks
@@ -29,7 +29,7 @@ jobs:
       - name: Install and set up Flutter
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: '3.29.0'
+          flutter-version: '3.29.2'
 
       - name: Build APKs
         run: |
