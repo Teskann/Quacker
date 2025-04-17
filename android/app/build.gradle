@@ -40,6 +40,7 @@ if (keystoreFile != null && !keystoreFile.isEmpty()) {
 }
 
 android {
+    namespace 'com.thehcj.quacker'
     compileSdkVersion 35
 
     dependenciesInfo {
