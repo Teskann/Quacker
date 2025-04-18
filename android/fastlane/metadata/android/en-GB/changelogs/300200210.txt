@@ -1,0 +1,8 @@
+## v3.5.1
+- [MAJOR] Crashes when viewing tweets fixed (#51 & #50)
+- Fixed show navigation icons setting
+- Removed animation when tapping on navigation icons
+- Removed glitchtip setting (i forgot to remove it!)
+- + many more small changes
+
+**You should upgrade as soon as possible, as this release fixes many bugs that had occured in 3.5.0!**
