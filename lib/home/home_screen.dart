@@ -211,6 +211,9 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentPage,
+        labelBehavior: PrefService.of(context).get(optionShowNavigationLabels)
+            ? NavigationDestinationLabelBehavior.alwaysShow
+            : NavigationDestinationLabelBehavior.alwaysHide,
         destinations: widget.pages
             .map(
               (e) => NavigationDestination(
