@@ -116,7 +116,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
           return TweetUrl(url, () async {
             String? uri = url.expandedUrl;
             if (uri == null ||
-                (uri.length > 33 && uri.substring(0, 33) == 'https://x.com/i/web/status/') ||
+                (uri.length > 33 && uri.substring(0, 33) == 'https://twitter.com/i/web/status/') ||
                 (uri.length > 27 && uri.substring(0, 27) == 'https://x.com/i/web/status/')) {
               return;
             }
