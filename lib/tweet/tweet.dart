@@ -605,7 +605,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                             ]),
                         title: Row(children: [
                           // Username
-                          if (!hideAuthorInformation && tweet.user != null && tweet.user!.name != null)
+                          if (!hideAuthorInformation && tweet.user != null && tweet.user?.name != null)
                             Expanded(
                               child: Row(
                                 children: [
@@ -616,20 +616,20 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                                       style: const TextStyle(fontWeight: FontWeight.w500),
                                     ),
                                   ),
-                                  if (tweet.user!.verified ?? false) const SizedBox(width: 4),
-                                  if (tweet.user!.verified ?? false)
+                                  if (tweet.user?.verified ?? false) const SizedBox(width: 4),
+                                  if (tweet.user?.verified ?? false)
                                     Icon(Icons.verified, size: 18, color: Theme.of(context).colorScheme.primary),
                                 ],
                               ),
                             ),
                         ]),
 
-                        subtitle: !hideAuthorInformation
-                            ? Flexible(child: Text('@${tweet.user!.screenName!}', overflow: TextOverflow.ellipsis))
+                        subtitle: (!hideAuthorInformation && tweet.user?.screenName != null)
+                            ? Flexible(child: Text('@${tweet.user!.screenName}', overflow: TextOverflow.ellipsis))
                             : null,
 
                         // Profile picture
-                        leading: hideAuthorInformation
+                        leading: (hideAuthorInformation && !(tweet.user?.profileImageUrlHttps != null))
                             ? const Icon(Icons.account_circle, size: 48)
                             : ClipRRect(
                                 borderRadius: BorderRadius.circular(64),
