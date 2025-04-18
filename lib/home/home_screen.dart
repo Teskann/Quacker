@@ -221,11 +221,7 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
             )
             .toList(),
         onDestinationSelected: (index) {
-          _pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 400),
-            curve: Curves.ease,
-          );
+          _pageController.jumpToPage(index);
         },
       ),
     );
