@@ -139,7 +139,7 @@ class Twitter {
   };
 
   static Future<Profile> getProfileById(String id) async {
-    var uri = Uri.https('twitter.com', '/i/api/graphql/Qs44y3K0SXxItjNi6mUFQA/UserByRestId', {
+    var uri = Uri.https('x.com', '/i/api/graphql/Qs44y3K0SXxItjNi6mUFQA/UserByRestId', {
       'variables': jsonEncode({
         'userId': id,
         'withHighlightedLabel': true,
@@ -157,7 +157,7 @@ class Twitter {
   }
 
   static Future<Profile> getProfileByScreenName(String screenName) async {
-    var uri = Uri.https('twitter.com', '/i/api/graphql/qW5u-DAuXpMEG0zA1F7UGQ/UserByScreenName', {
+    var uri = Uri.https('x.com', '/i/api/graphql/qW5u-DAuXpMEG0zA1F7UGQ/UserByScreenName', {
       'variables': jsonEncode({'screen_name': screenName, "withSafetyModeUserFields": true}),
       'features': jsonEncode({
         "hidden_profile_likes_enabled": true,
@@ -346,7 +346,7 @@ class Twitter {
     defaultParam["variables"] = json.encode(variables);
 
     var response = await _twitterApi.client
-        .get(Uri.https('twitter.com', '/i/api/graphql/3XDB26fBve-MmjHaWTUZxA/TweetDetail', defaultParam));
+        .get(Uri.https('x.com', '/i/api/graphql/3XDB26fBve-MmjHaWTUZxA/TweetDetail', defaultParam));
 
     var result = json.decode(response.body);
 
@@ -417,7 +417,7 @@ class Twitter {
       variables['cursor'] = cursor;
     }
 
-    var uri = Uri.https('twitter.com', '/i/api/graphql/flaR-PUMshxFWZWPNpq4zA/SearchTimeline',
+    var uri = Uri.https('x.com', '/i/api/graphql/flaR-PUMshxFWZWPNpq4zA/SearchTimeline',
         {'variables': jsonEncode(variables), 'features': jsonEncode(features)});
 
     var response = await _twitterApi.client.get(uri);
@@ -469,7 +469,7 @@ class Twitter {
       variables['cursor'] = cursor;
     }
 
-    var uri = Uri.https('twitter.com', '/i/api/graphql/-KWrbTBsPifMuLUqqDiU_A/SearchTimeline',
+    var uri = Uri.https('x.com', '/i/api/graphql/-KWrbTBsPifMuLUqqDiU_A/SearchTimeline',
         {'variables': jsonEncode(variables), 'features': jsonEncode(searchFeatures)});
 
     var response = await _twitterApi.client.get(uri);
@@ -551,7 +551,7 @@ class Twitter {
     defaultUserTweetsParam["variables"] = json.encode(variables);
 
     var response = await _twitterApi.client
-        .get(Uri.https('twitter.com', 'i/api/graphql/W4Tpu1uueTGK53paUgxF0Q/HomeTimeline', defaultUserTweetsParam));
+        .get(Uri.https('x.com', 'i/api/graphql/W4Tpu1uueTGK53paUgxF0Q/HomeTimeline', defaultUserTweetsParam));
     var result = json.decode(response.body);
     //if this page is not first one on the profile page, dont add pinned tweet
     if (variables['cursor'] != null) showPinnedTweet = false;
@@ -599,7 +599,7 @@ class Twitter {
     defaultUserTweetsParam["variables"] = json.encode(variables);
 
     var response = await _twitterApi.client
-        .get(Uri.https('twitter.com', '/i/api/graphql/2GIWTr7XwadIixZDtyXd4A/UserTweets', defaultUserTweetsParam));
+        .get(Uri.https('x.com', '/i/api/graphql/2GIWTr7XwadIixZDtyXd4A/UserTweets', defaultUserTweetsParam));
 
     if (cursor != null) {
       query['cursor'] = cursor;
@@ -828,7 +828,7 @@ class Twitter {
   }
 
   static Future<List<UserWithExtra>> _getUsersPage(Iterable<String> ids) async {
-    var response = await _twitterApi.client.get(Uri.https('api.twitter.com', '/1.1/users/lookup.json', {
+    var response = await _twitterApi.client.get(Uri.https('api.x.com', '/1.1/users/lookup.json', {
       'user_id': ids.join(','),
     }));
 
@@ -901,7 +901,7 @@ class Twitter {
   }
 
   static Future<Map<String, dynamic>> getBroadcastDetails(String key) async {
-    var response = await _twitterApi.client.get(Uri.https('twitter.com', '/i/api/1.1/live_video_stream/status/$key'));
+    var response = await _twitterApi.client.get(Uri.https('x.com', '/i/api/1.1/live_video_stream/status/$key'));
 
     return json.decode(response.body);
   }

@@ -30,9 +30,9 @@ Future<String> getToken(Logger log) async {
     }
   }
 
-  log.info('Refreshing the Twitter token');
+  log.info('Refreshing the X token');
 
-  var response = await http.post(Uri.parse('https://api.twitter.com/1.1/guest/activate.json'), headers: {
+  var response = await http.post(Uri.parse('https://api.x.com/1.1/guest/activate.json'), headers: {
     'Authorization':
         'Bearer AAAAAAAAAAAAAAAAAAAAAGHtAgAAAAAA%2Bx7ILXNILCqkSGIzy6faIHZ9s3Q%3DQy97w6SIrzE7lQwPJEYQBsArEE2fC25caFwRBvAGi456G09vGR',
   });
