@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_iconpicker/Models/configuration.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
-import 'package:flutter_iconpicker_plus/IconPicker/Packs/Material.dart';
-import 'package:flutter_iconpicker_plus/flutter_iconpicker.dart';
+import 'package:flutter_iconpicker/IconPicker/Packs/Material.dart' as icons;
+import 'package:flutter_iconpicker/flutter_iconpicker.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:quacker/constants.dart';
 import 'package:quacker/database/entities.dart';
@@ -173,7 +174,7 @@ class _SubscriptionGroupEditDialogState extends State<SubscriptionGroupEditDialo
     }
 
     // Filter the Material icons to only the ones the app uses
-    var iconPack = icons.entries.where((value) =>
+    var iconPack = icons.allIcons.entries.where((value) =>
         !value.key.endsWith('_sharp') &&
         !value.key.endsWith('_rounded') &&
         !value.key.endsWith('_outlined') &&
@@ -313,14 +314,16 @@ class _SubscriptionGroupEditDialogState extends State<SubscriptionGroupEditDialo
                   IconButton(
                     icon: Icon(deserializeIconData(icon)),
                     onPressed: () async {
-                      var selectedIcon = await FlutterIconPicker.showIconPicker(context,
-                          iconPackModes: [IconPack.custom],
-                          customIconPack: Map.fromEntries(iconPack),
-                          title: Text(L10n.of(context).pick_an_icon),
-                          closeChild: Text(L10n.of(context).close),
-                          searchHintText: L10n.of(context).search,
-                          noResultsText: L10n.of(context).no_results_for);
-                      print(selectedIcon);
+                      var selectedIcon = await showIconPicker(
+                        context,
+                        configuration: SinglePickerConfiguration(
+                            iconPackModes: [IconPack.custom],
+                            customIconPack: Map.fromEntries(iconPack),
+                            title: Text(L10n.of(context).pick_an_icon),
+                            closeChild: Text(L10n.of(context).close),
+                            searchHintText: L10n.of(context).search,
+                            noResultsText: L10n.of(context).no_results_for),
+                      );
                       if (selectedIcon != null) {
                         setState(() {
                           icon = jsonEncode(serializeIcon(selectedIcon));

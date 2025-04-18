@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_iconpicker_plus/flutter_iconpicker.dart';
+import 'package:flutter_iconpicker/flutter_iconpicker.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:quacker/constants.dart';
 import 'package:quacker/database/entities.dart';
@@ -17,7 +17,7 @@ IconData deserializeIconData(String iconData) {
   try {
     var icon = deserializeIcon(jsonDecode(iconData));
     if (icon != null) {
-      return icon;
+      return icon.data;
     }
   } catch (e, stackTrace) {
     log('Unable to deserialize icon', error: e, stackTrace: stackTrace);
