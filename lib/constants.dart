@@ -5,9 +5,6 @@ const optionDisableAnimations = 'accessibility.disable_animations';
 const optionWizardCompleted = 'option.wizard_completed';
 
 const optionDisableScreenshots = 'disable_screenshots';
-
-const optionGlitchTipErrorsEnabled = 'errors.glitchtip_enabled';
-
 const optionHelloLastBuild = 'hello.last_build';
 
 const optionHomePages = 'home.pages';
