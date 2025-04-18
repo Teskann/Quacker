@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "80.0.0"
+  after_layout:
+    dependency: transitive
+    description:
+      name: after_layout
+      sha256: "95a1cb2ca1464f44f14769329fbf15987d20ab6c88f8fc5d359bd362be625f29"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   analyzer:
     dependency: transitive
     description:
@@ -266,14 +274,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.2"
-  faker:
-    dependency: "direct main"
-    description:
-      name: faker
-      sha256: "544c34e9e1d322824156d5a8d451bc1bb778263b892aded24ec7ba77b0706624"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.0"
   ffcache:
     dependency: "direct main"
     description:
@@ -396,6 +396,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.27"
+  flutter_portal:
+    dependency: "direct main"
+    description:
+      name: flutter_portal
+      sha256: "4601b3dc24f385b3761721bd852a3f6c09cddd4e943dd184ed58ee1f43006257"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   flutter_staggered_grid_view:
     dependency: transitive
     description:
@@ -422,15 +430,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_windowmanager_plus:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "4cb21e8f02f61496c66a9b7b2ac99fe8dc17e235"
-      url: "https://github.com/QuackerApp/flutter_windowmanager_plus.git"
-    source: git
-    version: "1.0.1"
   font_awesome_flutter:
     dependency: transitive
     description:
@@ -856,6 +855,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.2"
+  screen_capture_event:
+    dependency: transitive
+    description:
+      name: screen_capture_event
+      sha256: adfe2f17273d562f5b3dcc04f8731dff2bd7e9b7230c7a7372be1e10aecd1004
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
+  screen_protector:
+    dependency: transitive
+    description:
+      name: screen_protector
+      sha256: "305fd157f6f0b210afe216e790022bfe469c3b1d1f2e0d3dcc5906cc9c49c3e9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.2+1"
   scroll_to_index:
     dependency: "direct main"
     description:
@@ -864,6 +879,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  secure_content:
+    dependency: "direct main"
+    description:
+      name: secure_content
+      sha256: "068b8121f9b75e533b2ce9f79dbc056d7f9060336677b6d589bf9c6e4dcffa52"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   sembast:
     dependency: transitive
     description:

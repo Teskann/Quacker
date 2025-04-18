@@ -6,7 +6,7 @@ import 'dart:io';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_windowmanager_plus/flutter_windowmanager_plus.dart';
+import 'package:flutter_portal/flutter_portal.dart';
 
 import 'package:quacker/constants.dart';
 import 'package:quacker/database/repository.dart';
@@ -28,11 +28,11 @@ import 'package:quacker/subscriptions/users_model.dart';
 import 'package:quacker/trends/trends_model.dart';
 import 'package:quacker/tweet/_video.dart';
 import 'package:quacker/ui/errors.dart';
-import 'package:faker/faker.dart';
 import 'package:logging/logging.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 import 'package:quacker/utils/urls.dart';
+import 'package:secure_content/secure_content.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:app_links/app_links.dart';
@@ -43,7 +43,8 @@ Future checkForUpdates(context) async {
 
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   final client = HttpClient();
-  client.userAgent = faker.internet.userAgent();
+  client.userAgent =
+      "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36";
 
   final request = await client.getUrl(Uri.parse("https://api.github.com/repos/thehcj/quacker/releases/latest"));
   final response = await request.close();
@@ -239,8 +240,9 @@ class _FritterAppState extends State<FritterApp> {
   bool _disableAnimations = false;
   bool _trueBlack = false;
   bool _checkUpdates = false;
-  Locale? _locale;
   bool _updateDialogShown = false;
+  bool _isSecure = false;
+  Locale? _locale;
 
   @override
   void didChangeDependencies() {
@@ -261,15 +263,6 @@ class _FritterAppState extends State<FritterApp> {
       }
     }
 
-    // TODO: This doesn't work on iOS
-    void setDisableScreenshots(final bool secureModeEnabled) async {
-      if (secureModeEnabled) {
-        await FlutterWindowManagerPlus.addFlags(FlutterWindowManagerPlus.FLAG_SECURE);
-      } else {
-        await FlutterWindowManagerPlus.clearFlags(FlutterWindowManagerPlus.FLAG_SECURE);
-      }
-    }
-
     // Set any already-enabled preferences
     setState(() {
       setLocale(prefService.get<String>(optionLocale));
@@ -278,7 +271,7 @@ class _FritterAppState extends State<FritterApp> {
       _trueBlack = prefService.get(optionThemeTrueBlack);
       _disableAnimations = prefService.get(optionDisableAnimations);
       _checkUpdates = prefService.get(optionShouldCheckForUpdates);
-      setDisableScreenshots(prefService.get(optionDisableScreenshots));
+      _isSecure = prefService.get(optionDisableScreenshots);
     });
 
     prefService.addKeyListener(optionShouldCheckForUpdates, () {
@@ -312,7 +305,7 @@ class _FritterAppState extends State<FritterApp> {
 
     prefService.addKeyListener(optionDisableScreenshots, () {
       setState(() {
-        setDisableScreenshots(prefService.get(optionDisableScreenshots));
+        _isSecure = prefService.get(optionDisableScreenshots);
       });
     });
   }
@@ -337,125 +330,131 @@ class _FritterAppState extends State<FritterApp> {
     }
 
     return DynamicColorBuilder(builder: (lightDynamic, darkDynamic) {
-      return MaterialApp(
-        navigatorKey: _navigatorKey, // NEW: Set navigatorKey
-        localeListResolutionCallback: (locales, supportedLocales) {
-          List supportedLocalesCountryCode = [];
-          for (var item in supportedLocales) {
-            supportedLocalesCountryCode.add(item.countryCode);
-          }
+      return Portal(
+          child: SecureWidget(
+              isSecure: _isSecure,
+              builder: (BuildContext context, a, b) => MaterialApp(
+                    navigatorKey: _navigatorKey, // NEW: Set navigatorKey
+                    localeListResolutionCallback: (locales, supportedLocales) {
+                      List supportedLocalesCountryCode = [];
+                      for (var item in supportedLocales) {
+                        supportedLocalesCountryCode.add(item.countryCode);
+                      }
 
-          List supportedLocalesLanguageCode = [];
-          for (var item in supportedLocales) {
-            supportedLocalesLanguageCode.add(item.languageCode);
-          }
+                      List supportedLocalesLanguageCode = [];
+                      for (var item in supportedLocales) {
+                        supportedLocalesLanguageCode.add(item.languageCode);
+                      }
 
-          locales!;
-          List localesCountryCode = [];
-          for (var item in locales) {
-            localesCountryCode.add(item.countryCode);
-          }
+                      locales!;
+                      List localesCountryCode = [];
+                      for (var item in locales) {
+                        localesCountryCode.add(item.countryCode);
+                      }
 
-          List localesLanguageCode = [];
-          for (var item in locales) {
-            localesLanguageCode.add(item.languageCode);
-          }
+                      List localesLanguageCode = [];
+                      for (var item in locales) {
+                        localesLanguageCode.add(item.languageCode);
+                      }
 
-          for (var i = 0; i < locales.length; i++) {
-            if (supportedLocalesCountryCode.contains(localesCountryCode[i]) &&
-                supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
-              log.info('Yes country: ${localesCountryCode[i]}, ${localesLanguageCode[i]}');
-              return Locale(localesLanguageCode[i], localesCountryCode[i]);
-            } else if (supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
-              log.info('Yes language: ${localesLanguageCode[i]}');
-              return Locale(localesLanguageCode[i]);
-            } else {
-              log.info('Nothing');
-            }
-          }
-          return const Locale('en');
-        },
-        localizationsDelegates: const [
-          L10n.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: L10n.delegate.supportedLocales,
-        locale: _locale,
-        title: 'Quacker',
-        theme: ThemeData(
-          colorScheme: _themeColor == 'accent'
-              ? lightDynamic
-              : ColorScheme.fromSeed(
-                  seedColor: themeColors[_themeColor]!.harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
-                  brightness: Brightness.light),
-          pageTransitionsTheme: _disableAnimations == true
-              ? PageTransitionsTheme(
-                  builders: {
-                    TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
-                    TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
-                  },
-                )
-              : null,
-          useMaterial3: true,
-        ),
-        darkTheme: ThemeData(
-          colorScheme: (_trueBlack == true
-              ? (_themeColor == 'accent'
-                      ? darkDynamic
-                      : ColorScheme.fromSeed(
-                          seedColor:
-                              themeColors[_themeColor]!.harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
-                          brightness: Brightness.dark))
-                  ?.copyWith(background: Colors.black, surface: Colors.black)
-              : (_themeColor == 'accent'
-                  ? darkDynamic
-                  : ColorScheme.fromSeed(
-                      seedColor: themeColors[_themeColor]!.harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
-                      brightness: Brightness.dark))),
-          navigationBarTheme: (_trueBlack == true ? NavigationBarThemeData(backgroundColor: Colors.black) : null),
-          pageTransitionsTheme: _disableAnimations == true
-              ? PageTransitionsTheme(
-                  builders: {
-                    TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
-                    TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
-                  },
-                )
-              : null,
-          useMaterial3: true,
-        ),
-        themeMode: themeMode,
-        initialRoute: '/',
-        routes: {
-          routeHome: (context) => const DefaultPage(),
-          routeGroup: (context) => const GroupScreen(),
-          routeProfile: (context) => const ProfileScreen(),
-          routeSearch: (context) => const ResultsScreen(),
-          routeSettings: (context) => const SettingsScreen(),
-          routeSettingsExport: (context) => const SettingsExportScreen(),
-          routeSettingsHome: (context) => const SettingsHomeFragment(),
-          routeStatus: (context) => const StatusScreen(),
-        },
-        builder: (context, child) {
-          if (_checkUpdates && !_updateDialogShown) {
-            _updateDialogShown = true;
-            // Use navigatorKey's context for showDialog
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              checkForUpdates(_navigatorKey.currentContext!);
-            });
-          }
+                      for (var i = 0; i < locales.length; i++) {
+                        if (supportedLocalesCountryCode.contains(localesCountryCode[i]) &&
+                            supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+                          log.info('Yes country: ${localesCountryCode[i]}, ${localesLanguageCode[i]}');
+                          return Locale(localesLanguageCode[i], localesCountryCode[i]);
+                        } else if (supportedLocalesLanguageCode.contains(localesLanguageCode[i])) {
+                          log.info('Yes language: ${localesLanguageCode[i]}');
+                          return Locale(localesLanguageCode[i]);
+                        } else {
+                          log.info('Nothing');
+                        }
+                      }
+                      return const Locale('en');
+                    },
+                    localizationsDelegates: const [
+                      L10n.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: L10n.delegate.supportedLocales,
+                    locale: _locale,
+                    title: 'Quacker',
+                    theme: ThemeData(
+                      colorScheme: _themeColor == 'accent'
+                          ? lightDynamic
+                          : ColorScheme.fromSeed(
+                              seedColor:
+                                  themeColors[_themeColor]!.harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
+                              brightness: Brightness.light),
+                      pageTransitionsTheme: _disableAnimations == true
+                          ? PageTransitionsTheme(
+                              builders: {
+                                TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
+                                TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
+                              },
+                            )
+                          : null,
+                      useMaterial3: true,
+                    ),
+                    darkTheme: ThemeData(
+                      colorScheme: (_trueBlack == true
+                          ? (_themeColor == 'accent'
+                                  ? darkDynamic
+                                  : ColorScheme.fromSeed(
+                                      seedColor: themeColors[_themeColor]!
+                                          .harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
+                                      brightness: Brightness.dark))
+                              ?.copyWith(background: Colors.black, surface: Colors.black)
+                          : (_themeColor == 'accent'
+                              ? darkDynamic
+                              : ColorScheme.fromSeed(
+                                  seedColor: themeColors[_themeColor]!
+                                      .harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
+                                  brightness: Brightness.dark))),
+                      navigationBarTheme:
+                          (_trueBlack == true ? NavigationBarThemeData(backgroundColor: Colors.black) : null),
+                      pageTransitionsTheme: _disableAnimations == true
+                          ? PageTransitionsTheme(
+                              builders: {
+                                TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
+                                TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
+                              },
+                            )
+                          : null,
+                      useMaterial3: true,
+                    ),
+                    themeMode: themeMode,
+                    initialRoute: '/',
+                    routes: {
+                      routeHome: (context) => const DefaultPage(),
+                      routeGroup: (context) => const GroupScreen(),
+                      routeProfile: (context) => const ProfileScreen(),
+                      routeSearch: (context) => const ResultsScreen(),
+                      routeSettings: (context) => const SettingsScreen(),
+                      routeSettingsExport: (context) => const SettingsExportScreen(),
+                      routeSettingsHome: (context) => const SettingsHomeFragment(),
+                      routeStatus: (context) => const StatusScreen(),
+                    },
+                    builder: (context, child) {
+                      if (_checkUpdates && !_updateDialogShown) {
+                        _updateDialogShown = true;
+                        // Use navigatorKey's context for showDialog
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          checkForUpdates(_navigatorKey.currentContext!);
+                        });
+                      }
 
-          // Replace the default red screen of death with a slightly friendlier one
-          ErrorWidget.builder = (FlutterErrorDetails details) => FullPageErrorWidget(
-                error: details.exception,
-                stackTrace: details.stack,
-                prefix: L10n.of(context).something_broke_in_fritter,
-              );
+                      // Replace the default red screen of death with a slightly friendlier one
+                      ErrorWidget.builder = (FlutterErrorDetails details) => FullPageErrorWidget(
+                            error: details.exception,
+                            stackTrace: details.stack,
+                            prefix: L10n.of(context).something_broke_in_fritter,
+                          );
 
-          return child ?? Container();
-        },
-      );
+                      return child ?? Container();
+                    },
+                  )));
     });
   }
 }
