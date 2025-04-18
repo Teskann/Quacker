@@ -200,7 +200,7 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(..........................................................................................................................................................................................................................................................allowImplicitScrolling: ,
+      body: PageView(
         controller: _pageController,
         onPageChanged: (page) {
           setState(() {
