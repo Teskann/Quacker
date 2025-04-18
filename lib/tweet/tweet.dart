@@ -605,7 +605,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
                             ]),
                         title: Row(children: [
                           // Username
-                          if (!hideAuthorInformation)
+                          if (!hideAuthorInformation && tweet.user != null && tweet.user!.name != null)
                             Expanded(
                               child: Row(
                                 children: [
