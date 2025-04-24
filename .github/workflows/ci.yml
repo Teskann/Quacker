@@ -48,6 +48,7 @@ jobs:
           flutter pub get
           flutter pub run flutter_oss_licenses:generate.dart
           flutter pub run intl_utils:generate
+          dart run flutter_iconpicker:generate_packs --packs material
 
           # Create a directory for our release APKs
           mkdir -pv build/app/outputs/release
