@@ -50,7 +50,8 @@ class _FeedScreenState extends State<FeedScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final bool _disableAnimations = PrefService.of(context).get(optionDisableAnimations) == true;
+    final BasePrefService prefs = PrefService.of(context);
+    final bool _disableAnimations = prefs.get(optionDisableAnimations) == true;
 
     return Provider<GroupModel>(create: (context) {
       var model = GroupModel(widget.id);
@@ -112,7 +113,7 @@ class _FeedScreenState extends State<FeedScreen>
             SubscriptionGroupScreenContent(
               id: widget.id,
             ),
-            ForYouTweets(_pagingController, type: 'profile', includeReplies: false, pref: PrefService.of(context)),
+            ForYouTweets(_pagingController, type: 'profile', includeReplies: false, pref: prefs),
           ][_tab]);
     });
   }

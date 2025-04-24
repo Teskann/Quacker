@@ -53,18 +53,17 @@ class SettingsGeneralFragment extends StatelessWidget {
 
   const SettingsGeneralFragment({Key? key}) : super(key: key);
 
-  PrefDialog _createShareBaseDialog(BuildContext context) {
-    var prefService = PrefService.of(context);
+  PrefDialog _createShareBaseDialog(BuildContext context, BasePrefService prefs) {
     var mediaQuery = MediaQuery.of(context);
 
-    final controller = TextEditingController(text: prefService.get(optionShareBaseUrl));
+    final controller = TextEditingController(text: prefs.get(optionShareBaseUrl));
 
     return PrefDialog(
         actions: [
           TextButton(onPressed: () => Navigator.pop(context), child: Text(L10n.of(context).cancel)),
           TextButton(
               onPressed: () async {
-                await prefService.set(optionShareBaseUrl, controller.text);
+                await prefs.set(optionShareBaseUrl, controller.text);
 
                 if (context.mounted) {
                   Navigator.pop(context);
@@ -86,6 +85,8 @@ class SettingsGeneralFragment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prefs = PrefService.of(context);
+
     return Scaffold(
       appBar: AppBar(title: Text(L10n.current.general)),
       body: Padding(
@@ -149,14 +150,16 @@ class SettingsGeneralFragment extends StatelessWidget {
           PrefDialogButton(
             title: Text(L10n.of(context).share_base_url),
             subtitle: Text(L10n.of(context).share_base_url_description),
-            dialog: _createShareBaseDialog(context),
+            dialog: _createShareBaseDialog(context, prefs),
           ),
           PrefSwitch(
             title: Text(L10n.of(context).disable_screenshots),
             subtitle: Text(L10n.of(context).disable_screenshots_hint),
             pref: optionDisableScreenshots,
           ),
-          const DownloadTypeSetting(),
+          DownloadTypeSetting(
+            prefs: prefs,
+          ),
           PrefSwitch(
             title: Text(L10n.of(context).activate_non_confirmation_bias_mode_label),
             pref: optionNonConfirmationBiasMode,
@@ -169,7 +172,9 @@ class SettingsGeneralFragment extends StatelessWidget {
 }
 
 class DownloadTypeSetting extends StatefulWidget {
-  const DownloadTypeSetting({Key? key}) : super(key: key);
+  final BasePrefService prefs;
+
+  const DownloadTypeSetting({super.key, required this.prefs});
 
   @override
   DownloadTypeSettingState createState() => DownloadTypeSettingState();
@@ -178,7 +183,7 @@ class DownloadTypeSetting extends StatefulWidget {
 class DownloadTypeSettingState extends State<DownloadTypeSetting> {
   @override
   Widget build(BuildContext context) {
-    var downloadPath = PrefService.of(context).get<String>(optionDownloadPath) ?? '';
+    var downloadPath = widget.prefs.get<String>(optionDownloadPath) ?? '';
 
     return Column(
       children: [
@@ -196,7 +201,7 @@ class DownloadTypeSettingState extends State<DownloadTypeSetting> {
                 value: optionDownloadTypeDirectory, child: Text(L10n.current.download_handling_type_directory)),
           ],
         ),
-        if (PrefService.of(context).get(optionDownloadType) == optionDownloadTypeDirectory)
+        if (widget.prefs.get(optionDownloadType) == optionDownloadTypeDirectory)
           PrefButton(
             onTap: () async {
               var storagePermission = await Permission.storage.request();
@@ -208,7 +213,7 @@ class DownloadTypeSettingState extends State<DownloadTypeSetting> {
 
                 // TODO: Gross. Figure out how to re-render automatically when the preference changes
                 setState(() {
-                  PrefService.of(context).set(optionDownloadPath, directoryPath);
+                  widget.prefs.set(optionDownloadPath, directoryPath);
                 });
               } else if (storagePermission.isPermanentlyDenied) {
                 await openAppSettings();

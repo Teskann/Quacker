@@ -110,6 +110,7 @@ class _HomeScreenState extends State<_HomeScreen> {
       onState: (_, state) {
         return ScaffoldWithBottomNavigation(
           pages: _pages,
+          prefs: widget.prefs,
           initialPage: _initialPage,
           builder: (scrollControllers) {
             return List.generate(_pages.length, (index) {
@@ -154,10 +155,12 @@ class _HomeScreenState extends State<_HomeScreen> {
 
 class ScaffoldWithBottomNavigation extends StatefulWidget {
   final List<NavigationPage> pages;
+  final BasePrefService prefs;
   final int initialPage;
   final List<Widget> Function(Map<int, ScrollController> scrollControllers) builder; // changed here
 
-  const ScaffoldWithBottomNavigation({Key? key, required this.pages, required this.initialPage, required this.builder})
+  const ScaffoldWithBottomNavigation(
+      {Key? key, required this.pages, required this.prefs, required this.initialPage, required this.builder})
       : super(key: key);
 
   @override
@@ -211,7 +214,7 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentPage,
-        labelBehavior: PrefService.of(context).get(optionShowNavigationLabels)
+        labelBehavior: widget.prefs.get(optionShowNavigationLabels)
             ? NavigationDestinationLabelBehavior.alwaysShow
             : NavigationDestinationLabelBehavior.alwaysHide,
         destinations: widget.pages

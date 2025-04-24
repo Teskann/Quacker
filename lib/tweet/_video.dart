@@ -2,6 +2,7 @@ import 'package:chewie/chewie.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:pref/pref.dart';
 import 'package:quacker/generated/l10n.dart';
 import 'package:quacker/tweet/_video_controls.dart';
 import 'package:quacker/utils/downloads.dart';
@@ -70,7 +71,7 @@ class _TweetVideoState extends State<TweetVideo> {
     var streamUrl = urls.streamUrl;
     var downloadUrl = urls.downloadUrl;
 
-    _videoController = VideoPlayerController.network(streamUrl);
+    _videoController = VideoPlayerController.networkUrl(Uri.parse(streamUrl));
 
     var model = context.read<VideoContextState>();
     var volume = model.isMuted ? 0.0 : _videoController!.value.volume;
@@ -105,6 +106,7 @@ class _TweetVideoState extends State<TweetVideo> {
               context,
               videoUri,
               fileName,
+              prefs: PrefService.of(context),
               onStart: () {
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(

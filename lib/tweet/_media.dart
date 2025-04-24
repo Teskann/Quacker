@@ -234,6 +234,7 @@ class _TweetMediaViewState extends State<TweetMediaView> {
                 context,
                 uri,
                 fileName,
+                prefs: prefs,
                 onStart: () {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text(L10n.of(context).downloading_media),
