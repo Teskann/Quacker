@@ -11,8 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/TheHCJ/Quacker/releases">
+  <a href="https://f-droid.org/en/packages/com.thehcj.quacker/">
     <img src="assets/readme/get-it-on-github.png" alt="Get it on GitHub" height="80">
+  </a>
+  <a href="https://github.com/TheHCJ/Quacker/releases">
+    <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on Fdroid" height="80">
   </a>
 </p>
 
