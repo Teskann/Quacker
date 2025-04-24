@@ -16,11 +16,10 @@ class ForYouTweets extends StatefulWidget {
   final PagingController<String?, TweetChain> pagingController;
   final String type;
   final bool includeReplies;
-  final List<String> pinnedTweets;
   final BasePrefService pref;
 
   const ForYouTweets(this.pagingController,
-      {Key? key, required this.type, required this.includeReplies, required this.pinnedTweets, required this.pref})
+      {Key? key, required this.type, required this.includeReplies, required this.pref})
       : super(key: key);
 
   @override
@@ -55,7 +54,6 @@ class _ForYouTweetsState extends State<ForYouTweets> with AutomaticKeepAliveClie
       var result = await Twitter.getTimelineTweets(
         user.idStr!,
         widget.type,
-        widget.pinnedTweets,
         cursor: cursor,
         count: pageSize,
         includeReplies: widget.includeReplies,

@@ -112,30 +112,8 @@ class _FeedScreenState extends State<FeedScreen>
             SubscriptionGroupScreenContent(
               id: widget.id,
             ),
-            ForYouTweets(_pagingController,
-                type: 'profile', includeReplies: false, pinnedTweets: [], pref: PrefService.of(context)),
+            ForYouTweets(_pagingController, type: 'profile', includeReplies: false, pref: PrefService.of(context)),
           ][_tab]);
     });
-  }
-}
-
-class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
-  _SliverAppBarDelegate(this._tabBar);
-
-  final TabBar _tabBar;
-
-  @override
-  double get minExtent => _tabBar.preferredSize.height;
-  @override
-  double get maxExtent => _tabBar.preferredSize.height;
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return _tabBar;
-  }
-
-  @override
-  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-    return false;
   }
 }

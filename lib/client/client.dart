@@ -525,8 +525,8 @@ class Twitter {
 
   static Future<TweetStatus> getTimelineTweets(
     String id,
-    String type,
-    List<String> pinnedTweets, {
+    String type, {
+    List<String>? pinnedTweets,
     int count = 10,
     String? cursor,
     bool includeReplies = true,
@@ -558,7 +558,7 @@ class Twitter {
     return createTimelineChains(
       result,
       'tweet',
-      pinnedTweets,
+      pinnedTweets ?? [],
       includeReplies == false,
       includeReplies,
       showPinnedTweet,
