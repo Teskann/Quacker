@@ -61,7 +61,7 @@ Future<void> downloadUriToPickedFile(BuildContext context, Uri uri, String fileN
     var savedFile = p.join(downloadPath, sanitizedFilename);
     await File(savedFile).writeAsBytes(response);
     onSuccess();
-  } catch (e, s) {
+  } catch (e) {
     showSnackBar(context, icon: '🙊', message: e.toString());
   }
 }

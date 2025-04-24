@@ -231,7 +231,6 @@ class Account {
   @override
   int get hashCode => id.hashCode;
 
-  @override
   Map<String, dynamic> toMap() {
     return {'id': id, 'auth_header': authHeader};
   }

@@ -3,7 +3,6 @@ import 'package:flutter_triple/flutter_triple.dart';
 import 'package:quacker/constants.dart';
 import 'package:quacker/database/entities.dart';
 import 'package:quacker/search/search.dart';
-import 'package:quacker/subscriptions/_import.dart';
 import 'package:quacker/subscriptions/users_model.dart';
 import 'package:quacker/ui/errors.dart';
 import 'package:quacker/user.dart';

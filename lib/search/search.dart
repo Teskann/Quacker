@@ -8,7 +8,6 @@ import 'package:quacker/database/entities.dart';
 import 'package:quacker/generated/l10n.dart';
 import 'package:quacker/profile/profile.dart';
 import 'package:quacker/search/search_model.dart';
-import 'package:quacker/subscriptions/users_model.dart';
 import 'package:quacker/tweet/_video.dart';
 import 'package:quacker/tweet/tweet.dart';
 import 'package:quacker/ui/errors.dart';
@@ -74,8 +73,6 @@ class _ResultsScreenState extends State<_ResultsScreen> with SingleTickerProvide
 
   @override
   Widget build(BuildContext context) {
-    var subscriptionsModel = context.read<SubscriptionsModel>();
-
     var prefs = PrefService.of(context, listen: false);
 
     return Scaffold(

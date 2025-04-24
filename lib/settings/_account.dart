@@ -1,6 +1,4 @@
-import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
-import 'package:pref/pref.dart';
 import 'package:quacker/client/client_regular_account.dart';
 import 'package:quacker/client/login_webview.dart';
 import 'package:quacker/generated/l10n.dart';

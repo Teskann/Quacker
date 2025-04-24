@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quacker/constants.dart';
-import 'package:quacker/generated/l10n.dart';
-import 'package:quacker/profile/profile.dart';
-import 'package:quacker/search/search.dart';
 import 'package:quacker/trends/_list.dart';
 import 'package:quacker/trends/_settings.dart';
 import 'package:quacker/trends/_tabs.dart';
@@ -22,6 +18,8 @@ class _TrendsScreenState extends State<TrendsScreen> with AutomaticKeepAliveClie
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return Scaffold(
       appBar: AppBar(title: const TrendsTabBar()),
       floatingActionButton: FloatingActionButton(
