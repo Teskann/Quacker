@@ -10,7 +10,7 @@ import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 import '../constants.dart';
 
-final UserWithExtra user = UserWithExtra();
+final UserWithExtra user = UserWithExtra.fromArguments(idStr: "1", possiblySensitive: false, screenName: "ForYou");
 
 class ForYouTweets extends StatefulWidget {
   final PagingController<String?, TweetChain> pagingController;
@@ -36,9 +36,6 @@ class _ForYouTweetsState extends State<ForYouTweets> with AutomaticKeepAliveClie
   @override
   void initState() {
     super.initState();
-    user.idStr = "1";
-    user.possiblySensitive = false;
-    user.screenName = "ForYou";
 
     widget.pagingController.addPageRequestListener((cursor) {
       _loadTweets(cursor);

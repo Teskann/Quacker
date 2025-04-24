@@ -202,6 +202,61 @@ class UserWithExtra extends User {
 
   UserWithExtra();
 
+  factory UserWithExtra.fromArguments({
+    String? idStr,
+    String? name,
+    String? screenName,
+    String? location,
+    Derived? derived,
+    String? url,
+    UserEntities? entities,
+    String? description,
+    bool? protected,
+    bool? verified,
+    Tweet? status,
+    int? followersCount,
+    int? friendsCount,
+    int? listedCount,
+    int? favoritesCount,
+    int? statusesCount,
+    DateTime? createdAt,
+    String? profileBannerUrl,
+    String? profileImageUrlHttps,
+    bool? defaultProfile,
+    bool? defaultProfileImage,
+    List<String>? withheldInCountries,
+    String? withheldScope,
+    bool? possiblySensitive,
+  }) {
+    var userWithExtra = UserWithExtra()
+      ..idStr = idStr
+      ..name = name
+      ..screenName = screenName
+      ..location = location
+      ..derived = derived
+      ..url = url
+      ..entities = entities
+      ..description = description
+      ..protected = protected
+      ..verified = verified
+      ..status = status
+      ..followersCount = followersCount
+      ..friendsCount = friendsCount
+      ..listedCount = listedCount
+      ..favoritesCount = favoritesCount
+      ..statusesCount = statusesCount
+      ..createdAt = createdAt
+      ..profileBannerUrl = profileBannerUrl
+      ..profileImageUrlHttps = profileImageUrlHttps
+      ..defaultProfile = defaultProfile
+      ..defaultProfileImage = defaultProfileImage
+      ..withheldInCountries = withheldInCountries
+      ..withheldScope = withheldScope
+      ..possiblySensitive = possiblySensitive;
+
+    return userWithExtra;
+  }
+
   @override
   Map<String, dynamic> toJson() {
     var json = super.toJson();

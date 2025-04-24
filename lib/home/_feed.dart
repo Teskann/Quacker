@@ -10,7 +10,6 @@ import 'package:quacker/group/_settings.dart';
 import 'package:quacker/group/group_model.dart';
 import 'package:quacker/group/group_screen.dart';
 import 'package:quacker/home/home_screen.dart';
-import 'package:quacker/user.dart';
 
 class FeedScreen extends StatefulWidget {
   final ScrollController scrollController;
@@ -28,9 +27,7 @@ class _FeedScreenState extends State<FeedScreen>
   @override
   bool get wantKeepAlive => true;
 
-  UserWithExtra user = UserWithExtra();
-
-  PagingController<String?, TweetChain> _pagingController = PagingController(firstPageKey: null);
+  final PagingController<String?, TweetChain> _pagingController = PagingController(firstPageKey: null);
   late TabController _tabController;
   int _tab = 0;
   Duration animationDuration = Duration.zero;
