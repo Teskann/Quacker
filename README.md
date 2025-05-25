@@ -2,10 +2,10 @@
 Privacy respecting, [fritter](https://fritter.cc) fork with feeds
 
 <p align="left">
- <a href="https://github.com/TheHCJ/Quacker/releases">
+ <a href="https://f-droid.org/en/packages/com.thehcj.quacker/">
     <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on Fdroid" height="80">
   </a>
-  <a href="https://f-droid.org/en/packages/com.thehcj.quacker/">
+  <a href="https://github.com/TheHCJ/Quacker/releases">
     <img src="assets/readme/get-it-on-github.png" alt="Get it on GitHub" height="80">
   </a>
 </p>
