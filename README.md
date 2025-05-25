@@ -1,25 +1,16 @@
-<h1 align="center">
-  Quacker
-</h1>
+# Quacker
+Privacy respecting, [fritter](https://fritter.cc) fork with feeds
 
-<p align="center">
-  <img src="assets/icon.png" alt="Quacker Logo" width="144">
-</p>
-
-<p align="center">
-  The continuation of <a href="https://fritter.cc">fritter</a> with feeds
-</p>
-
-<p align="center">
+<p align="left">
+ <a href="https://github.com/TheHCJ/Quacker/releases">
+    <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on Fdroid" height="80">
+  </a>
   <a href="https://f-droid.org/en/packages/com.thehcj.quacker/">
     <img src="assets/readme/get-it-on-github.png" alt="Get it on GitHub" height="80">
   </a>
-  <a href="https://github.com/TheHCJ/Quacker/releases">
-    <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on Fdroid" height="80">
-  </a>
 </p>
 
-<p align="center">
+<p align="left">
   <a href="https://github.com/TheHCJ/Quacker/releases">
     <img src="https://img.shields.io/github/v/release/TheHCJ/Quacker?style=flat&logo=github&color=2dba4e" alt="GitHub release">
   </a>
@@ -31,21 +22,19 @@
   </a>
 </p>
 
----
-
 ## Features
 
-- **Feed:** View your `Following` and `For You` feeds
-- **Material You:** Looks and feels modern
-- **Bookmarks:** Save posts locally and offline
-- **Trends:** See what's trending in the world
-- **Light and Dark themes:** Protect your eyes
-- **Subscriptions:** Follow and group accounts
-- **Polls:** View results without needing to vote
-- **Search:** Find users and posts
+- **Feed:** View your `Following` feed 📰
+- **Material You:** Looks and feels modern 🌄
+- **Bookmarks:** Save posts locally and offline 🔖
+- **Trends:** See what's trending in the world 📈
+- **Light and Dark themes:** Protect your eyes 🌘
+- **Subscriptions:** Follow and group accounts 👤
+- **Polls:** View results without needing to vote 🗳️
+- **Search:** Find users and posts 🔍️
+- **Privacy** Your data stays on your device 🔐
 - **And more!**
 
----
 
 ## Screenshots
 
@@ -53,17 +42,8 @@
 |:---------------------:|:-----------------:|:-----------:|:--------------:|
 | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" alt="Viewing subscriptions" width="218"/> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" alt="Viewing a profile" width="218"/> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" alt="Tweet cards" width="218"/> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg" alt="Viewing trends" width="218"/> |
 
----
-
-## Community
-
-### Stargazers
-
-[![Stargazers repo roster for @TheHCJ/Quacker](https://reporoster.com/stars/TheHCJ/Quacker)](https://github.com/TheHCJ/Quacker/stargazers)
-
-### Forkers
-
-[![Forkers repo roster for @TheHCJ/Quacker](https://reporoster.com/forks/TheHCJ/Quacker)](https://github.com/TheHCJ/Quacker/network/members)
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=thehcj/quacker&type=Date)](https://www.star-history.com/#thehcj/quacker&Date)
 
 ---
 
