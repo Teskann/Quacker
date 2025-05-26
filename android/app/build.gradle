@@ -76,8 +76,6 @@ android {
 
     signingConfigs {
         release {
-            minifyEnabled true
-            shrinkResources true
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
             storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
