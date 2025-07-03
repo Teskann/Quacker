@@ -1,7 +1,8 @@
-# Quacker
-Privacy respecting, [fritter](https://fritter.cc) fork with feeds
+<center><img src="assets/icon.png" width=96><h1>Quacker</h1></center>
 
-<p align="left">
+<p align="center">Privacy respecting, <a href="https://github.com/jonjomckay/fritter/releases/latest">fritter</a> fork with feeds</p>
+
+<p align="center">
  <a href="https://f-droid.org/en/packages/com.thehcj.quacker/">
     <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on Fdroid" height="80">
   </a>
@@ -10,7 +11,7 @@ Privacy respecting, [fritter](https://fritter.cc) fork with feeds
   </a>
 </p>
 
-<p align="left">
+<p align="center">
   <a href="https://github.com/TheHCJ/Quacker/releases">
     <img src="https://img.shields.io/github/v/release/TheHCJ/Quacker?style=flat&logo=github&color=2dba4e" alt="GitHub release">
   </a>
@@ -25,8 +26,8 @@ Privacy respecting, [fritter](https://fritter.cc) fork with feeds
 ## Features
 
 - **Feed:** View your `Following` feed 📰
-- **Material You:** Looks and feels modern 🌄
-- **Bookmarks:** Save posts locally and offline 🔖
+- **Material 3:** Looks and feels modern on Android 12+ 🌄
+- **Bookmarks:** Save posts offline 🔖
 - **Trends:** See what's trending in the world 📈
 - **Light and Dark themes:** Protect your eyes 🌘
 - **Subscriptions:** Follow and group accounts 👤
