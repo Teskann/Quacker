@@ -1,13 +1,16 @@
-<center><img src="assets/icon.png" width=96><h1>Quacker</h1></center>
+<p align="center">
+ <img src="assets/icon.png" width=96>
+ <h1 align="center">Quacker</h1>
+</p>
 
 <p align="center">Privacy respecting, <a href="https://github.com/jonjomckay/fritter/releases/latest">fritter</a> fork with feeds</p>
 
 <p align="center">
  <a href="https://f-droid.org/en/packages/com.thehcj.quacker/">
-    <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on Fdroid" height="80">
+    <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on Fdroid" width="256">
   </a>
   <a href="https://github.com/TheHCJ/Quacker/releases">
-    <img src="assets/readme/get-it-on-github.png" alt="Get it on GitHub" height="80">
+    <img src="assets/readme/get-it-on-github.png" alt="Get it on GitHub" width="256">
   </a>
 </p>
 
