@@ -490,5 +490,10 @@
   "functionality_unsupported": "Cette fonctionnalité n'est plus prise en charge par Twitter !",
   "@functionality_unsupported": {},
   "add_subscriptions": "Ajouter des abonnements",
-  "@add_subscriptions": {}
+  "@add_subscriptions": {},
+  "x_client_transaction_id_provider": "Fournisseur de x-client-transaction-id",
+  "@x_client_transaction_id_provider": {},
+  "x_client_transaction_id_provider_description": "Définir le fournisseur de x-client-transaction-id. Ce doit être un nom de domaine, sans préfixe http/https. Pour plus d'informations, consultez https://github.com/Teskann/x-client-transaction-id-generator",
+  "@x_client_transaction_id_provider_description": {}
+
 }

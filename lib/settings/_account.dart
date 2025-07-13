@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quacker/client/client_regular_account.dart';
 import 'package:quacker/client/login_webview.dart';
 import 'package:quacker/generated/l10n.dart';
+import 'package:quacker/client/accounts.dart';
 
 class SettingsAccountFragment extends StatefulWidget {
   const SettingsAccountFragment({super.key});
@@ -24,7 +25,7 @@ class _SettingsAccountFragment extends State<SettingsAccountFragment> {
         ],
       ),
       body: FutureBuilder(
-          future: model.getAccounts(),
+          future: getAccounts(),
           builder: (BuildContext listContext, AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const LinearProgressIndicator();

@@ -430,5 +430,10 @@
   "foryou": "For You",
   "clickToShowMore": " \nClick to show more..",
   "show_navigation_labels": "Show navigation labels?",
-  "go_to_profile": "Go to profile: @"
+  "go_to_profile": "Go to profile: @",
+  "x_client_transaction_id_provider": "x-client-transaction-id provider",
+  "@x_client_transaction_id_provider": {},
+  "x_client_transaction_id_provider_description": "Set the x-client-transaction-id provider. It must he a domain name, without http/https prefix. For more information about it, check https://github.com/Teskann/x-client-transaction-id-generator",
+  "@x_client_transaction_id_provider_description": {}
+
 }
