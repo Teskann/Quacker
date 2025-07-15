@@ -7,6 +7,7 @@ import 'package:ffcache/ffcache.dart';
 import 'package:quacker/catcher/exceptions.dart';
 import 'package:quacker/client/client_regular_account.dart';
 import 'package:quacker/client/client_unauthenticated.dart';
+import 'package:quacker/client/headers.dart';
 import 'package:quacker/generated/l10n.dart';
 import 'package:quacker/profile/profile_model.dart';
 import 'package:quacker/user.dart';
@@ -36,12 +37,11 @@ class _QuackerTwitterClient extends TwitterClient {
   }
 
   static Future<http.Response?> fetch(Uri uri, {Map<String, String>? headers}) async {
-    var prefs = await PrefServiceShared.init(prefix: 'pref_');
     final XRegularAccount model = XRegularAccount();
-    var authHeader = await model.getAuthHeader(prefs);
+    final authHeader = await TwitterHeaders.getAuthHeader();
 
     if (authHeader != null) {
-      return await model.fetch(uri, headers: headers, log: log, prefs: prefs, authHeader: authHeader);
+      return await model.fetch(uri, headers: headers, log: log, authHeader: authHeader);
     } else {
       return await fetchUnauthenticated(uri, headers: headers, log: log);
     }
