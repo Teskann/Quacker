@@ -34,6 +34,7 @@ Widget _createUserAvatar(String? uri, double size) {
   }
 }
 
+/*
 Widget _expandUserAvatar(String? uri, double size) {
   if (uri == null) {
     return SizedBox(width: size, height: size);
@@ -54,6 +55,7 @@ Widget _expandUserAvatar(String? uri, double size) {
     );
   }
 }
+*/
 
 class UserAvatar extends StatelessWidget {
   final String? uri;

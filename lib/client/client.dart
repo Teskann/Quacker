@@ -15,7 +15,6 @@ import 'package:quacker/utils/cache.dart';
 import 'package:quacker/utils/iterables.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
-import 'package:pref/pref.dart';
 import 'package:quiver/iterables.dart';
 
 const Duration _defaultTimeout = Duration(seconds: 30);
@@ -878,7 +877,7 @@ class Twitter {
 
     return {for (var e in tweets) e.idStr: e};
   }
-
+/*
   static Map<String, TweetWithCard> _createTweets(
       String entryPrefix, Map<String, dynamic> result, bool includeReplies) {
     var globalTweets = result['globalObjects']['tweets'] as Map<String, dynamic>;
@@ -899,6 +898,7 @@ class Twitter {
 
     return {for (var e in tweets) e.idStr!: e};
   }
+  */
 
   static Future<Map<String, dynamic>> getBroadcastDetails(String key) async {
     var response = await _twitterApi.client.get(Uri.https('twitter.com', '/i/api/1.1/live_video_stream/status/$key'));

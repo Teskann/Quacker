@@ -21,7 +21,6 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   PackageInfo _packageInfo = PackageInfo(appName: '', packageName: '', version: '', buildNumber: '');
-  String _legacyExportPath = '';
 
   @override
   void initState() {

@@ -12,7 +12,6 @@ import 'package:quacker/tweet/_video.dart';
 import 'package:quacker/tweet/tweet.dart';
 import 'package:quacker/ui/errors.dart';
 import 'package:quacker/user.dart';
-import 'package:quacker/utils/notifiers.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 
@@ -53,14 +52,13 @@ class _ResultsScreenState extends State<_ResultsScreen> with SingleTickerProvide
   final FocusNode _focusNode = FocusNode();
 
   late TabController _tabController;
-  late CombinedChangeNotifier _bothControllers;
 
   @override
   void initState() {
     super.initState();
 
     _tabController = TabController(length: 3, vsync: this, initialIndex: widget.initialTab);
-    _bothControllers = CombinedChangeNotifier(_tabController, _queryController);
+    //_bothControllers = CombinedChangeNotifier(_tabController, _queryController);
 
     if (widget.focusInputOnOpen) {
       _focusNode.requestFocus();
