@@ -61,7 +61,7 @@ class UserAvatar extends StatelessWidget {
   final String? uri;
   final double size;
 
-  const UserAvatar({Key? key, required this.uri, this.size = 48}) : super(key: key);
+  const UserAvatar({super.key, required this.uri, this.size = 48});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,7 @@ class UserAvatar extends StatelessWidget {
 class UserTile extends StatelessWidget {
   final Subscription user;
 
-  const UserTile({Key? key, required this.user}) : super(key: key);
+  const UserTile({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -104,8 +104,7 @@ class FollowButtonSelectGroupDialog extends StatefulWidget {
   final List<String> groupsForUser;
 
   const FollowButtonSelectGroupDialog(
-      {Key? key, required this.user, required this.followed, required this.groupsForUser})
-      : super(key: key);
+      {super.key, required this.user, required this.followed, required this.groupsForUser});
 
   @override
   State<FollowButtonSelectGroupDialog> createState() => _FollowButtonSelectGroupDialogState();
@@ -149,7 +148,7 @@ class FollowButton extends StatelessWidget {
   final Subscription user;
   final Color? color;
 
-  const FollowButton({Key? key, required this.user, this.color}) : super(key: key);
+  const FollowButton({super.key, required this.user, this.color});
 
   @override
   Widget build(BuildContext context) {

@@ -26,7 +26,7 @@ class GroupScreenArguments {
 }
 
 class GroupScreen extends StatefulWidget {
-  const GroupScreen({Key? key}) : super(key: key);
+  const GroupScreen({super.key});
 
   @override
   State<GroupScreen> createState() => _GroupScreenState();
@@ -62,7 +62,7 @@ class _GroupScreenState extends State<GroupScreen> {
 class SubscriptionGroupScreenContent extends StatelessWidget {
   final String id;
 
-  const SubscriptionGroupScreenContent({Key? key, required this.id}) : super(key: key);
+  const SubscriptionGroupScreenContent({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -116,8 +116,7 @@ class SubscriptionGroupScreen extends StatelessWidget {
   final List<Widget> actions;
 
   const SubscriptionGroupScreen(
-      {Key? key, required this.scrollController, required this.id, required this.name, required this.actions})
-      : super(key: key);
+      {super.key, required this.scrollController, required this.id, required this.name, required this.actions});
 
   @override
   Widget build(BuildContext context) {

@@ -24,7 +24,7 @@ class StatusScreenArguments {
 }
 
 class StatusScreen extends StatelessWidget {
-  const StatusScreen({Key? key}) : super(key: key);
+  const StatusScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +39,7 @@ class _StatusScreen extends StatefulWidget {
   final String id;
   final tweetOpened;
 
-  const _StatusScreen({Key? key, required this.username, required this.id, required this.tweetOpened})
-      : super(key: key);
+  const _StatusScreen({required this.username, required this.id, required this.tweetOpened});
 
   @override
   _StatusScreenState createState() => _StatusScreenState();

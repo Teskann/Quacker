@@ -11,7 +11,7 @@ class TweetConversation extends StatefulWidget {
   final tweetOpened;
 
   const TweetConversation(
-      {Key? key,
+      {super.key,
       required this.id,
       required this.username,
       required this.isPinned,

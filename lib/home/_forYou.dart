@@ -19,8 +19,7 @@ class ForYouTweets extends StatefulWidget {
   final BasePrefService pref;
 
   const ForYouTweets(this.pagingController,
-      {Key? key, required this.type, required this.includeReplies, required this.pref})
-      : super(key: key);
+      {super.key, required this.type, required this.includeReplies, required this.pref});
 
   @override
   State<ForYouTweets> createState() => _ForYouTweetsState();

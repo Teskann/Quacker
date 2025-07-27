@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 class ProfileSaved extends StatefulWidget {
   final UserWithExtra user;
 
-  const ProfileSaved({Key? key, required this.user}) : super(key: key);
+  const ProfileSaved({super.key, required this.user});
 
   @override
   State<ProfileSaved> createState() => _ProfileSavedState();

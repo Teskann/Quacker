@@ -6,7 +6,7 @@ import 'package:quacker/ui/errors.dart';
 import 'package:provider/provider.dart';
 
 class SettingsHomeFragment extends StatelessWidget {
-  const SettingsHomeFragment({Key? key}) : super(key: key);
+  const SettingsHomeFragment({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -224,7 +224,7 @@ Future<void> main() async {
 }
 
 class FritterApp extends StatefulWidget {
-  const FritterApp({Key? key}) : super(key: key);
+  const FritterApp({super.key});
 
   @override
   State<FritterApp> createState() => _FritterAppState();
@@ -460,7 +460,7 @@ class _FritterAppState extends State<FritterApp> {
 }
 
 class DefaultPage extends StatefulWidget {
-  const DefaultPage({Key? key}) : super(key: key);
+  const DefaultPage({super.key});
 
   @override
   State<StatefulWidget> createState() => _DefaultPageState();

@@ -20,7 +20,7 @@ class SavedScreen extends StatefulWidget {
   final ScrollController scrollController;
   final bool? showTitle;
 
-  const SavedScreen({Key? key, required this.scrollController, this.showTitle}) : super(key: key);
+  const SavedScreen({super.key, required this.scrollController, this.showTitle});
 
   @override
   State<SavedScreen> createState() => _SavedScreenState();
@@ -97,7 +97,7 @@ class SavedTweetTile extends StatelessWidget {
   final String id;
   final String? content;
 
-  const SavedTweetTile({Key? key, required this.id, this.content}) : super(key: key);
+  const SavedTweetTile({super.key, required this.id, this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +116,7 @@ class SavedTweetTile extends StatelessWidget {
 class SavedTweetTooLarge extends StatelessWidget {
   final String id;
 
-  const SavedTweetTooLarge({Key? key, required this.id}) : super(key: key);
+  const SavedTweetTooLarge({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {

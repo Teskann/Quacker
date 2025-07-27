@@ -6,7 +6,7 @@ import 'package:quacker/trends/_tabs.dart';
 class TrendsScreen extends StatefulWidget {
   final ScrollController scrollController;
 
-  const TrendsScreen({Key? key, required this.scrollController}) : super(key: key);
+  const TrendsScreen({super.key, required this.scrollController});
 
   @override
   State<TrendsScreen> createState() => _TrendsScreenState();

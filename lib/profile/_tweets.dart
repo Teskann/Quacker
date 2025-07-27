@@ -18,13 +18,12 @@ class ProfileTweets extends StatefulWidget {
   final BasePrefService pref;
 
   const ProfileTweets(
-      {Key? key,
+      {super.key,
       required this.user,
       required this.type,
       required this.includeReplies,
       required this.pinnedTweets,
-      required this.pref})
-      : super(key: key);
+      required this.pref});
 
   @override
   State<ProfileTweets> createState() => _ProfileTweetsState();

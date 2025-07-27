@@ -4,7 +4,7 @@ import 'package:quacker/generated/l10n.dart';
 import 'package:pref/pref.dart';
 
 class SettingsAccessibilityFragment extends StatelessWidget {
-  const SettingsAccessibilityFragment({Key? key}) : super(key: key);
+  const SettingsAccessibilityFragment({super.key});
 
   @override
   Widget build(BuildContext context) {

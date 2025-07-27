@@ -25,7 +25,7 @@ Future openSubscriptionGroupDialog(BuildContext context, String? id, String name
 class SubscriptionGroups extends StatefulWidget {
   final ScrollController scrollController;
 
-  const SubscriptionGroups({Key? key, required this.scrollController}) : super(key: key);
+  const SubscriptionGroups({super.key, required this.scrollController});
 
   @override
   State<SubscriptionGroups> createState() => _SubscriptionGroupsState();
@@ -96,8 +96,7 @@ class SubscriptionGroupEditDialog extends StatefulWidget {
   final String name;
   final String icon;
 
-  const SubscriptionGroupEditDialog({Key? key, required this.id, required this.name, required this.icon})
-      : super(key: key);
+  const SubscriptionGroupEditDialog({super.key, required this.id, required this.name, required this.icon});
 
   @override
   State<SubscriptionGroupEditDialog> createState() => _SubscriptionGroupEditDialogState();

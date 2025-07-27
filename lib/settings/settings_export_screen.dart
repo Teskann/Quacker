@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 import 'package:quacker/generated/l10n.dart';
 
 class SettingsExportScreen extends StatefulWidget {
-  const SettingsExportScreen({Key? key}) : super(key: key);
+  const SettingsExportScreen({super.key});
 
   @override
   State<SettingsExportScreen> createState() => _SettingsExportScreenState();
@@ -121,23 +121,22 @@ class _SettingsExportScreenState extends State<SettingsExportScreen> {
 
                 var exportData = jsonEncode(data.toJson());
 
-                
-                  var dateFormat = DateFormat('yyyy-MM-dd');
-                  var fileName = 'quacker-${dateFormat.format(DateTime.now())}.json';
+                var dateFormat = DateFormat('yyyy-MM-dd');
+                var fileName = 'quacker-${dateFormat.format(DateTime.now())}.json';
 
-                  // This platform can support the directory picker, so display it
-                  var path = await FlutterFileDialog.saveFile(
-                      params:
-                          SaveFileDialogParams(fileName: fileName, data: Uint8List.fromList(utf8.encode(exportData))));
-                  if (path != null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          L10n.of(context).data_exported_to_fileName(fileName),
-                        ),
+                // This platform can support the directory picker, so display it
+                var path = await FlutterFileDialog.saveFile(
+                    params:
+                        SaveFileDialogParams(fileName: fileName, data: Uint8List.fromList(utf8.encode(exportData))));
+                if (path != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        L10n.of(context).data_exported_to_fileName(fileName),
                       ),
-                    );
-                  }
+                    ),
+                  );
+                }
               },
             ),
       body: Column(

@@ -6,7 +6,7 @@ import 'package:pref/pref.dart';
 import 'package:quacker/utils/iterables.dart';
 
 class SettingsThemeFragment extends StatelessWidget {
-  const SettingsThemeFragment({Key? key}) : super(key: key);
+  const SettingsThemeFragment({super.key});
 
   @override
   Widget build(BuildContext context) {

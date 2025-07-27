@@ -38,14 +38,13 @@ class TweetTile extends StatefulWidget {
   final bool tweetOpened;
 
   const TweetTile(
-      {Key? key,
+      {super.key,
       required this.clickable,
       this.currentUsername,
       required this.tweet,
       this.isPinned = false,
       this.isThread = false,
-      this.tweetOpened = false})
-      : super(key: key);
+      this.tweetOpened = false});
 
   @override
   TweetTileState createState() => TweetTileState();
@@ -687,7 +686,7 @@ class _TweetTileLeading extends StatelessWidget {
   final IconData icon;
   final Iterable<InlineSpan> children;
 
-  const _TweetTileLeading({Key? key, this.onTap, required this.icon, required this.children}) : super(key: key);
+  const _TweetTileLeading({this.onTap, required this.icon, required this.children});
 
   @override
   Widget build(BuildContext context) {

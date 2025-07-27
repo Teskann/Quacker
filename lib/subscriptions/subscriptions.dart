@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 class SubscriptionsScreen extends StatelessWidget {
   final ScrollController scrollController;
 
-  const SubscriptionsScreen({Key? key, required this.scrollController}) : super(key: key);
+  const SubscriptionsScreen({super.key, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {

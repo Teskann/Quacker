@@ -13,7 +13,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 class SettingsScreen extends StatefulWidget {
   final String? initialPage;
 
-  const SettingsScreen({Key? key, this.initialPage}) : super(key: key);
+  const SettingsScreen({super.key, this.initialPage});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();

@@ -12,7 +12,7 @@ import 'package:quacker/generated/l10n.dart';
 import 'package:quacker/utils/iterables.dart';
 
 class TrendsSettings extends StatefulWidget {
-  const TrendsSettings({Key? key}) : super(key: key);
+  const TrendsSettings({super.key});
 
   @override
   State<TrendsSettings> createState() => _TrendsSettingsState();

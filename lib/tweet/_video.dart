@@ -54,7 +54,7 @@ class TweetVideo extends StatefulWidget {
   final bool loop;
   final TweetVideoMetadata metadata;
 
-  const TweetVideo({Key? key, required this.username, required this.loop, required this.metadata}) : super(key: key);
+  const TweetVideo({super.key, required this.username, required this.loop, required this.metadata});
 
   @override
   State<StatefulWidget> createState() => _TweetVideoState();
@@ -204,7 +204,7 @@ class _TweetVideoState extends State<TweetVideo> {
 class _Video extends StatefulWidget {
   final ChewieController controller;
 
-  const _Video({Key? key, required this.controller}) : super(key: key);
+  const _Video({required this.controller});
 
   @override
   State<_Video> createState() => _VideoState();

@@ -11,7 +11,7 @@ String createRelativeDate(DateTime dateTime) {
 class Timestamp extends StatefulWidget {
   final DateTime? timestamp;
 
-  const Timestamp({Key? key, required this.timestamp}) : super(key: key);
+  const Timestamp({super.key, required this.timestamp});
 
   @override
   State<Timestamp> createState() => _TimestampState();

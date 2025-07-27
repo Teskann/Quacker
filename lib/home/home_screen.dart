@@ -50,7 +50,7 @@ final List<NavigationPage> defaultHomePages = [
 ];
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class _HomeScreen extends StatefulWidget {
   final BasePrefService prefs;
   final HomeModel model;
 
-  const _HomeScreen({Key? key, required this.prefs, required this.model}) : super(key: key);
+  const _HomeScreen({required this.prefs, required this.model});
 
   @override
   State<_HomeScreen> createState() => _HomeScreenState();
@@ -160,8 +160,7 @@ class ScaffoldWithBottomNavigation extends StatefulWidget {
   final List<Widget> Function(Map<int, ScrollController> scrollControllers) builder; // changed here
 
   const ScaffoldWithBottomNavigation(
-      {Key? key, required this.pages, required this.prefs, required this.initialPage, required this.builder})
-      : super(key: key);
+      {super.key, required this.pages, required this.prefs, required this.initialPage, required this.builder});
 
   @override
   State<ScaffoldWithBottomNavigation> createState() => _ScaffoldWithBottomNavigationState();

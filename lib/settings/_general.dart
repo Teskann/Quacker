@@ -51,7 +51,7 @@ languagePicker() {
 class SettingsGeneralFragment extends StatelessWidget {
   static final log = Logger('SettingsGeneralFragment');
 
-  const SettingsGeneralFragment({Key? key}) : super(key: key);
+  const SettingsGeneralFragment({super.key});
 
   PrefDialog _createShareBaseDialog(BuildContext context, BasePrefService prefs) {
     var mediaQuery = MediaQuery.of(context);
@@ -86,15 +86,11 @@ class SettingsGeneralFragment extends StatelessWidget {
   PrefDialog _createXClientTransactionIdDialog(BuildContext context, BasePrefService prefs) {
     var mediaQuery = MediaQuery.of(context);
     final controller = TextEditingController(
-        text: prefs.get(optionXClientTransactionIdProvider) ?? optionXClientTransactionIdProviderDefaultDomain
-    );
+        text: prefs.get(optionXClientTransactionIdProvider) ?? optionXClientTransactionIdProviderDefaultDomain);
 
     return PrefDialog(
         actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(L10n.of(context).cancel)
-          ),
+          TextButton(onPressed: () => Navigator.pop(context), child: Text(L10n.of(context).cancel)),
           TextButton(
               onPressed: () async {
                 await prefs.set(optionXClientTransactionIdProvider,
@@ -103,8 +99,7 @@ class SettingsGeneralFragment extends StatelessWidget {
                   Navigator.pop(context);
                 }
               },
-              child: Text(L10n.of(context).save)
-          )
+              child: Text(L10n.of(context).save))
         ],
         title: Text(L10n.of(context).x_client_transaction_id_provider),
         children: [
@@ -112,15 +107,11 @@ class SettingsGeneralFragment extends StatelessWidget {
             width: mediaQuery.size.width,
             child: TextFormField(
               controller: controller,
-              decoration: InputDecoration(
-                  hintText: optionXClientTransactionIdProviderDefaultDomain
-              ),
+              decoration: InputDecoration(hintText: optionXClientTransactionIdProviderDefaultDomain),
             ),
           )
-        ]
-    );
+        ]);
   }
-
 
   @override
   Widget build(BuildContext context) {

@@ -19,8 +19,8 @@ import 'package:quacker/generated/l10n.dart';
 class FritterMaterialControls extends StatefulWidget {
   const FritterMaterialControls({
     this.showPlayButton = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final bool showPlayButton;
 
@@ -594,14 +594,14 @@ class _MaterialControlsState extends State<FritterMaterialControls> with SingleT
 
 class FritterCenterPlayButton extends StatelessWidget {
   const FritterCenterPlayButton({
-    Key? key,
+    super.key,
     required this.backgroundColor,
     this.iconColor,
     required this.show,
     required this.isPlaying,
     required this.isFinished,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final Color backgroundColor;
   final Color? iconColor;
