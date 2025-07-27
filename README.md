@@ -67,3 +67,5 @@ Help translate the app into your preferred language(s):
 
 1. Create a [⚐ Translations](https://github.com/TheHCJ/Quacker/issues/new?assignees=&labels=needs+triage&projects=&template=--translations.md&title=%5BTRANSLATION%5D) issue using the template! **Slower to merge**
 2. Create a pull request with the updates to the l10n files **Quicker to merge**
+
+You can generate the l10n files by running `dart pub global run intl_utils:generate`
