@@ -302,8 +302,11 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
                               end: Alignment.topCenter,
                               colors: <Color>[
                                 theme.colorScheme.surface,
-                                Color.fromARGB(100, theme.colorScheme.surface.red, theme.colorScheme.surface.green,
-                                    theme.colorScheme.surface.blue)
+                                Color.fromARGB(
+                                    100,
+                                    (theme.colorScheme.surface.r * 255.0).round(),
+                                    (theme.colorScheme.surface.g * 255.0).round(),
+                                    (theme.colorScheme.surface.b * 255.0).round())
                               ],
                             ),
                           ),
@@ -625,7 +628,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> with TickerProvid
               : Container(
                   key: const Key('waiting'),
                   height: double.infinity,
-                  color: theme.colorScheme.background,
+                  color: theme.colorScheme.surface,
                 ),
         )
       ]),

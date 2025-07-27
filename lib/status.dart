@@ -13,7 +13,7 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 class StatusScreenArguments {
   final String id;
   final String? username;
-  final tweetOpened;
+  final dynamic tweetOpened;
 
   StatusScreenArguments({required this.id, required this.username, this.tweetOpened});
 
@@ -37,7 +37,7 @@ class StatusScreen extends StatelessWidget {
 class _StatusScreen extends StatefulWidget {
   final String? username;
   final String id;
-  final tweetOpened;
+  final dynamic tweetOpened;
 
   const _StatusScreen({required this.username, required this.id, required this.tweetOpened});
 
@@ -121,7 +121,7 @@ class _StatusScreenState extends State<_StatusScreen> {
                 key: ValueKey(chain.id),
                 controller: _scrollController,
                 index: index,
-                highlightColor: Colors.white.withOpacity(1),
+                highlightColor: Colors.white.withValues(alpha: 1),
                 child: TweetConversation(
                     id: chain.id,
                     tweets: chain.tweets,

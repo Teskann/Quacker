@@ -405,7 +405,7 @@ class _FritterAppState extends State<FritterApp> {
                                       seedColor: themeColors[_themeColor]!
                                           .harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
                                       brightness: Brightness.dark))
-                              ?.copyWith(background: Colors.black, surface: Colors.black)
+                              ?.copyWith(surface: Colors.black)
                           : (_themeColor == 'accent'
                               ? darkDynamic
                               : ColorScheme.fromSeed(

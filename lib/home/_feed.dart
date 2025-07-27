@@ -4,7 +4,7 @@ import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 import 'package:quacker/client/client.dart';
 import 'package:quacker/constants.dart';
-import 'package:quacker/home/_forYou.dart';
+import 'package:quacker/home/_for_you.dart';
 import 'package:quacker/generated/l10n.dart';
 import 'package:quacker/group/_settings.dart';
 import 'package:quacker/group/group_model.dart';
@@ -51,7 +51,7 @@ class _FeedScreenState extends State<FeedScreen>
   Widget build(BuildContext context) {
     super.build(context);
     final BasePrefService prefs = PrefService.of(context);
-    final bool _disableAnimations = prefs.get(optionDisableAnimations) == true;
+    final bool disableAnimations = prefs.get(optionDisableAnimations) == true;
 
     return Provider<GroupModel>(create: (context) {
       var model = GroupModel(widget.id);
@@ -88,7 +88,7 @@ class _FeedScreenState extends State<FeedScreen>
                   IconButton(
                       icon: const Icon(Icons.arrow_upward),
                       onPressed: () async {
-                        if (_disableAnimations == false) {
+                        if (disableAnimations == false) {
                           await widget.scrollController
                               .animateTo(0, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
                         } else {

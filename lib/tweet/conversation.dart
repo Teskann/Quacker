@@ -8,7 +8,7 @@ class TweetConversation extends StatefulWidget {
   final String? username;
   final bool isPinned;
   final List<TweetWithCard> tweets;
-  final tweetOpened;
+  final bool tweetOpened;
 
   const TweetConversation(
       {super.key,

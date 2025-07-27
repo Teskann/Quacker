@@ -730,7 +730,7 @@ class Twitter {
     var repEntries = List.from(instructions.where((e) => e['type'] == 'TimelineReplaceEntry'));
     List addPinnedEntries = List<dynamic>.empty(growable: true);
     if (addPinnedTweetsInstructions != null) {
-      addPinnedEntries.add(addPinnedTweetsInstructions['entry'] ?? null);
+      addPinnedEntries.add(addPinnedTweetsInstructions['entry']);
     }
 
     String? cursorBottom = getCursor(addEntries, repEntries, 'cursor-bottom', 'Bottom');
@@ -782,7 +782,7 @@ class Twitter {
     var repEntries = List.from(instructions.where((e) => e['type'] == 'TimelineReplaceEntry'));
     List addPinnedEntries = List<dynamic>.empty(growable: true);
     if (addPinnedTweetsInstructions != null) {
-      addPinnedEntries.add(addPinnedTweetsInstructions['entry'] ?? null);
+      addPinnedEntries.add(addPinnedTweetsInstructions['entry']);
     }
 
     String? cursorBottom = getCursor(addEntries, repEntries, 'cursor-bottom', 'Bottom');
@@ -984,9 +984,9 @@ class TweetWithCard extends Tweet {
   }
 
   factory TweetWithCard.fromGraphqlJson(Map<String, dynamic> result) {
-    var retweetedStatus;
-    var quotedStatus;
-    var user;
+    dynamic retweetedStatus;
+    dynamic quotedStatus;
+    dynamic user;
 
     if (result['tweet'] != null) {
       result = result['tweet']!;

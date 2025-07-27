@@ -127,8 +127,8 @@ class TweetCard extends StatelessWidget {
           child: LinearProgressIndicator(
               value: choicePercent / 100,
               color: theme.brightness == Brightness.light
-                  ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
-                  : Theme.of(context).colorScheme.primary.withOpacity(0.7)),
+                  ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.3)
+                  : Theme.of(context).colorScheme.primary.withValues(alpha: 0.7)),
         ),
         Container(
             alignment: Alignment.centerLeft,

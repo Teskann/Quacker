@@ -410,7 +410,7 @@ class _MaterialControlsState extends State<FritterMaterialControls> with SingleT
             text: '/ ${formatDuration(duration)}',
             style: TextStyle(
               fontSize: 14.0,
-              color: Colors.white.withOpacity(.75),
+              color: Colors.white.withValues(alpha: 0.75),
               fontWeight: FontWeight.normal,
             ),
           )
@@ -584,8 +584,8 @@ class _MaterialControlsState extends State<FritterMaterialControls> with SingleT
             ChewieProgressColors(
               playedColor: Theme.of(context).colorScheme.secondary,
               handleColor: Theme.of(context).colorScheme.secondary,
-              bufferedColor: Theme.of(context).colorScheme.background.withOpacity(0.5),
-              backgroundColor: Theme.of(context).disabledColor.withOpacity(.5),
+              bufferedColor: Theme.of(context).colorScheme.surface.withValues(alpha: 0.5),
+              backgroundColor: Theme.of(context).disabledColor.withValues(alpha: 0.5),
             ),
       ),
     );

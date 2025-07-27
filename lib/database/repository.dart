@@ -228,9 +228,9 @@ class Repository {
     await openDatabase(
       databaseName,
       version: 21,
-      onUpgrade: myMigrationPlan,
-      onCreate: myMigrationPlan,
-      onDowngrade: myMigrationPlan,
+      onUpgrade: myMigrationPlan.call,
+      onCreate: myMigrationPlan.call,
+      onDowngrade: myMigrationPlan.call,
     );
 
     // Clean up any old feed chunks and cursors

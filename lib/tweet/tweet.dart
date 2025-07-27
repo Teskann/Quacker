@@ -2,7 +2,6 @@ import 'package:auto_direction/auto_direction.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:quacker/client/client.dart';
 import 'package:quacker/constants.dart';
 import 'package:quacker/generated/l10n.dart';
