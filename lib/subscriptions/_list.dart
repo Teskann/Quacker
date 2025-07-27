@@ -65,8 +65,7 @@ class SubscriptionUsersList extends StatelessWidget {
   final ScrollController scrollController;
   final List<Subscription> subscriptions;
 
-  const SubscriptionUsersList({Key? key, required this.subscriptions, required this.scrollController})
-      : super(key: key);
+  const SubscriptionUsersList({super.key, required this.subscriptions, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {

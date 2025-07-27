@@ -26,13 +26,12 @@ class SubscriptionGroupFeed extends StatefulWidget {
   final ScrollController? scrollController;
 
   const SubscriptionGroupFeed(
-      {Key? key,
+      {super.key,
       required this.group,
       required this.chunks,
       required this.includeReplies,
       required this.includeRetweets,
-      this.scrollController})
-      : super(key: key);
+      this.scrollController});
 
   @override
   State<SubscriptionGroupFeed> createState() => _SubscriptionGroupFeedState();

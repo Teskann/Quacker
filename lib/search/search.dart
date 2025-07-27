@@ -24,7 +24,7 @@ class SearchArguments {
 }
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({Key? key}) : super(key: key);
+  const ResultsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +40,7 @@ class _ResultsScreen extends StatefulWidget {
   final String? query;
   final bool focusInputOnOpen;
 
-  const _ResultsScreen({Key? key, required this.initialTab, this.query, this.focusInputOnOpen = false})
-      : super(key: key);
+  const _ResultsScreen({required this.initialTab, this.query, this.focusInputOnOpen = false});
 
   @override
   State<_ResultsScreen> createState() => _ResultsScreenState();
@@ -156,12 +155,11 @@ class TweetSearchResultList<S extends Store<List<T>>, T> extends StatefulWidget 
   final ItemWidgetBuilder<T> itemBuilder;
 
   const TweetSearchResultList(
-      {Key? key,
+      {super.key,
       required this.queryController,
       required this.store,
       required this.searchFunction,
-      required this.itemBuilder})
-      : super(key: key);
+      required this.itemBuilder});
 
   @override
   State<TweetSearchResultList<S, T>> createState() => _TweetSearchResultListState<S, T>();

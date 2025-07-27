@@ -21,7 +21,7 @@ class TweetCard extends StatelessWidget {
   final TweetWithCard tweet;
   final Map<String, dynamic>? card;
 
-  const TweetCard({Key? key, required this.tweet, required this.card}) : super(key: key);
+  const TweetCard({super.key, required this.tweet, required this.card});
 
   _createBaseCard(Widget child, BuildContext context) {
     return Container(
