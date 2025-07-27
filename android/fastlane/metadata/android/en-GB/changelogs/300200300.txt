@@ -1,0 +1,4 @@
+## v3.5.2
+- [MAJOR] Attempt to fix errors (#64)
+
+This version does need further testing, I have tried to get this out as soon as possible so expect an bug fix patch next!
