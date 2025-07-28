@@ -9,7 +9,6 @@ import 'package:quacker/generated/l10n.dart';
 import 'package:quacker/group/_settings.dart';
 import 'package:quacker/group/group_model.dart';
 import 'package:quacker/group/group_screen.dart';
-import 'package:quacker/home/home_screen.dart';
 
 class FeedScreen extends StatefulWidget {
   final ScrollController scrollController;
@@ -102,7 +101,6 @@ class _FeedScreenState extends State<FeedScreen>
                           _pagingController.refresh();
                         }
                       }),
-                  ...createCommonAppBarActions(context)
                 ],
               ),
             ];

@@ -54,7 +54,6 @@ class _SavedScreenState extends State<SavedScreen> with AutomaticKeepAliveClient
               snap: true,
               floating: true,
               title: Text(L10n.current.saved),
-              actions: createCommonAppBarActions(context),
             )
         ];
       },

@@ -16,7 +16,7 @@ class SubscriptionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(L10n.current.subscriptions), actions: createCommonAppBarActions(context)),
+      appBar: AppBar(title: Text(L10n.current.subscriptions)),
       body: Padding(
           padding: EdgeInsets.all(8.0),
           child: ListView(

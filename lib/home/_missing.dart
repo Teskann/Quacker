@@ -10,9 +10,6 @@ class MissingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: createCommonAppBarActions(context),
-      ),
       body: EmojiErrorWidget(
         emoji: '🧨',
         message: L10n.current.missing_page,

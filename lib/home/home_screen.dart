@@ -27,19 +27,6 @@ class NavigationPage {
   NavigationPage(this.id, this.titleBuilder, this.icon, this.selectedIcon);
 }
 
-List<Widget> createCommonAppBarActions(BuildContext context) {
-  return [
-    IconButton(
-      icon: const Icon(Icons.search),
-      onPressed: () => Navigator.pushNamed(context, routeSearch, arguments: SearchArguments(0, focusInputOnOpen: true)),
-    ),
-    IconButton(
-      icon: const Icon(Icons.settings),
-      onPressed: () => Navigator.pushNamed(context, routeSettings),
-    )
-  ];
-}
-
 final List<NavigationPage> defaultHomePages = [
   NavigationPage('feed', (c) => L10n.of(c).feed, const Icon(Icons.rss_feed), const Icon(Icons.rss_feed)),
   NavigationPage('subscriptions', (c) => L10n.of(c).subscriptions, const Icon(Icons.subscriptions_outlined),
@@ -119,7 +106,6 @@ class _HomeScreenState extends State<_HomeScreen> {
                 return SubscriptionGroupScreen(
                   scrollController: scrollControllers[index]!,
                   id: page.id.replaceAll('group-', ''),
-                  actions: createCommonAppBarActions(context),
                   name: '',
                 );
               }
@@ -201,7 +187,26 @@ class _ScaffoldWithBottomNavigationState extends State<ScaffoldWithBottomNavigat
 
   @override
   Widget build(BuildContext context) {
+    final l10n = L10n.of(context);
+
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.search),
+              title: Text(l10n.search),
+              onTap: () =>
+                  Navigator.pushNamed(context, routeSearch, arguments: SearchArguments(0, focusInputOnOpen: true)),
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: Text(l10n.settings),
+              onTap: () => Navigator.pushNamed(context, routeSettings),
+            )
+          ],
+        ),
+      ),
       body: PageView(
         controller: _pageController,
         onPageChanged: (page) {

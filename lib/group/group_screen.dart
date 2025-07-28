@@ -113,10 +113,10 @@ class SubscriptionGroupScreen extends StatelessWidget {
   final ScrollController scrollController;
   final String id;
   final String name;
-  final List<Widget> actions;
+  final List<Widget>? actions;
 
   const SubscriptionGroupScreen(
-      {super.key, required this.scrollController, required this.id, required this.name, required this.actions});
+      {super.key, required this.scrollController, required this.id, required this.name, this.actions});
 
   @override
   Widget build(BuildContext context) {
@@ -156,7 +156,7 @@ class SubscriptionGroupScreen extends StatelessWidget {
                       onPressed: () async {
                         await model.loadGroup();
                       }),
-                  ...actions
+                  if (actions != null) ...actions!
                 ],
               )
             ];
