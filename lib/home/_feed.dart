@@ -60,6 +60,7 @@ class _FeedScreenState extends State<FeedScreen>
       return model;
     }, builder: (context, child) {
       var model = context.read<GroupModel>();
+      final l10n = L10n.of(context);
 
       return NestedScrollView(
           controller: widget.scrollController,
@@ -69,19 +70,16 @@ class _FeedScreenState extends State<FeedScreen>
                 pinned: false,
                 snap: true,
                 floating: true,
-                title: Flex(direction: Axis.horizontal, children: [
-                  Text(_tab == 0 ? L10n.of(context).following : L10n.of(context).foryou),
-                  Flexible(
-                      child: IconButton(
-                          onPressed: () => setState(() {
-                                if (_tab == 0) {
-                                  _tab = 1;
-                                } else if (_tab == 1) {
-                                  _tab = 0;
-                                }
-                              }),
-                          icon: Icon(_tab == 0 ? Icons.switch_right : Icons.switch_left)))
-                ]),
+                title: DropdownMenu(
+                  initialSelection: 0,
+                  dropdownMenuEntries: [
+                    DropdownMenuEntry(value: 0, label: l10n.following),
+                    DropdownMenuEntry(value: 1, label: l10n.foryou)
+                  ],
+                  onSelected: (value) {
+                    setState(() => _tab = value!);
+                  },
+                ),
                 actions: [
                   if (_tab == 0)
                     IconButton(icon: const Icon(Icons.more_vert), onPressed: () => showFeedSettings(context, model)),
