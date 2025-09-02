@@ -26,6 +26,9 @@
   </a>
 </p>
 
+## [SEPTEMBER 2ND 2025] Thank you!
+I did not expect to have this much support for my small little project I started after fritter stopped updating. I have limited time to work on projects like this, so I am currently working on fixing the major bugs. Any contributions are greatly appreciated!
+
 ## Features
 
 - **Feed:** View your `Following` feed 📰
