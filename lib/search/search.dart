@@ -51,12 +51,20 @@ class _ResultsScreenState extends State<_ResultsScreen> with SingleTickerProvide
   final FocusNode _focusNode = FocusNode();
 
   late TabController _tabController;
+  late final SearchTweetsModel _topTweetsModel;
+  late final SearchTweetsModel _latestTweetsModel;
+  late final SearchUsersModel _searchUsersModel;
 
   @override
   void initState() {
     super.initState();
 
     _tabController = TabController(length: 3, vsync: this, initialIndex: widget.initialTab);
+
+    _topTweetsModel = SearchTweetsModel();
+    _latestTweetsModel = SearchTweetsModel();
+    _searchUsersModel = SearchUsersModel();
+
     //_bothControllers = CombinedChangeNotifier(_tabController, _queryController);
 
     if (widget.focusInputOnOpen) {
@@ -96,7 +104,7 @@ class _ResultsScreenState extends State<_ResultsScreen> with SingleTickerProvide
               icon: Icon(Icons.trending_up),
             ),
             Tab(
-              icon: Icon(Icons.search),
+              icon: Icon(Icons.access_time_outlined),
             ),
             Tab(
               icon: Icon(Icons.person_search),
@@ -119,22 +127,22 @@ class _ResultsScreenState extends State<_ResultsScreen> with SingleTickerProvide
                 child: TabBarView(controller: _tabController, children: [
               TweetSearchResultList<SearchTweetsModel, TweetWithCard>(
                   queryController: _queryController,
-                  store: context.read<SearchTweetsModel>(),
-                  searchFunction: (q) => context.read<SearchTweetsModel>().searchTweets(q, "Top"),
+                  store: _topTweetsModel,
+                  searchFunction: (q) => _topTweetsModel.searchTweets(q, "Top"),
                   itemBuilder: (context, item) {
                     return TweetTile(tweet: item, clickable: true);
                   }),
               TweetSearchResultList<SearchTweetsModel, TweetWithCard>(
                   queryController: _queryController,
-                  store: context.read<SearchTweetsModel>(),
-                  searchFunction: (q) => context.read<SearchTweetsModel>().searchTweets(q, "Latest"),
+                  store: _latestTweetsModel,
+                  searchFunction: (q) => _latestTweetsModel.searchTweets(q, "Latest"),
                   itemBuilder: (context, item) {
                     return TweetTile(tweet: item, clickable: true);
                   }),
               TweetSearchResultList<SearchUsersModel, UserWithExtra>(
                   queryController: _queryController,
-                  store: context.read<SearchUsersModel>(),
-                  searchFunction: (q) => context.read<SearchUsersModel>().searchUsers(q, context),
+                  store: _searchUsersModel,
+                  searchFunction: (q) => _searchUsersModel.searchUsers(q, context),
                   itemBuilder: (context, user) {
                     return UserTile(user: UserSubscription.fromUser(user));
                   }),
