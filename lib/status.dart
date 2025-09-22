@@ -13,9 +13,9 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 class StatusScreenArguments {
   final String id;
   final String? username;
-  final dynamic tweetOpened;
+  final bool tweetOpened;
 
-  StatusScreenArguments({required this.id, required this.username, this.tweetOpened});
+  StatusScreenArguments({required this.id, required this.username, this.tweetOpened = false});
 
   @override
   String toString() {
@@ -37,7 +37,7 @@ class StatusScreen extends StatelessWidget {
 class _StatusScreen extends StatefulWidget {
   final String? username;
   final String id;
-  final dynamic tweetOpened;
+  final bool tweetOpened;
 
   const _StatusScreen({required this.username, required this.id, required this.tweetOpened});
 
