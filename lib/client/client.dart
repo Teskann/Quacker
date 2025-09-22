@@ -249,13 +249,18 @@ class Twitter {
       var entryId = entry['entryId'] as String;
       if (entryId.startsWith('tweet-')) {
         dynamic result;
-        if (entry['content']['itemContent']['tweet_results']['result']["__typename"] == "TweetWithVisibilityResults") {
-          result = entry['content']['itemContent']['tweet_results']['result']['tweet'];
+        final tweetResults = entry['content']['itemContent']['tweet_results'];
+
+        // This may happen for tweets that x.com cannot open neither
+        if(!tweetResults.containsKey("result")) continue;
+
+        if (tweetResults['result']["__typename"] == "TweetWithVisibilityResults") {
+          result = tweetResults['result']['tweet'];
         } else {
-          result = entry['content']['itemContent']['tweet_results']['result'];
+          result = tweetResults['result'];
         }
 
-        if (result != null) {
+        if (result != null && result.containsKey('rest_id')) {
           replies
               .add(TweetChain(id: result['rest_id'], tweets: [TweetWithCard.fromGraphqlJson(result)], isPinned: false));
         } else {
