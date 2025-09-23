@@ -553,12 +553,16 @@ class _MaterialControlsState extends State<FritterMaterialControls> with SingleT
         _displayBufferingIndicator = false;
       }
     } else {
-      _displayBufferingIndicator = controller.value.isBuffering;
+      _displayBufferingIndicator = false;
     }
 
     setState(() {
       _latestValue = controller.value;
       _subtitlesPosition = controller.value.position;
+      if (!_latestValue.isPlaying && _latestValue.position >= _latestValue.duration) {
+        _displayBufferingIndicator = false;
+        notifier.hideStuff = false;
+      }
     });
   }
 
