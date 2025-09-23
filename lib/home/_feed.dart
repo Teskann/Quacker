@@ -71,6 +71,11 @@ class _FeedScreenState extends State<FeedScreen>
                 floating: true,
                 title: DropdownMenu(
                   initialSelection: 0,
+                  inputDecorationTheme: InputDecorationTheme(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                  ),
                   dropdownMenuEntries: [
                     DropdownMenuEntry(value: 0, label: l10n.following),
                     DropdownMenuEntry(value: 1, label: l10n.foryou)
