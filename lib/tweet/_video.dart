@@ -53,16 +53,23 @@ class TweetVideo extends StatefulWidget {
   final String username;
   final bool loop;
   final TweetVideoMetadata metadata;
+  final bool alwaysPlay;
+  final bool disableControls;
 
-  const TweetVideo({super.key, required this.username, required this.loop, required this.metadata});
+  const TweetVideo({
+    super.key,
+    required this.username,
+    required this.loop,
+    required this.metadata,
+    this.alwaysPlay = false,
+    this.disableControls = false,
+  });
 
   @override
   State<StatefulWidget> createState() => _TweetVideoState();
 }
 
 class _TweetVideoState extends State<TweetVideo> {
-  bool _showVideo = false;
-
   VideoPlayerController? _videoController;
   ChewieController? _chewieController;
 
@@ -84,8 +91,9 @@ class _TweetVideoState extends State<TweetVideo> {
     _chewieController = ChewieController(
       aspectRatio: widget.metadata.aspectRatio,
       autoInitialize: true,
-      autoPlay: true,
-      allowMuting: true,
+      autoPlay: widget.alwaysPlay,
+      allowMuting: !widget.disableControls,
+      showControls: !widget.disableControls,
       allowedScreenSleep: false,
       customControls: const FritterMaterialControls(),
       additionalOptions: (context) => [
@@ -153,40 +161,23 @@ class _TweetVideoState extends State<TweetVideo> {
     });
   }
 
-  Future<void> onTapPlay() async {
-    await _loadVideo();
-
-    setState(() {
-      _showVideo = true;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // TODO: This is a bit flickery, but will do for now
-    return AspectRatio(
-      aspectRatio: widget.metadata.aspectRatio,
-      child: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 150),
-          child: _showVideo
-              ? _Video(controller: _chewieController!)
-              : GestureDetector(
-                  onTap: onTapPlay,
-                  child: Stack(alignment: Alignment.center, children: [
-                    ExtendedImage.network(widget.metadata.imageUrl, width: double.infinity, fit: BoxFit.fitWidth),
-                    Center(
-                      child: FritterCenterPlayButton(
-                        backgroundColor: Colors.black54,
-                        iconColor: Colors.white,
-                        isFinished: false,
-                        isPlaying: false,
-                        show: true,
-                        onPressed: onTapPlay,
-                      ),
-                    )
-                  ]),
-                )),
-    );
+    return FutureBuilder(
+        future: _loadVideo(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return AspectRatio(
+              aspectRatio: widget.metadata.aspectRatio,
+              child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 150),
+                  child: _Video(
+                      controller: _chewieController!,
+                      alwaysPlay: widget.alwaysPlay)),
+            );
+          }
+          return const Center(child: CircularProgressIndicator());
+        });
   }
 
   @override
@@ -203,8 +194,9 @@ class _TweetVideoState extends State<TweetVideo> {
 
 class _Video extends StatefulWidget {
   final ChewieController controller;
+  final bool alwaysPlay;
 
-  const _Video({required this.controller});
+  const _Video({required this.controller, required this.alwaysPlay});
 
   @override
   State<_Video> createState() => _VideoState();
@@ -217,7 +209,7 @@ class _VideoState extends State<_Video> {
       key: UniqueKey(),
       onVisibilityChanged: (info) {
         if (mounted) {
-          if (info.visibleFraction == 0 && !widget.controller.isFullScreen) {
+          if (!widget.alwaysPlay && info.visibleFraction == 0 && !widget.controller.isFullScreen) {
             widget.controller.pause();
           }
         }
