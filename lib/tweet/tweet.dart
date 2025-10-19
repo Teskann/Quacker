@@ -395,7 +395,7 @@ class TweetTileState extends State<TweetTile> with SingleTickerProviderStateMixi
       if (tweet.quotedStatusWithCard != null) {
         quotedTweet = Container(
           decoration: BoxDecoration(
-              border: Border.all(color: theme.colorScheme.primary), borderRadius: BorderRadius.circular(8)),
+              border: Border.all(color: theme.colorScheme.surfaceBright), borderRadius: BorderRadius.circular(8)),
           margin: const EdgeInsets.all(8),
           child: TweetTile(
             clickable: true,
