@@ -236,6 +236,12 @@ class Twitter {
         users: response.users?.map((e) => UserWithExtra.fromJson(e.toJson())).toList() ?? []);
   }
 
+  static bool isNotPromoted(Map<String, dynamic> item) {
+    final bool entryIdContainsPromoted = item['entryId']?.contains("promoted") ?? false;
+    final bool hasPromotedMetadata = item['item']?['itemContent']?.containsKey("promotedMetadata") ?? false;
+    return !(entryIdContainsPromoted || hasPromotedMetadata);
+  }
+
   static List<TweetChain> createTweetChains(List<dynamic> addEntries) {
     List<TweetChain> replies = [];
 
@@ -270,7 +276,7 @@ class Twitter {
         List<TweetWithCard> tweets = [];
 
         // TODO: This is missing tombstone support
-        for (var item in entry['content']['items']) {
+        for (var item in entry['content']['items'].where((e) => isNotPromoted(e))) {
           var itemType = item['item']?['itemContent']?['itemType'];
           if (itemType == 'TimelineTweet') {
             if (item['item']['itemContent']['tweet_results']?['result'] != null) {
