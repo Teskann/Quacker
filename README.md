@@ -1,3 +1,13 @@
+# Project Archive Notice
+
+**⚠️ This project is archived and no longer maintained.**
+
+Due to lack of interest and time constraints, this repository will not receive any further updates or support. The code and documentation are preserved for historical reference only.
+
+Thank you for your understanding.
+
+---
+
 <p align="center">
  <img src="assets/icon.png" width=96>
  <h1 align="center">Quacker</h1>
@@ -25,9 +35,6 @@
     <img src="https://github.com/TheHCJ/Quacker/workflows/ci/badge.svg" alt="Build Status">
   </a>
 </p>
-
-## [SEPTEMBER 2ND 2025] Thank you!
-I did not expect to have this much support for my small little project I started after fritter stopped updating. I have limited time to work on projects like this, so I am currently working on fixing the major bugs. Any contributions are greatly appreciated!
 
 ## Features
 
