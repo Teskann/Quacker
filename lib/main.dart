@@ -340,7 +340,7 @@ class _FritterAppState extends State<FritterApp> {
           child: SecureWidget(
               isSecure: _isSecure,
               builder: (BuildContext context, a, b) => MaterialApp(
-                    navigatorKey: _navigatorKey, // NEW: Set navigatorKey
+                    navigatorKey: _navigatorKey,
                     localeListResolutionCallback: (locales, supportedLocales) {
                       List supportedLocalesCountryCode = [];
                       for (var item in supportedLocales) {
