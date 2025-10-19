@@ -375,12 +375,6 @@ class Twitter {
 
     // TODO: Could this use createUnconversationedChains at some point?
     var chains = createTweetChains(addEntries);
-    var rootTweet = chains.first;
-    chains.remove(rootTweet);
-    chains.sort((a, b) {
-      return b.id.compareTo(a.id);
-    });
-    chains.insert(0, rootTweet);
 
     String? cursorBottom = getCursor(addEntries, repEntries, 'cursor-bottom', 'Bottom');
     String? cursorTop = getCursor(addEntries, repEntries, 'cursor-top', 'Top');
