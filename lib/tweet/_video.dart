@@ -9,10 +9,10 @@ import 'package:quax/generated/l10n.dart';
 import 'package:quax/tweet/_video_controls.dart';
 import 'package:quax/tweet/video_controller_pool.dart';
 import 'package:quax/tweet/video_quality.dart';
+import 'package:quax/tweet/video_wakelock.dart';
 import 'package:quax/utils/iterables.dart';
 import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-import 'package:wakelock_plus/wakelock_plus.dart';
 
 /// Disk cache so replaying a finished video, scrolling back to it, or a GIF
 /// looping reads from disk instead of re-downloading — the player keeps no
@@ -102,6 +102,9 @@ class TweetVideo extends StatefulWidget {
     this.tweetId,
     this.mediaIndex = 0,
   });
+
+  // GIFs play on their own, silently and on a loop, all over the timeline.
+  bool get keepsScreenAwake => !disableControls;
 
   @override
   State<StatefulWidget> createState() => _TweetVideoState();
@@ -296,11 +299,16 @@ class _TweetVideoState extends State<TweetVideo> with WidgetsBindingObserver {
         case BetterPlayerEventType.play:
           if (_playbackError) setState(() => _playbackError = false);
           _pool?.pauseOthers(pooled);
-          if (!widget.disableControls) WakelockPlus.enable();
+          if (widget.keepsScreenAwake) VideoWakelock.acquire(this);
           break;
         case BetterPlayerEventType.pause:
         case BetterPlayerEventType.finished:
-          if (!widget.disableControls) WakelockPlus.disable();
+          VideoWakelock.release(this);
+          break;
+        case BetterPlayerEventType.hideFullscreen:
+          // Leaving fullscreen, the player disables the wakelock itself even
+          // though playback goes on inline, so put it back once it has.
+          WidgetsBinding.instance.addPostFrameCallback((_) => VideoWakelock.reapply());
           break;
         case BetterPlayerEventType.setVolume:
           final volume = event.parameters?['volume'] as double?;
@@ -312,6 +320,7 @@ class _TweetVideoState extends State<TweetVideo> with WidgetsBindingObserver {
           // another decoder and floods the heap with exceptions until the process
           // OOM-crashes. A GIF that fails just shows its poster; a video shows the
           // retry affordance. The player already retries recoverable errors itself.
+          VideoWakelock.release(this);
           if (!widget.disableControls && !_firstFrameRendered) {
             setState(() => _playbackError = true);
           }
@@ -324,6 +333,7 @@ class _TweetVideoState extends State<TweetVideo> with WidgetsBindingObserver {
   }
 
   void _detachListeners() {
+    VideoWakelock.release(this);
     if (_onEvent != null) {
       _pooled?.controller.removeEventsListener(_onEvent!);
       _onEvent = null;
@@ -526,7 +536,6 @@ class _TweetVideoState extends State<TweetVideo> with WidgetsBindingObserver {
     _detachListeners();
     final key = _cacheKey;
     if (key != null) _pool?.markHidden(key, this);
-    if (!widget.disableControls) WakelockPlus.disable();
     // Keep the controller alive across the fullscreen route; just don't
     // dispose/release it here. Detaching listeners and releasing the pool ref,
     // though, is always safe (the pool owns the controller) and must happen even
