@@ -32,6 +32,12 @@ class _TweetPhotoState extends State<TweetPhoto> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return ExtendedImageSlidePage(
       slideAxis: SlideAxis.vertical,
+      slidePageBackgroundHandler: (offset, pageSize) => defaultSlidePageBackgroundHandler(
+        offset: offset,
+        pageSize: pageSize,
+        color: Theme.of(context).scaffoldBackgroundColor,
+        pageGestureAxis: SlideAxis.vertical,
+      ),
       child: ExtendedImage.network(
         widget.size != null ? '${widget.uri}:${widget.size}' : widget.uri,
         cache: true,
