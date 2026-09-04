@@ -579,8 +579,7 @@ class Twitter {
   }
 
   static Future<TweetStatus> searchTweets(
-    String query,
-    bool includeReplies, {
+    String query, {
     int limit = 20,
     String? cursor,
     String product = "Latest",
@@ -608,7 +607,6 @@ class Twitter {
     return parseSearchTimeline(
       json.decode(response.body) as Map<String, dynamic>,
       product: product,
-      includeReplies: includeReplies,
     );
   }
 
@@ -617,7 +615,6 @@ class Twitter {
   static TweetStatus parseSearchTimeline(
     Map<String, dynamic> result, {
     String product = "Latest",
-    bool includeReplies = true,
   }) {
     var timeline = result['data']?['search_by_raw_query']?['search_timeline'];
     if (timeline == null) {
@@ -628,7 +625,7 @@ class Twitter {
       return _createChainsFromGridModule(timeline);
     }
 
-    return createUnconversationedChainsGraphql(timeline, 'tweet', [], true, includeReplies);
+    return createUnconversationedChainsGraphql(timeline, 'tweet', [], true);
   }
 
   static TweetStatus _createChainsFromGridModule(Map<String, dynamic> timeline) {
@@ -892,7 +889,6 @@ class Twitter {
     String tweetIndicator,
     List<String> pinnedTweets,
     bool mapToThreads,
-    bool includeReplies,
   ) {
     var instructions = List.from(result['timeline']['instructions']);
     if (instructions.isEmpty || !instructions.any((e) => e['type'] == 'TimelineAddEntries')) {
@@ -905,7 +901,7 @@ class Twitter {
     String? cursorBottom = getCursor(addEntries, repEntries, 'cursor-bottom', 'Bottom');
     String? cursorTop = getCursor(addEntries, repEntries, 'cursor-top', 'Top');
 
-    var tweets = _createTweetsGraphql(tweetIndicator, addEntries, includeReplies);
+    var tweets = _createTweetsGraphql(tweetIndicator, addEntries);
 
     // First, get all the IDs of the tweets we need to display.
     String? entryRestId(dynamic e) {
@@ -1073,7 +1069,6 @@ class Twitter {
   static Map<String, TweetWithCard> _createTweetsGraphql(
     String entryPrefix,
     List<dynamic> allTweets,
-    bool includeReplies,
   ) {
     bool includeTweet(dynamic t) {
       // Exclude any items that aren't tweets
@@ -1111,14 +1106,6 @@ class Twitter {
     } catch (exc) {
       rethrow;
     }
-
-    // include replies only if we should
-    tweets = tweets.where((tweet) {
-      if (!includeReplies && (tweet.inReplyToStatusIdStr != null || tweet.inReplyToUserIdStr != null)) {
-        return false;
-      }
-      return true;
-    }).toList();
 
     return {for (var e in tweets) e.idStr: e};
   }

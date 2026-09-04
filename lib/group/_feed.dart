@@ -10,6 +10,7 @@ import 'package:quax/generated/l10n.dart';
 import 'package:quax/group/feed_cache.dart';
 import 'package:quax/group/feed_session_cache.dart';
 import 'package:quax/group/group_screen.dart';
+import 'package:quax/group/search_query.dart';
 import 'package:quax/tweet/paginated_tweet_list.dart';
 import 'package:quax/tweet/tweet_context_scope.dart';
 import 'package:quax/utils/iterables.dart';
@@ -207,46 +208,6 @@ class _SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> {
         });
   }
 
-  String _buildSearchQuery(List<Subscription> users) {
-    var query = '';
-
-    var remainingLength = 512 - query.length;
-
-    for (var user in users) {
-      var queryToAdd = '';
-      if (user is UserSubscription) {
-        queryToAdd = 'from:${user.screenName}';
-      } else if (user is SearchSubscription) {
-        queryToAdd = '"${user.id}"';
-      }
-
-      // If we can add this user to the query and still be less than ~512 characters, do so
-      if (query.length + queryToAdd.length < remainingLength) {
-        if (query != '' && query.isNotEmpty) {
-          query += ' OR ';
-        }
-
-        query += queryToAdd;
-      } else {
-        // Otherwise, add the search future and start a new one
-        assert(false, 'should never reach here');
-        query = queryToAdd;
-      }
-    }
-
-    if (!widget.includeReplies) {
-      query += ' -filter:replies ';
-    }
-
-    if (!widget.includeRetweets) {
-      query += ' -filter:retweets ';
-    } else {
-      query += ' include:nativeretweets ';
-    }
-
-    return query;
-  }
-
   /// Search for our next "page" of tweets.
   ///
   /// Here, each page is actually a set of mappings, where the ID of each set is the hash of all the user IDs in that
@@ -295,9 +256,9 @@ class _SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> {
         }
 
         // Perform our search for the next page of results for this chunk, and add those tweets to our collection
-        var query = _buildSearchQuery(chunk.users);
-        TweetStatus result =
-            await Twitter.searchTweets(query, widget.includeReplies, cursor: searchCursor);
+        var query = buildFeedSearchQuery(chunk.users,
+            includeReplies: widget.includeReplies, includeRetweets: widget.includeRetweets);
+        TweetStatus result = await Twitter.searchTweets(query, cursor: searchCursor);
         shouldShowUnrelatedPostsInFeedWarning |= feedContainsUnrelatedTweets(result, chunk.users);
 
         if (result.chains.isNotEmpty) {

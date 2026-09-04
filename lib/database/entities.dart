@@ -106,6 +106,9 @@ abstract class Subscription with ToMappable {
       required this.createdAt,
       required this.inFeed,
       });
+
+  /// How X looks this subscription up in a search query.
+  String get searchTerm;
 }
 
 class SearchSubscription extends Subscription {
@@ -122,6 +125,9 @@ class SearchSubscription extends Subscription {
 
   @override
   int get hashCode => id.hashCode;
+
+  @override
+  String get searchTerm => '"$id"';
 
   @override
   Map<String, dynamic> toMap() {
@@ -175,6 +181,9 @@ class UserSubscription extends Subscription {
 
   @override
   int get hashCode => id.hashCode;
+
+  @override
+  String get searchTerm => 'from:$screenName';
 
   @override
   Map<String, dynamic> toMap() {
