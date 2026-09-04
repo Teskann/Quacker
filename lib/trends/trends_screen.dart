@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:quax/constants.dart';
 import 'package:quax/search/search.dart';
 import 'package:quax/trends/_list.dart';

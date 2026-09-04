@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'dart:ui' show lerpDouble;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:quax/tweet/tweet.dart';
 
 /// The footer "like" heart, with the full X-style burst: a ring expands out of

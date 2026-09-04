@@ -1,0 +1,186 @@
+name: Flutter update
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+concurrency:
+  group: flutter-update
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check for a new Flutter release
+    runs-on: ubuntu-latest
+    outputs:
+      needed: ${{ steps.check.outputs.needed }}
+      version: ${{ steps.check.outputs.version }}
+      branch: ${{ steps.check.outputs.branch }}
+
+    steps:
+      - name: Clone the repository
+        uses: actions/checkout@v4
+
+      - name: Compare .fvmrc with the latest stable release
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          releases=$(curl -fsSL https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json)
+
+          hash=$(echo "$releases" | jq -r '.current_release.stable')
+          version=$(echo "$releases" | jq -r --arg hash "$hash" \
+            'first(.releases[] | select(.hash == $hash and .channel == "stable")).version')
+
+          if [ -z "$version" ] || [ "$version" = "null" ]; then
+            echo "Could not determine the latest stable Flutter version."
+            exit 1
+          fi
+
+          current_version=$(jq -r '.flutter' .fvmrc)
+          branch="flutter-update/$version"
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+          if [ "$version" = "$current_version" ]; then
+            echo "Already pinned to Flutter $current_version."
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "$(printf '%s\n%s\n' "$current_version" "$version" | sort -V | tail -1)" != "$version" ]; then
+            echo "Pinned Flutter $current_version is newer than the latest stable $version."
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ -n "$(gh pr list --head "$branch" --state open --json number --jq '.[].number')" ]; then
+            echo "A pull request for $branch is already open."
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Flutter $current_version -> $version."
+          echo "needed=true" >> "$GITHUB_OUTPUT"
+
+  update:
+    name: Update to Flutter ${{ needs.check.outputs.version }}
+    needs: check
+    if: needs.check.outputs.needed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Clone the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install and set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '25.x'
+
+      - name: Install and set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ needs.check.outputs.version }}
+          channel: stable
+          cache: true
+
+      - name: Generate icons
+        run: |
+          python -mvenv .venv
+          source ./.venv/bin/activate
+          pip install -r requirements.txt
+          python generate_icons.py
+          deactivate
+
+      - name: Set up the commit author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update the SDK and the dependencies
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          claude_args: |
+            --allowedTools "Bash,Read,Edit,Write,Glob,Grep"
+            --max-turns 120
+          prompt: "/flutter-update ${{ needs.check.outputs.version }}"
+
+      - name: Verify the build
+        run: |
+          set -euo pipefail
+          flutter pub get
+          dart run flutter_launcher_icons
+          dart run dart_pubspec_licenses:generate
+          dart run intl_utils:generate
+          dart run flutter_iconpicker:generate_packs --packs material
+          flutter analyze
+          flutter build apk --debug
+
+      - name: Archive the debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: quax-flutter-${{ needs.check.outputs.version }}-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
+
+      - name: Commit, push and open the pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ needs.check.outputs.branch }}
+          SUMMARY: /tmp/flutter-update-pr.md
+        run: |
+          set -euo pipefail
+
+          if [ ! -s "$SUMMARY" ]; then
+            echo "$SUMMARY is missing or empty: the update did not complete."
+            exit 1
+          fi
+
+          # -A so a file Claude adds, a new Dart source for instance, reaches the
+          # pull request. Everything the build produces is gitignored.
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The upgrade changed nothing."
+            exit 1
+          fi
+
+          echo "Staged for the commit:"
+          git diff --cached --stat
+
+          title=$(head -1 "$SUMMARY")
+          body=$(mktemp)
+          tail -n +2 "$SUMMARY" > "$body"
+          {
+            echo
+            echo "<details><summary>flutter pub outdated</summary>"
+            echo
+            echo '```'
+            flutter pub outdated || true
+            echo '```'
+            echo
+            echo "</details>"
+          } >> "$body"
+
+          git commit -m "$title"
+          git push --force origin "HEAD:refs/heads/$BRANCH"
+
+          if [ -n "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            echo "A pull request is already open for $BRANCH; the push updated it."
+            exit 0
+          fi
+
+          gh pr create --base master --head "$BRANCH" --title "$title" --body-file "$body"

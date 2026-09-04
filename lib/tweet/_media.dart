@@ -4,7 +4,7 @@ import 'dart:math' as math;
 import 'package:async_button_builder/async_button_builder.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quax/constants.dart';
 import 'package:quax/generated/l10n.dart';

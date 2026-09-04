@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
-          java-version: '21.x'
+          java-version: '25.x'
       
       - name:
         run: echo $SIGNING_KEY | base64 -d > android/app/key.jks

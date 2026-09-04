@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 const optionDisableAnimations = 'accessibility.disable_animations';
 const optionTextScaleFactor = 'accessibility.text_scale_factor';

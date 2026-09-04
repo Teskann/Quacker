@@ -32,3 +32,5 @@ analyzer:
   exclude:
     - "**/*.g.dart"
     - "lib/generated/intl/messages_*.dart"
+    - build/**
+    - android/**

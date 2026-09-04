@@ -4,9 +4,8 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_portal/flutter_portal.dart';
 import 'package:quax/client/accounts.dart';
 import 'package:quax/client/login_webview.dart';
@@ -458,111 +457,110 @@ class _FritterAppState extends State<FritterApp> {
         ),
         child: DynamicColorBuilder(builder: (lightDynamic, darkDynamic) {
           return Portal(
-              child: SecureWidget(
-                  isSecure: _isSecure,
-                  builder: (BuildContext context, a, b) => MaterialApp(
-                        navigatorKey: _navigatorKey,
-                        localizationsDelegates: const [
-                          L10n.delegate,
-                          GlobalMaterialLocalizations.delegate,
-                          GlobalWidgetsLocalizations.delegate,
-                          GlobalCupertinoLocalizations.delegate,
-                        ],
-                        supportedLocales: L10n.delegate.supportedLocales,
-                        locale: _locale,
-                        title: 'QuaX',
-                        theme: ThemeData(
-                          colorScheme: _themeColor == 'accent'
-                              ? lightDynamic
-                              : ColorScheme.fromSeed(
-                                  seedColor: themeColors[_themeColor]!
-                                      .harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
-                                  brightness: Brightness.light),
-                          pageTransitionsTheme: _disableAnimations == true
-                              ? PageTransitionsTheme(
-                                  builders: {
-                                    TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
-                                    TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
-                                  },
-                                )
-                              : null,
-                          useMaterial3: true,
-                        ),
-                        darkTheme: ThemeData(
-                          colorScheme: (_trueBlack == true
-                              ? (_themeColor == 'accent'
-                                      ? darkDynamic
-                                      : ColorScheme.fromSeed(
-                                          seedColor: themeColors[_themeColor]!
-                                              .harmonizeWith(darkDynamic?.primary ?? Colors.transparent),
-                                          brightness: Brightness.dark))
-                                  ?.copyWith(surface: Colors.black)
-                              : (_themeColor == 'accent'
-                                  ? darkDynamic
-                                  : ColorScheme.fromSeed(
-                                      seedColor: themeColors[_themeColor]!
-                                          .harmonizeWith(darkDynamic?.primary ?? Colors.transparent),
-                                      brightness: Brightness.dark))),
-                          navigationBarTheme:
-                              (_trueBlack == true ? NavigationBarThemeData(backgroundColor: Colors.black) : null),
-                          scaffoldBackgroundColor: (_trueBlack == true ? Colors.black : null),
-                          appBarTheme: (_trueBlack == true ? AppBarThemeData(backgroundColor: Colors.black) : null),
-                          pageTransitionsTheme: _disableAnimations == true
-                              ? PageTransitionsTheme(
-                                  builders: {
-                                    TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
-                                    TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
-                                  },
-                                )
-                              : null,
-                          useMaterial3: true,
-                        ),
-                        themeMode: themeMode,
-                        initialRoute: '/',
-                        routes: {
-                          routeHome: (context) => const DefaultPage(),
-                          routeGroup: (context) => const GroupScreen(),
-                          routeProfile: (context) => const ProfileScreen(),
-                          routeSearch: (context) => const ResultsScreen(),
-                          routeSavedFolders: (context) => const SavedFoldersScreen(),
-                          routeSettings: (context) => const SettingsScreen(),
-                          routeSettingsExport: (context) => const SettingsExportScreen(),
-                          routeSettingsHome: (context) => const SettingsHomeFragment(),
-                          routeStatus: (context) => const StatusScreen(),
-                        },
-                        builder: (context, child) {
-                          if (_checkUpdates && !_updateDialogShown) {
-                            _updateDialogShown = true;
-                            // Use navigatorKey's context for showDialog
-                            WidgetsBinding.instance.addPostFrameCallback((_) {
-                              checkForUpdates(_navigatorKey.currentContext!);
-                            });
-                          }
+              child: MaterialApp(
+                  navigatorKey: _navigatorKey,
+                  localizationsDelegates: const [
+                    L10n.delegate,
+                    ...GlobalMaterialLocalizations.delegates,
+                  ],
+                  supportedLocales: L10n.delegate.supportedLocales,
+                  locale: _locale,
+                  title: 'QuaX',
+                  theme: ThemeData(
+                    colorScheme: _themeColor == 'accent'
+                        ? lightDynamic
+                        : ColorScheme.fromSeed(
+                            seedColor: themeColors[_themeColor]!
+                                .harmonizeWith(lightDynamic?.primary ?? Colors.transparent),
+                            brightness: Brightness.light),
+                    pageTransitionsTheme: _disableAnimations == true
+                        ? PageTransitionsTheme(
+                            builders: {
+                              TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
+                              TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
+                            },
+                          )
+                        : null,
+                    useMaterial3: true,
+                  ),
+                  darkTheme: ThemeData(
+                    colorScheme: (_trueBlack == true
+                        ? (_themeColor == 'accent'
+                                ? darkDynamic
+                                : ColorScheme.fromSeed(
+                                    seedColor: themeColors[_themeColor]!
+                                        .harmonizeWith(darkDynamic?.primary ?? Colors.transparent),
+                                    brightness: Brightness.dark))
+                            ?.copyWith(surface: Colors.black)
+                        : (_themeColor == 'accent'
+                            ? darkDynamic
+                            : ColorScheme.fromSeed(
+                                seedColor: themeColors[_themeColor]!
+                                    .harmonizeWith(darkDynamic?.primary ?? Colors.transparent),
+                                brightness: Brightness.dark))),
+                    navigationBarTheme:
+                        (_trueBlack == true ? NavigationBarThemeData(backgroundColor: Colors.black) : null),
+                    scaffoldBackgroundColor: (_trueBlack == true ? Colors.black : null),
+                    appBarTheme: (_trueBlack == true ? AppBarThemeData(backgroundColor: Colors.black) : null),
+                    pageTransitionsTheme: _disableAnimations == true
+                        ? PageTransitionsTheme(
+                            builders: {
+                              TargetPlatform.android: NoAnimationPageTransitionsBuilder(),
+                              TargetPlatform.iOS: NoAnimationPageTransitionsBuilder(),
+                            },
+                          )
+                        : null,
+                    useMaterial3: true,
+                  ),
+                  themeMode: themeMode,
+                  initialRoute: '/',
+                  routes: {
+                    routeHome: (context) => const DefaultPage(),
+                    routeGroup: (context) => const GroupScreen(),
+                    routeProfile: (context) => const ProfileScreen(),
+                    routeSearch: (context) => const ResultsScreen(),
+                    routeSavedFolders: (context) => const SavedFoldersScreen(),
+                    routeSettings: (context) => const SettingsScreen(),
+                    routeSettingsExport: (context) => const SettingsExportScreen(),
+                    routeSettingsHome: (context) => const SettingsHomeFragment(),
+                    routeStatus: (context) => const StatusScreen(),
+                  },
+                  builder: (context, child) {
+                    if (_checkUpdates && !_updateDialogShown) {
+                      _updateDialogShown = true;
+                      // Use navigatorKey's context for showDialog
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        checkForUpdates(_navigatorKey.currentContext!);
+                      });
+                    }
 
-                          if (!_accountDialogShown) {
-                            WidgetsBinding.instance.addPostFrameCallback((_) {
-                              _accountDialogShown = true;
-                              checkForAccounts(_navigatorKey.currentContext!);
-                            });
-                          }
+                    if (!_accountDialogShown) {
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        _accountDialogShown = true;
+                        checkForAccounts(_navigatorKey.currentContext!);
+                      });
+                    }
 
-                          if (!_discordDialogShown) {
-                            WidgetsBinding.instance.addPostFrameCallback((_) {
-                              _discordDialogShown = true;
-                              checkForDiscord(_navigatorKey.currentContext!);
-                            });
-                          }
+                    if (!_discordDialogShown) {
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        _discordDialogShown = true;
+                        checkForDiscord(_navigatorKey.currentContext!);
+                      });
+                    }
 
-                          // Replace the default red screen of death with a slightly friendlier one
-                          ErrorWidget.builder = (FlutterErrorDetails details) => FullPageErrorWidget(
-                                error: details.exception,
-                                stackTrace: details.stack,
-                                prefix: L10n.of(context).something_broke_in_fritter,
-                              );
+                    // Replace the default red screen of death with a slightly friendlier one
+                    ErrorWidget.builder = (FlutterErrorDetails details) => FullPageErrorWidget(
+                          error: details.exception,
+                          stackTrace: details.stack,
+                          prefix: L10n.of(context).something_broke_in_fritter,
+                        );
 
-                          return child ?? Container();
-                        },
-                      )));
+                    return SecureContentScope(
+                      enabled: _isSecure,
+                      child: child ?? Container(),
+                    );
+                  },
+                ));
         }));
   }
 }

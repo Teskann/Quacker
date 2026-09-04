@@ -1,5 +1,5 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:quax/article/article_parser.dart';
 import 'package:quax/constants.dart';
 import 'package:quax/profile/profile.dart';
