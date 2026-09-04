@@ -1045,6 +1045,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  pool:
+    dependency: transitive
+    description:
+      name: pool
+      sha256: "4177f68c237ea2128d1bee66ac17b2ce05ba3dbaafcbdd54c5d40a39d0b6b11c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.5.3"
   posix:
     dependency: transitive
     description:
@@ -1102,6 +1110,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
+  puppeteer:
+    dependency: "direct dev"
+    description:
+      name: puppeteer
+      sha256: "272fae28aa8491b76830fba82737007938c7f8a56d6d0aa314aee0298eb2a39f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.26.0"
   quiver:
     dependency: "direct main"
     description:

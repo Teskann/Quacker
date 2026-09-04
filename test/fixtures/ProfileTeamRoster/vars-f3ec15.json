@@ -1,0 +1,31 @@
+{
+ "scenario": "Full profile: avatar, banner, bio with two links and a mention that has no entity",
+ "sourceUrl": "https://x.com/quax_tests",
+ "operation": "ProfileTeamRoster",
+ "host": "x.com",
+ "queryId": "I5ALHyuvPb6h7soVmbcq9g",
+ "features": null,
+ "fieldToggles": null,
+ "variables": {
+  "rest_id": "2095909295913103360"
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "50",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "49",
+  "x-rate-limit-reset": "1788551339"
+ },
+ "body": {
+  "data": {
+   "user_results": {
+    "id": "VXNlclJlc3VsdHM6MjA5NTkwOTI5NTkxMzEwMzM2MA==",
+    "rest_id": "2095909295913103360",
+    "result": {
+     "__typename": "User",
+     "rest_id": "2095909295913103360"
+    }
+   }
+  }
+ }
+}

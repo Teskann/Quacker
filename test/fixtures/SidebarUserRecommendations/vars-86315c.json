@@ -1,0 +1,344 @@
+{
+ "scenario": "Full profile: avatar, banner, bio with two links and a mention that has no entity",
+ "sourceUrl": "https://x.com/quax_tests",
+ "operation": "SidebarUserRecommendations",
+ "host": "x.com",
+ "queryId": "HFQRXDuKe1r3EAN-vH1GiA",
+ "features": {
+  "profile_label_improvements_pcf_label_in_post_enabled": true,
+  "responsive_web_profile_redirect_enabled": true,
+  "rweb_tipjar_consumption_enabled": false,
+  "verified_phone_label_enabled": false,
+  "responsive_web_graphql_timeline_navigation_enabled": true
+ },
+ "fieldToggles": null,
+ "variables": {
+  "profileUserId": "2095909295913103360"
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "500",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "497",
+  "x-rate-limit-reset": "1788551337"
+ },
+ "body": {
+  "data": {
+   "sidebar_user_recommendations": [
+    {
+     "token": "CgABNiXRx/9rH3AIAAIAAAACCAAEAAAAdQA=",
+     "user_results": {
+      "result": {
+       "__typename": "User",
+       "action_counts": {
+        "favorites_count": 12543
+       },
+       "affiliates_highlighted_label": {},
+       "avatar": {
+        "image_url": "https://pbs.twimg.com/profile_images/2080263358767370240/FPSsmV53_normal.jpg"
+       },
+       "banner": {
+        "image_url": "https://pbs.twimg.com/profile_banners/2333988375/1784925314"
+       },
+       "core": {
+        "created_at": "Sun Feb 09 16:16:44 +0000 2014",
+        "name": "Instant Foot ⚽️",
+        "screen_name": "lnstantFoot"
+       },
+       "dm_permissions": {
+        "can_dm": true
+       },
+       "follow_request_sent": false,
+       "has_graduated_access": true,
+       "id": "VXNlcjoyMzMzOTg4Mzc1",
+       "is_blue_verified": true,
+       "location": {
+        "location": "Paris, France"
+       },
+       "media_permissions": {
+        "can_media_tag": false
+       },
+       "notifications_settings": {
+        "notifications_enabled": false
+       },
+       "parody_commentary_fan_label": "None",
+       "pinned_items": {},
+       "possibly_sensitive": false,
+       "privacy": {
+        "protected": false
+       },
+       "professional": {
+        "category": [
+         {
+          "icon_name": "IconBriefcaseStroke",
+          "id": 579,
+          "name": "Media & News"
+         }
+        ],
+        "professional_type": "Business",
+        "rest_id": "1457369733255385092"
+       },
+       "profile_bio": {
+        "description": "Vivons l'instant, vivons football. Bienvenue sur Instant Foot ! Contact : instant.foot2@gmail.com 📧",
+        "entities": {
+         "description": {},
+         "url": {
+          "urls": [
+           {
+            "display_url": "fanzone.me/instantfoot",
+            "expanded_url": "https://fanzone.me/instantfoot",
+            "indices": [
+             0,
+             23
+            ],
+            "url": "https://t.co/Or9Mtpx8NV"
+           }
+          ]
+         }
+        }
+       },
+       "profile_image_shape": "Circle",
+       "profile_metadata": {
+        "profile_interstitial_type": ""
+       },
+       "profile_translation": {
+        "translator_type": "none"
+       },
+       "relationship_counts": {
+        "followers": 2451127,
+        "following": 13911
+       },
+       "relationship_perspectives": {
+        "blocked_by": false,
+        "blocking": false,
+        "followed_by": false,
+        "following": false,
+        "live_following": false,
+        "muting": false
+       },
+       "rest_id": "2333988375",
+       "super_follow_eligible": false,
+       "super_followed_by": false,
+       "super_following": false,
+       "tweet_counts": {
+        "media_tweets": 175523,
+        "tweets": 255024
+       },
+       "verification": {
+        "verified": false
+       },
+       "website": {
+        "url": "https://t.co/Or9Mtpx8NV"
+       }
+      }
+     }
+    },
+    {
+     "token": "CgABNiXRx/9rH3AIAAIAAAACCAAEAAAAdQA=",
+     "user_results": {
+      "result": {
+       "__typename": "User",
+       "action_counts": {
+        "favorites_count": 15395
+       },
+       "affiliates_highlighted_label": {},
+       "avatar": {
+        "image_url": "https://pbs.twimg.com/profile_images/1795489577156718593/XXWoiGID_normal.jpg"
+       },
+       "banner": {
+        "image_url": "https://pbs.twimg.com/profile_banners/1036595502/1690290750"
+       },
+       "core": {
+        "created_at": "Wed Dec 26 08:02:48 +0000 2012",
+        "name": "Real French Madrid",
+        "screen_name": "RMFrench_"
+       },
+       "dm_permissions": {
+        "can_dm": true
+       },
+       "follow_request_sent": false,
+       "has_graduated_access": true,
+       "id": "VXNlcjoxMDM2NTk1NTAy",
+       "is_blue_verified": false,
+       "location": {
+        "location": "Ile-de-France, France"
+       },
+       "media_permissions": {
+        "can_media_tag": false
+       },
+       "notifications_settings": {
+        "notifications_enabled": false
+       },
+       "parody_commentary_fan_label": "None",
+       "pinned_items": {
+        "tweet_ids_str": [
+         "1825585768233926759"
+        ]
+       },
+       "possibly_sensitive": false,
+       "privacy": {
+        "protected": false
+       },
+       "professional": {
+        "category": [],
+        "professional_type": "Creator",
+        "rest_id": "1474018114652319756"
+       },
+       "profile_bio": {
+        "description": "Le média N°1 sur l’actualité du Real Madrid en Français 🔝🤍 Collab & Contact 📩 : DM ou rmadridfrench@gmail.com",
+        "entities": {
+         "description": {}
+        }
+       },
+       "profile_image_shape": "Circle",
+       "profile_metadata": {
+        "profile_interstitial_type": ""
+       },
+       "profile_translation": {
+        "translator_type": "none"
+       },
+       "relationship_counts": {
+        "followers": 429811,
+        "following": 383
+       },
+       "relationship_perspectives": {
+        "blocked_by": false,
+        "blocking": false,
+        "followed_by": false,
+        "following": false,
+        "live_following": false,
+        "muting": false
+       },
+       "rest_id": "1036595502",
+       "super_follow_eligible": false,
+       "super_followed_by": false,
+       "super_following": false,
+       "tweet_counts": {
+        "media_tweets": 21771,
+        "tweets": 52724
+       },
+       "verification": {
+        "verified": false
+       },
+       "website": {
+        "url": ""
+       }
+      }
+     }
+    },
+    {
+     "token": "CgABNiXRx/9rH3AIAAIAAAACCAAEAAAAdQA=",
+     "user_results": {
+      "result": {
+       "__typename": "User",
+       "action_counts": {
+        "favorites_count": 5453
+       },
+       "affiliates_highlighted_label": {},
+       "avatar": {
+        "image_url": "https://pbs.twimg.com/profile_images/2017674228217085952/uv3CSGlx_normal.jpg"
+       },
+       "banner": {
+        "image_url": "https://pbs.twimg.com/profile_banners/1230762202807689217/1769884554"
+       },
+       "core": {
+        "created_at": "Fri Feb 21 07:54:11 +0000 2020",
+        "name": "Barça Home 🇫🇷",
+        "screen_name": "Actu_Barcelona"
+       },
+       "dm_permissions": {
+        "can_dm": true
+       },
+       "follow_request_sent": false,
+       "has_graduated_access": true,
+       "id": "VXNlcjoxMjMwNzYyMjAyODA3Njg5MjE3",
+       "is_blue_verified": false,
+       "location": {
+        "location": ""
+       },
+       "media_permissions": {
+        "can_media_tag": false
+       },
+       "notifications_settings": {
+        "notifications_enabled": false
+       },
+       "parody_commentary_fan_label": "None",
+       "pinned_items": {
+        "tweet_ids_str": [
+         "2017680450441941359"
+        ]
+       },
+       "possibly_sensitive": false,
+       "privacy": {
+        "protected": false
+       },
+       "professional": {
+        "category": [
+         {
+          "icon_name": "IconBriefcaseStroke",
+          "id": 955,
+          "name": "Journalist"
+         }
+        ],
+        "professional_type": "Creator",
+        "rest_id": "1587958562986262530"
+       },
+       "profile_bio": {
+        "description": "📱• Barça Home | L’Actualité du Barça since 30/12/2020. Contact ➡️ barcahomecontact@gmail.com",
+        "entities": {
+         "description": {},
+         "url": {
+          "urls": [
+           {
+            "display_url": "instagram.com/actu_barcafr?u…",
+            "expanded_url": "https://instagram.com/actu_barcafr?utm_medium=copy_link",
+            "indices": [
+             0,
+             23
+            ],
+            "url": "https://t.co/Kop6QIL4At"
+           }
+          ]
+         }
+        }
+       },
+       "profile_image_shape": "Circle",
+       "profile_metadata": {
+        "profile_interstitial_type": ""
+       },
+       "profile_translation": {
+        "translator_type": "none"
+       },
+       "relationship_counts": {
+        "followers": 393555,
+        "following": 1625
+       },
+       "relationship_perspectives": {
+        "blocked_by": false,
+        "blocking": false,
+        "followed_by": false,
+        "following": false,
+        "live_following": false,
+        "muting": false
+       },
+       "rest_id": "1230762202807689217",
+       "super_follow_eligible": false,
+       "super_followed_by": false,
+       "super_following": false,
+       "tweet_counts": {
+        "media_tweets": 10605,
+        "tweets": 19656
+       },
+       "verification": {
+        "verified": false
+       },
+       "website": {
+        "url": "https://t.co/Kop6QIL4At"
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}

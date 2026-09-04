@@ -1,0 +1,161 @@
+{
+ "scenario": "Full profile: avatar, banner, bio with two links and a mention that has no entity",
+ "sourceUrl": "https://x.com/quax_tests",
+ "operation": "UserByScreenName",
+ "host": "x.com",
+ "queryId": "Gb-d6r0vxPOADdG62OEBpQ",
+ "features": {
+  "hidden_profile_subscriptions_enabled": true,
+  "profile_label_improvements_pcf_label_in_post_enabled": true,
+  "responsive_web_profile_redirect_enabled": true,
+  "rweb_tipjar_consumption_enabled": false,
+  "verified_phone_label_enabled": false,
+  "subscriptions_verification_info_is_identity_verified_enabled": true,
+  "subscriptions_verification_info_verified_since_enabled": true,
+  "highlights_tweets_tab_ui_enabled": true,
+  "responsive_web_twitter_article_notes_tab_enabled": true,
+  "subscriptions_feature_can_gift_premium": true,
+  "creator_subscriptions_tweet_preview_api_enabled": true,
+  "responsive_web_graphql_timeline_navigation_enabled": true
+ },
+ "fieldToggles": {
+  "withPayments": false,
+  "withAuxiliaryUserLabels": true
+ },
+ "variables": {
+  "screen_name": "quax_tests",
+  "withGrokTranslatedBio": true
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "150",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "149",
+  "x-rate-limit-reset": "1788551339"
+ },
+ "body": {
+  "data": {
+   "user": {
+    "result": {
+     "__typename": "User",
+     "action_counts": {
+      "favorites_count": 0
+     },
+     "affiliates_highlighted_label": {},
+     "avatar": {
+      "image_url": "https://pbs.twimg.com/profile_images/2095923817080295424/YjqaAMdO_normal.jpg"
+     },
+     "banner": {
+      "image_url": "https://pbs.twimg.com/profile_banners/2095909295913103360/1788542164"
+     },
+     "business_account": {},
+     "core": {
+      "created_at": "Fri Sep 04 16:19:42 +0000 2026",
+      "name": "QuaX Tests",
+      "screen_name": "quax_tests"
+     },
+     "creator_subscriptions_count": 0,
+     "dm_permissions": {
+      "can_dm": false
+     },
+     "follow_request_sent": false,
+     "grok_translated_bio_with_availability": {
+      "is_available": false
+     },
+     "has_graduated_access": false,
+     "has_hidden_subscriptions_on_profile": false,
+     "highlights_info": {
+      "can_highlight_tweets": false,
+      "highlighted_tweets": "0"
+     },
+     "id": "VXNlcjoyMDk1OTA5Mjk1OTEzMTAzMzYw",
+     "is_blue_verified": false,
+     "is_profile_translatable": false,
+     "legacy_extended_profile": {},
+     "location": {
+      "location": "India"
+     },
+     "media_permissions": {
+      "can_media_tag": true
+     },
+     "notifications_settings": {
+      "notifications_enabled": false
+     },
+     "parody_commentary_fan_label": "None",
+     "pinned_items": {},
+     "possibly_sensitive": false,
+     "premium_gifting_eligible": true,
+     "privacy": {
+      "protected": false
+     },
+     "profile_bio": {
+      "description": "🧪 Throwaway account · QuaX parsing fixtures 🇫🇷\n  Nothing real, every post is a test case.\n  https://t.co/XbzZfYVJIK · https://t.co/Akx2T6uckh\n  Ping @jack",
+      "entities": {
+       "description": {
+        "urls": [
+         {
+          "display_url": "github.com/Teskann/QuaX",
+          "expanded_url": "http://github.com/Teskann/QuaX",
+          "indices": [
+           92,
+           115
+          ],
+          "url": "https://t.co/XbzZfYVJIK"
+         },
+         {
+          "display_url": "flutter.dev",
+          "expanded_url": "https://flutter.dev",
+          "indices": [
+           118,
+           141
+          ],
+          "url": "https://t.co/Akx2T6uckh"
+         }
+        ]
+       }
+      }
+     },
+     "profile_description_language": "en",
+     "profile_image_shape": "Circle",
+     "profile_metadata": {
+      "profile_interstitial_type": ""
+     },
+     "profile_sort_enabled": false,
+     "profile_translation": {
+      "translator_type": "none"
+     },
+     "relationship_counts": {
+      "followers": 0,
+      "following": 0
+     },
+     "relationship_perspectives": {
+      "blocked_by": false,
+      "blocking": false,
+      "followed_by": false,
+      "following": false,
+      "live_following": false,
+      "muting": false
+     },
+     "rest_id": "2095909295913103360",
+     "super_follow_eligible": false,
+     "super_followed_by": false,
+     "super_following": false,
+     "tweet_counts": {
+      "media_tweets": 17,
+      "tweets": 41
+     },
+     "user_seed_tweet_count": 0,
+     "verification": {
+      "verified": false
+     },
+     "verification_info": {
+      "is_identity_verified": false
+     },
+     "website": {
+      "url": ""
+     }
+    }
+   }
+  }
+ }
+}

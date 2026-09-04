@@ -1,0 +1,3500 @@
+{
+ "scenario": "Trends",
+ "sourceUrl": "https://x.com/explore/tabs/trending",
+ "operation": "ExplorePage",
+ "host": "x.com",
+ "queryId": "jo4rJIWiO5pQlMk6FYphZQ",
+ "features": {
+  "rweb_video_screen_enabled": false,
+  "profile_label_improvements_pcf_label_in_post_enabled": true,
+  "responsive_web_profile_redirect_enabled": true,
+  "rweb_tipjar_consumption_enabled": false,
+  "verified_phone_label_enabled": false,
+  "responsive_web_graphql_timeline_navigation_enabled": true,
+  "rweb_cashtags_enabled": true,
+  "creator_subscriptions_tweet_preview_api_enabled": true,
+  "premium_content_api_read_enabled": false,
+  "communities_web_enable_tweet_community_results_fetch": true,
+  "c9s_tweet_anatomy_moderator_badge_enabled": true,
+  "responsive_web_grok_analyze_button_fetch_trends_enabled": false,
+  "responsive_web_grok_analyze_post_followups_enabled": true,
+  "rweb_cashtags_composer_attachment_enabled": true,
+  "responsive_web_jetfuel_frame": true,
+  "responsive_web_grok_share_attachment_enabled": true,
+  "responsive_web_grok_annotations_enabled": true,
+  "articles_preview_enabled": true,
+  "responsive_web_edit_tweet_api_enabled": true,
+  "rweb_conversational_replies_downvote_enabled": false,
+  "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
+  "view_counts_everywhere_api_enabled": true,
+  "longform_notetweets_consumption_enabled": true,
+  "responsive_web_twitter_article_tweet_consumption_enabled": true,
+  "content_disclosure_indicator_enabled": true,
+  "content_disclosure_ai_generated_indicator_enabled": true,
+  "responsive_web_grok_show_grok_translated_post": true,
+  "responsive_web_grok_analysis_button_from_backend": true,
+  "post_ctas_fetch_enabled": false,
+  "freedom_of_speech_not_reach_fetch_enabled": true,
+  "standardized_nudges_misinfo": true,
+  "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true,
+  "longform_notetweets_rich_text_read_enabled": true,
+  "longform_notetweets_inline_media_enabled": false,
+  "responsive_web_grok_image_annotation_enabled": true,
+  "responsive_web_grok_imagine_annotation_enabled": true,
+  "responsive_web_grok_community_note_auto_translation_is_enabled": true,
+  "responsive_web_enhance_cards_enabled": false
+ },
+ "fieldToggles": null,
+ "variables": {
+  "cursor": ""
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "500",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "499",
+  "x-rate-limit-reset": "1788551477"
+ },
+ "body": {
+  "data": {
+   "explore_page": {
+    "body": {
+     "__typename": "SegmentedTimelines",
+     "initialTimeline": {
+      "id": "for_you",
+      "labelText": "Explore",
+      "refreshIntervalSec": 1200,
+      "scribeConfig": {
+       "page": "explore",
+       "section": "for_you"
+      },
+      "timeline": {
+       "timeline": {
+        "instructions": [
+         {
+          "type": "TimelineClearCache"
+         },
+         {
+          "entries": [
+           {
+            "content": {
+             "__typename": "TimelineTimelineModule",
+             "clientEventInfo": {
+              "component": "stories"
+             },
+             "displayType": "Vertical",
+             "entryType": "TimelineTimelineModule",
+             "header": {
+              "displayType": "Classic",
+              "sticky": false,
+              "text": "Today's News"
+             },
+             "items": [
+              {
+               "entryId": "stories-2095959151967469568-trend-2095591593822617905",
+               "item": {
+                "clientEventInfo": {
+                 "component": "stories",
+                 "element": "ai_trend"
+                },
+                "itemContent": {
+                 "__typename": "TimelineTrend",
+                 "is_ai_trend": true,
+                 "itemType": "TimelineTrend",
+                 "name": "Elon Musk and Chess.com Debate If AI Will Solve Chess",
+                 "social_context": {
+                  "contextImageUrls": [
+                   "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg",
+                   "https://pbs.twimg.com/profile_images/1781029462576107528/nXArvaQa_normal.jpg",
+                   "https://pbs.twimg.com/profile_images/1836047002712363008/Iaw1-QEl_normal.png"
+                  ],
+                  "contextType": "Facepile",
+                  "text": "1 day ago · News · 15K posts",
+                  "type": "TimelineGeneralContext"
+                 },
+                 "trend_metadata": {
+                  "url": {
+                   "url": "twitter://trending/2095591593822617905",
+                   "urlType": "DeepLink"
+                  }
+                 },
+                 "trend_url": {
+                  "url": "twitter://trending/2095591593822617905",
+                  "urlType": "DeepLink"
+                 }
+                }
+               }
+              },
+              {
+               "entryId": "stories-2095959151967469568-trend-2095873976832770485",
+               "item": {
+                "clientEventInfo": {
+                 "component": "stories",
+                 "element": "ai_trend"
+                },
+                "itemContent": {
+                 "__typename": "TimelineTrend",
+                 "is_ai_trend": true,
+                 "itemType": "TimelineTrend",
+                 "name": "Nintendo Announces Zelda 40th Anniversary Direct and Switch 2 Showcase",
+                 "social_context": {
+                  "contextImageUrls": [
+                   "https://pbs.twimg.com/profile_images/1686609010307248131/PwXJ2X01_normal.jpg",
+                   "https://pbs.twimg.com/profile_images/1539293929031421958/cy-uzR2t_normal.jpg",
+                   "https://pbs.twimg.com/profile_images/823439425593954305/j0L7_KyW_normal.jpg"
+                  ],
+                  "contextType": "Facepile",
+                  "text": "6 hours ago · Entertainment · 166K posts",
+                  "type": "TimelineGeneralContext"
+                 },
+                 "trend_metadata": {
+                  "url": {
+                   "url": "twitter://trending/2095873976832770485",
+                   "urlType": "DeepLink"
+                  }
+                 },
+                 "trend_url": {
+                  "url": "twitter://trending/2095873976832770485",
+                  "urlType": "DeepLink"
+                 }
+                }
+               }
+              },
+              {
+               "entryId": "stories-2095959151967469568-trend-2095604104848379926",
+               "item": {
+                "clientEventInfo": {
+                 "component": "stories",
+                 "element": "ai_trend"
+                },
+                "itemContent": {
+                 "__typename": "TimelineTrend",
+                 "is_ai_trend": true,
+                 "itemType": "TimelineTrend",
+                 "name": "Undercover Sting Exposes Reform UK Foreign Funding Scheme",
+                 "social_context": {
+                  "contextImageUrls": [
+                   "https://pbs.twimg.com/profile_images/875404558528393216/cTknVhwm_normal.jpg",
+                   "https://pbs.twimg.com/profile_images/1889657050629632000/Pxr-VZ9l_normal.jpg",
+                   "https://pbs.twimg.com/profile_images/1946967919188996096/RX142lgr_normal.jpg"
+                  ],
+                  "contextType": "Facepile",
+                  "text": "23 hours ago · Other · 259K posts",
+                  "type": "TimelineGeneralContext"
+                 },
+                 "trend_metadata": {
+                  "url": {
+                   "url": "twitter://trending/2095604104848379926",
+                   "urlType": "DeepLink"
+                  }
+                 },
+                 "trend_url": {
+                  "url": "twitter://trending/2095604104848379926",
+                  "urlType": "DeepLink"
+                 }
+                }
+               }
+              }
+             ]
+            },
+            "entryId": "stories-2095959151967469568",
+            "sortIndex": "2095959151967469568"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineItem",
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB6UBxLLCs2nwKAAIAAAGgbev9HgAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "entryType": "TimelineTimelineItem",
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAAOR3JlZyBHdWlsbG90aW4KAAPzv8fcySiXfwYABAABCAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Greg Guillotin",
+              "trend_metadata": {
+               "domain_context": "Trending in France",
+               "url": {
+                "url": "twitter://search/?query=%22Greg+Guillotin%22&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgOR3JlZyBHdWlsbG90aW4AAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=%22Greg+Guillotin%22&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgOR3JlZyBHdWlsbG90aW4AAA=="
+                 }
+                ]
+               }
+              }
+             }
+            },
+            "entryId": "trend-Greg Guillotin",
+            "sortIndex": "2095959151967469567"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineItem",
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB6UBxLLCs2nwKAAIAAAGgbev9HgAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "entryType": "TimelineTimelineItem",
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAAIVG9vdGF0aXMKAAPzv8fcySiXfwYABAACCAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Tootatis",
+              "trend_metadata": {
+               "domain_context": "Trending in France",
+               "url": {
+                "url": "twitter://search/?query=Tootatis&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgIVG9vdGF0aXMAAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=Tootatis&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgIVG9vdGF0aXMAAA=="
+                 }
+                ]
+               }
+              }
+             }
+            },
+            "entryId": "trend-Tootatis",
+            "sortIndex": "2095959151967469566"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineItem",
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB6UBxLLCs2nwKAAIAAAGgbev9HgAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "entryType": "TimelineTimelineItem",
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAAFQW55bWUKAAPzv8fcySiXfwYABAADCAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Anyme",
+              "trend_metadata": {
+               "domain_context": "Trending in France",
+               "url": {
+                "url": "twitter://search/?query=Anyme&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgFQW55bWUAAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=Anyme&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgFQW55bWUAAA=="
+                 }
+                ]
+               }
+              }
+             }
+            },
+            "entryId": "trend-Anyme",
+            "sortIndex": "2095959151967469565"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineItem",
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB6UBxLLCs2nwKAAIAAAGgbev9HgAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "entryType": "TimelineTimelineItem",
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAAOTMOpb24gTWFyY2hhbmQKAAPzv8fcySiXfwYABAAECAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Léon Marchand",
+              "trend_metadata": {
+               "domain_context": "Sports · Trending",
+               "url": {
+                "url": "twitter://search/?query=%22L%C3%A9on+Marchand%22&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgOTMOpb24gTWFyY2hhbmQAAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=%22L%C3%A9on+Marchand%22&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgOTMOpb24gTWFyY2hhbmQAAA=="
+                 }
+                ]
+               }
+              }
+             }
+            },
+            "entryId": "trend-Léon Marchand",
+            "sortIndex": "2095959151967469564"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineItem",
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB6UBxLLCs2nwKAAIAAAGgbev9HgAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "entryType": "TimelineTimelineItem",
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAALTHVjYXMgRGlnbmUKAAPzv8fcySiXfwYABAAFCAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Lucas Digne",
+              "trend_metadata": {
+               "domain_context": "Sports · Trending",
+               "url": {
+                "url": "twitter://search/?query=%22Lucas+Digne%22&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgLTHVjYXMgRGlnbmUAAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=%22Lucas+Digne%22&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgLTHVjYXMgRGlnbmUAAA=="
+                 }
+                ]
+               }
+              }
+             }
+            },
+            "entryId": "trend-Lucas Digne",
+            "sortIndex": "2095959151967469563"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineItem",
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB6UBxLLCs2nwKAAIAAAGgbev9HgAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "entryType": "TimelineTimelineItem",
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAALRmFiaWFuIFJ1aXoKAAPzv8fcySiXfwYABAAGCAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Fabian Ruiz",
+              "trend_metadata": {
+               "domain_context": "Sports · Trending",
+               "url": {
+                "url": "twitter://search/?query=%22Fabian+Ruiz%22&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgLRmFiaWFuIFJ1aXoAAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=%22Fabian+Ruiz%22&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgLRmFiaWFuIFJ1aXoAAA=="
+                 }
+                ]
+               }
+              }
+             }
+            },
+            "entryId": "trend-Fabian Ruiz",
+            "sortIndex": "2095959151967469562"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineModule",
+             "clientEventInfo": {
+              "component": "suggest_who_to_follow",
+              "details": {
+               "timelinesDetails": {
+                "injectionType": "WhoToFollow",
+                "sourceData": "DAABCgAB6UBxLLCs2nwKAAIAAAAAAAAAAAAIAAIAAARhCAADAAAAJwA="
+               }
+              }
+             },
+             "displayType": "Vertical",
+             "entryType": "TimelineTimelineModule",
+             "footer": {
+              "displayType": "Classic",
+              "landingUrl": {
+               "url": "twitter://connect_people",
+               "urlType": "DeepLink"
+              },
+              "text": "Show more"
+             },
+             "header": {
+              "displayType": "Classic",
+              "sticky": false,
+              "text": "Who to follow"
+             },
+             "items": [
+              {
+               "entryId": "who-to-follow-2095959151967469575-user-15143478",
+               "item": {
+                "clientEventInfo": {
+                 "component": "suggest_who_to_follow",
+                 "details": {
+                  "timelinesDetails": {
+                   "injectionType": "WhoToFollow",
+                   "sourceData": "DAABCgAB6UBxLLCs2nwKAAIAAAAAAAAAAAAIAAIAAARhCAADAAAAJwA="
+                  }
+                 },
+                 "element": "user"
+                },
+                "itemContent": {
+                 "__typename": "TimelineUser",
+                 "itemType": "TimelineUser",
+                 "userDisplayType": "User",
+                 "user_results": {
+                  "result": {
+                   "__typename": "User",
+                   "action_counts": {
+                    "favorites_count": 233
+                   },
+                   "affiliates_highlighted_label": {},
+                   "avatar": {
+                    "image_url": "https://pbs.twimg.com/profile_images/1094327574031945729/tU8wz8DL_normal.jpg"
+                   },
+                   "banner": {
+                    "image_url": "https://pbs.twimg.com/profile_banners/15143478/1780326221"
+                   },
+                   "core": {
+                    "created_at": "Tue Jun 17 08:15:17 +0000 2008",
+                    "name": "Richard Dawkins",
+                    "screen_name": "RichardDawkins"
+                   },
+                   "dm_permissions": {
+                    "can_dm": false
+                   },
+                   "follow_request_sent": false,
+                   "has_graduated_access": true,
+                   "id": "VXNlcjoxNTE0MzQ3OA==",
+                   "is_blue_verified": true,
+                   "location": {
+                    "location": ""
+                   },
+                   "media_permissions": {
+                    "can_media_tag": true
+                   },
+                   "notifications_settings": {
+                    "notifications_enabled": false
+                   },
+                   "parody_commentary_fan_label": "None",
+                   "pinned_items": {},
+                   "possibly_sensitive": false,
+                   "privacy": {
+                    "protected": false
+                   },
+                   "profile_bio": {
+                    "description": "UK biologist & writer",
+                    "entities": {
+                     "description": {},
+                     "url": {
+                      "urls": [
+                       {
+                        "display_url": "richarddawkins.com",
+                        "expanded_url": "http://richarddawkins.com",
+                        "indices": [
+                         0,
+                         23
+                        ],
+                        "url": "https://t.co/UcChRWzezd"
+                       }
+                      ]
+                     }
+                    }
+                   },
+                   "profile_image_shape": "Circle",
+                   "profile_metadata": {
+                    "profile_interstitial_type": ""
+                   },
+                   "profile_translation": {
+                    "translator_type": "none"
+                   },
+                   "relationship_counts": {
+                    "followers": 2866526,
+                    "following": 344
+                   },
+                   "relationship_perspectives": {
+                    "blocked_by": false,
+                    "blocking": false,
+                    "followed_by": false,
+                    "following": false,
+                    "live_following": false,
+                    "muting": false
+                   },
+                   "rest_id": "15143478",
+                   "super_follow_eligible": true,
+                   "super_followed_by": false,
+                   "super_following": false,
+                   "tweet_counts": {
+                    "media_tweets": 968,
+                    "tweets": 31880
+                   },
+                   "verification": {
+                    "verified": false
+                   },
+                   "website": {
+                    "url": "https://t.co/UcChRWzezd"
+                   }
+                  }
+                 }
+                }
+               }
+              },
+              {
+               "entryId": "who-to-follow-2095959151967469575-user-15110431",
+               "item": {
+                "clientEventInfo": {
+                 "component": "suggest_who_to_follow",
+                 "details": {
+                  "timelinesDetails": {
+                   "injectionType": "WhoToFollow",
+                   "sourceData": "DAABCgAB6UBxLLCs2nwKAAIAAAAAAAAAAAAIAAIAAARgCAADAAAAJwA="
+                  }
+                 },
+                 "element": "user"
+                },
+                "itemContent": {
+                 "__typename": "TimelineUser",
+                 "itemType": "TimelineUser",
+                 "userDisplayType": "User",
+                 "user_results": {
+                  "result": {
+                   "__typename": "User",
+                   "action_counts": {
+                    "favorites_count": 0
+                   },
+                   "affiliates_highlighted_label": {},
+                   "avatar": {
+                    "image_url": "https://pbs.twimg.com/profile_images/1151221802435325953/72h20MPM_normal.jpg"
+                   },
+                   "banner": {
+                    "image_url": "https://pbs.twimg.com/profile_banners/15110431/1621870096"
+                   },
+                   "core": {
+                    "created_at": "Fri Jun 13 19:04:44 +0000 2008",
+                    "name": "Reuters Science News",
+                    "screen_name": "ReutersScience"
+                   },
+                   "dm_permissions": {
+                    "can_dm": false
+                   },
+                   "follow_request_sent": false,
+                   "has_graduated_access": true,
+                   "id": "VXNlcjoxNTExMDQzMQ==",
+                   "is_blue_verified": true,
+                   "location": {
+                    "location": ""
+                   },
+                   "media_permissions": {
+                    "can_media_tag": true
+                   },
+                   "notifications_settings": {
+                    "notifications_enabled": false
+                   },
+                   "parody_commentary_fan_label": "None",
+                   "pinned_items": {},
+                   "possibly_sensitive": false,
+                   "privacy": {
+                    "protected": false
+                   },
+                   "profile_bio": {
+                    "description": "From newly charted astronomical anomalies at the far reaches of the universe to the rise of nanotechnology, nobody covers science like http://t.co/RtkLii8CUo.",
+                    "entities": {
+                     "description": {
+                      "urls": [
+                       {
+                        "display_url": "Reuters.com",
+                        "expanded_url": "http://Reuters.com",
+                        "indices": [
+                         135,
+                         157
+                        ],
+                        "url": "http://t.co/RtkLii8CUo"
+                       }
+                      ]
+                     },
+                     "url": {
+                      "urls": [
+                       {
+                        "display_url": "reuters.com/news/science",
+                        "expanded_url": "http://www.reuters.com/news/science",
+                        "indices": [
+                         0,
+                         22
+                        ],
+                        "url": "http://t.co/EpgDQykcUD"
+                       }
+                      ]
+                     }
+                    }
+                   },
+                   "profile_description_language": "en",
+                   "profile_image_shape": "Circle",
+                   "profile_metadata": {
+                    "profile_interstitial_type": ""
+                   },
+                   "profile_translation": {
+                    "translator_type": "none"
+                   },
+                   "relationship_counts": {
+                    "followers": 1293258,
+                    "following": 18
+                   },
+                   "relationship_perspectives": {
+                    "blocked_by": false,
+                    "blocking": false,
+                    "followed_by": false,
+                    "following": false,
+                    "live_following": false,
+                    "muting": false
+                   },
+                   "rest_id": "15110431",
+                   "super_follow_eligible": false,
+                   "super_followed_by": false,
+                   "super_following": false,
+                   "tweet_counts": {
+                    "media_tweets": 22333,
+                    "tweets": 80414
+                   },
+                   "verification": {
+                    "verified": false
+                   },
+                   "website": {
+                    "url": "http://t.co/EpgDQykcUD"
+                   }
+                  }
+                 }
+                }
+               }
+              },
+              {
+               "entryId": "who-to-follow-2095959151967469575-user-14647570",
+               "item": {
+                "clientEventInfo": {
+                 "component": "suggest_who_to_follow",
+                 "details": {
+                  "timelinesDetails": {
+                   "injectionType": "WhoToFollow",
+                   "sourceData": "DAABCgAB6UBxLLCs2nwKAAIAAAAAAAAAAAAIAAIAAARgCAADAAAAJwA="
+                  }
+                 },
+                 "element": "user"
+                },
+                "itemContent": {
+                 "__typename": "TimelineUser",
+                 "itemType": "TimelineUser",
+                 "userDisplayType": "User",
+                 "user_results": {
+                  "result": {
+                   "__typename": "User",
+                   "action_counts": {
+                    "favorites_count": 5864
+                   },
+                   "affiliates_highlighted_label": {},
+                   "avatar": {
+                    "image_url": "https://pbs.twimg.com/profile_images/1704126231371771905/McZuDEgT_normal.jpg"
+                   },
+                   "banner": {
+                    "image_url": "https://pbs.twimg.com/profile_banners/14647570/1734728659"
+                   },
+                   "core": {
+                    "created_at": "Sun May 04 12:39:32 +0000 2008",
+                    "name": "Scientific American",
+                    "screen_name": "sciam"
+                   },
+                   "dm_permissions": {
+                    "can_dm": false
+                   },
+                   "follow_request_sent": false,
+                   "has_graduated_access": true,
+                   "id": "VXNlcjoxNDY0NzU3MA==",
+                   "is_blue_verified": true,
+                   "location": {
+                    "location": "New York City"
+                   },
+                   "media_permissions": {
+                    "can_media_tag": true
+                   },
+                   "notifications_settings": {
+                    "notifications_enabled": false
+                   },
+                   "parody_commentary_fan_label": "None",
+                   "pinned_items": {},
+                   "possibly_sensitive": false,
+                   "privacy": {
+                    "protected": false
+                   },
+                   "professional": {
+                    "category": [],
+                    "professional_type": "Business",
+                    "rest_id": "1455883494421319681"
+                   },
+                   "profile_bio": {
+                    "description": "Awesome discoveries. Expert insights. Science that shapes the world.",
+                    "entities": {
+                     "description": {},
+                     "url": {
+                      "urls": [
+                       {
+                        "display_url": "scientificamerican.com",
+                        "expanded_url": "http://www.scientificamerican.com",
+                        "indices": [
+                         0,
+                         23
+                        ],
+                        "url": "https://t.co/cd46CF57nf"
+                       }
+                      ]
+                     }
+                    }
+                   },
+                   "profile_description_language": "en",
+                   "profile_image_shape": "Circle",
+                   "profile_metadata": {
+                    "profile_interstitial_type": ""
+                   },
+                   "profile_translation": {
+                    "translator_type": "none"
+                   },
+                   "relationship_counts": {
+                    "followers": 4251943,
+                    "following": 789
+                   },
+                   "relationship_perspectives": {
+                    "blocked_by": false,
+                    "blocking": false,
+                    "followed_by": false,
+                    "following": false,
+                    "live_following": false,
+                    "muting": false
+                   },
+                   "rest_id": "14647570",
+                   "super_follow_eligible": false,
+                   "super_followed_by": false,
+                   "super_following": false,
+                   "tweet_counts": {
+                    "media_tweets": 16710,
+                    "tweets": 77892
+                   },
+                   "verification": {
+                    "verified": false
+                   },
+                   "website": {
+                    "url": "https://t.co/cd46CF57nf"
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             ]
+            },
+            "entryId": "who-to-follow-2095959151967469575",
+            "sortIndex": "2095959151967469561"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineModule",
+             "clientEventInfo": {
+              "component": "tweets_for_you",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAODAABCgAB6UBxLLCs2nwKAAIAAAGgbev8wgAAAAA="
+               }
+              }
+             },
+             "displayType": "Vertical",
+             "entryType": "TimelineTimelineModule",
+             "header": {
+              "displayType": "Classic",
+              "text": "Posts For You"
+             },
+             "items": [
+              {
+               "entryId": "tweet-2095959151967469576-tweet-2095595741528125780",
+               "item": {
+                "clientEventInfo": {
+                 "component": "tweets_for_you",
+                 "details": {
+                  "timelinesDetails": {
+                   "controllerData": "DAACDAAODAABCgAB6UBxLLCs2nwKAAIAAAGgbev8wgAAAAA="
+                  }
+                 },
+                 "element": "tweet"
+                },
+                "itemContent": {
+                 "__typename": "TimelineTweet",
+                 "itemType": "TimelineTweet",
+                 "tweetDisplayType": "Tweet",
+                 "tweet_results": {
+                  "result": {
+                   "__typename": "Tweet",
+                   "cashtag_attachments": [],
+                   "core": {
+                    "user_results": {
+                     "result": {
+                      "__typename": "User",
+                      "action_counts": {
+                       "favorites_count": 2460
+                      },
+                      "affiliates_highlighted_label": {},
+                      "avatar": {
+                       "image_url": "https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg"
+                      },
+                      "banner": {
+                       "image_url": "https://pbs.twimg.com/profile_banners/4398626122/1777662919"
+                      },
+                      "core": {
+                       "created_at": "Sun Dec 06 22:51:08 +0000 2015",
+                       "name": "OpenAI",
+                       "screen_name": "OpenAI"
+                      },
+                      "dm_permissions": {
+                       "can_dm": false
+                      },
+                      "follow_request_sent": false,
+                      "has_graduated_access": true,
+                      "id": "VXNlcjo0Mzk4NjI2MTIy",
+                      "is_blue_verified": true,
+                      "location": {
+                       "location": ""
+                      },
+                      "media_permissions": {
+                       "can_media_tag": true
+                      },
+                      "notifications_settings": {
+                       "notifications_enabled": false
+                      },
+                      "parody_commentary_fan_label": "None",
+                      "pinned_items": {
+                       "tweet_ids_str": [
+                        "2095595741528125780"
+                       ]
+                      },
+                      "possibly_sensitive": false,
+                      "privacy": {
+                       "protected": false
+                      },
+                      "profile_bio": {
+                       "description": "OpenAI’s mission is to ensure that artificial general intelligence benefits all of humanity. We’re hiring: https://t.co/dJGr6LgzPA",
+                       "entities": {
+                        "description": {
+                         "urls": [
+                          {
+                           "display_url": "openai.com/jobs",
+                           "expanded_url": "http://openai.com/jobs",
+                           "indices": [
+                            107,
+                            130
+                           ],
+                           "url": "https://t.co/dJGr6LgzPA"
+                          }
+                         ]
+                        },
+                        "url": {
+                         "urls": [
+                          {
+                           "display_url": "openai.com",
+                           "expanded_url": "https://openai.com",
+                           "indices": [
+                            0,
+                            23
+                           ],
+                           "url": "https://t.co/3bPlZZkvdL"
+                          }
+                         ]
+                        }
+                       }
+                      },
+                      "profile_description_language": "en",
+                      "profile_image_shape": "Square",
+                      "profile_metadata": {
+                       "profile_interstitial_type": ""
+                      },
+                      "profile_translation": {
+                       "translator_type": "none"
+                      },
+                      "relationship_counts": {
+                       "followers": 5224496,
+                       "following": 4
+                      },
+                      "relationship_perspectives": {
+                       "blocked_by": false,
+                       "blocking": false,
+                       "followed_by": false,
+                       "following": false,
+                       "live_following": false,
+                       "muting": false
+                      },
+                      "rest_id": "4398626122",
+                      "super_follow_eligible": false,
+                      "super_followed_by": false,
+                      "super_following": false,
+                      "tweet_counts": {
+                       "media_tweets": 703,
+                       "tweets": 2101
+                      },
+                      "verification": {
+                       "verified": false,
+                       "verified_type": "Business"
+                      },
+                      "website": {
+                       "url": "https://t.co/3bPlZZkvdL"
+                      }
+                     }
+                    }
+                   },
+                   "edit_control": {
+                    "edit_tweet_ids": [
+                     "2095595741528125780"
+                    ],
+                    "editable_until_msecs": "1788467533000",
+                    "edits_remaining": "5",
+                    "is_edit_eligible": false
+                   },
+                   "grok_analysis_button": true,
+                   "grok_annotations": {
+                    "is_image_editable_by_grok": false
+                   },
+                   "grok_translated_post_with_availability": {
+                    "is_available": false
+                   },
+                   "is_translatable": false,
+                   "legacy": {
+                    "bookmark_count": 93257,
+                    "bookmarked": false,
+                    "conversation_id_str": "2095595741528125780",
+                    "created_at": "Thu Sep 03 19:32:13 +0000 2026",
+                    "display_text_range": [
+                     0,
+                     84
+                    ],
+                    "entities": {
+                     "media": [
+                      {
+                       "additional_media_info": {
+                        "monetizable": false
+                       },
+                       "display_url": "pic.x.com/gDd0IsewJw",
+                       "expanded_url": "https://x.com/OpenAI/status/2095595741528125780/video/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "id_str": "2095595661559574528",
+                       "indices": [
+                        85,
+                        108
+                       ],
+                       "media_key": "13_2095595661559574528",
+                       "media_results": {
+                        "result": {
+                         "media_key": "13_2095595661559574528"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/2095595661559574528/img/Vmb2pgEFJ6fpCUTD.jpg",
+                       "original_info": {
+                        "focus_rects": [],
+                        "height": 1080,
+                        "width": 1920
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1080,
+                         "resize": "fit",
+                         "w": 1920
+                        },
+                        "medium": {
+                         "h": 675,
+                         "resize": "fit",
+                         "w": 1200
+                        },
+                        "small": {
+                         "h": 383,
+                         "resize": "fit",
+                         "w": 680
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "video",
+                       "url": "https://t.co/gDd0IsewJw",
+                       "video_info": {
+                        "aspect_ratio": [
+                         16,
+                         9
+                        ],
+                        "duration_millis": 162965,
+                        "variants": [
+                         {
+                          "content_type": "application/x-mpegURL",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/pl/Xq_LduP0ihdDNafh.m3u8?tag=29"
+                         },
+                         {
+                          "bitrate": 256000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/vid/avc1/480x270/CntmNmX2nKsH3Czk.mp4?tag=29"
+                         },
+                         {
+                          "bitrate": 832000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/vid/avc1/640x360/H0EgAPRo-BmSJVdT.mp4?tag=29"
+                         },
+                         {
+                          "bitrate": 2176000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/vid/avc1/1280x720/Cv4dXuFNWqERUUJd.mp4?tag=29"
+                         },
+                         {
+                          "bitrate": 10368000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/vid/avc1/1920x1080/grXdGA07X-yPH_8z.mp4?tag=29"
+                         }
+                        ]
+                       }
+                      }
+                     ]
+                    },
+                    "extended_entities": {
+                     "media": [
+                      {
+                       "additional_media_info": {
+                        "monetizable": false
+                       },
+                       "display_url": "pic.x.com/gDd0IsewJw",
+                       "expanded_url": "https://x.com/OpenAI/status/2095595741528125780/video/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "id_str": "2095595661559574528",
+                       "indices": [
+                        85,
+                        108
+                       ],
+                       "media_key": "13_2095595661559574528",
+                       "media_results": {
+                        "result": {
+                         "media_key": "13_2095595661559574528"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/2095595661559574528/img/Vmb2pgEFJ6fpCUTD.jpg",
+                       "original_info": {
+                        "focus_rects": [],
+                        "height": 1080,
+                        "width": 1920
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1080,
+                         "resize": "fit",
+                         "w": 1920
+                        },
+                        "medium": {
+                         "h": 675,
+                         "resize": "fit",
+                         "w": 1200
+                        },
+                        "small": {
+                         "h": 383,
+                         "resize": "fit",
+                         "w": 680
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "video",
+                       "url": "https://t.co/gDd0IsewJw",
+                       "video_info": {
+                        "aspect_ratio": [
+                         16,
+                         9
+                        ],
+                        "duration_millis": 162965,
+                        "variants": [
+                         {
+                          "content_type": "application/x-mpegURL",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/pl/Xq_LduP0ihdDNafh.m3u8?tag=29"
+                         },
+                         {
+                          "bitrate": 256000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/vid/avc1/480x270/CntmNmX2nKsH3Czk.mp4?tag=29"
+                         },
+                         {
+                          "bitrate": 832000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/vid/avc1/640x360/H0EgAPRo-BmSJVdT.mp4?tag=29"
+                         },
+                         {
+                          "bitrate": 2176000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/vid/avc1/1280x720/Cv4dXuFNWqERUUJd.mp4?tag=29"
+                         },
+                         {
+                          "bitrate": 10368000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/amplify_video/2095595661559574528/vid/avc1/1920x1080/grXdGA07X-yPH_8z.mp4?tag=29"
+                         }
+                        ]
+                       }
+                      }
+                     ]
+                    },
+                    "favorite_count": 297470,
+                    "favorited": false,
+                    "full_text": "This is GPT-6 Astra.\n\nAnything you can do on a computer, Astra can do for you. Fast. https://t.co/gDd0IsewJw",
+                    "id_str": "2095595741528125780",
+                    "is_quote_status": false,
+                    "lang": "en",
+                    "possibly_sensitive": false,
+                    "possibly_sensitive_editable": true,
+                    "quote_count": 22917,
+                    "reply_count": 7353,
+                    "retweet_count": 30522,
+                    "retweeted": false,
+                    "user_id_str": "4398626122"
+                   },
+                   "rest_id": "2095595741528125780",
+                   "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+                   "unmention_data": {},
+                   "views": {
+                    "count": "99766283",
+                    "state": "EnabledWithCount"
+                   }
+                  }
+                 }
+                }
+               }
+              },
+              {
+               "entryId": "tweet-2095959151967469576-tweet-2095724907162194140",
+               "item": {
+                "clientEventInfo": {
+                 "component": "tweets_for_you",
+                 "details": {
+                  "timelinesDetails": {
+                   "controllerData": "DAACDAAODAABCgAB6UBxLLCs2nwKAAIAAAGgbev8wgAAAAA="
+                  }
+                 },
+                 "element": "tweet"
+                },
+                "itemContent": {
+                 "__typename": "TimelineTweet",
+                 "itemType": "TimelineTweet",
+                 "tweetDisplayType": "Tweet",
+                 "tweet_results": {
+                  "result": {
+                   "__typename": "Tweet",
+                   "cashtag_attachments": [],
+                   "core": {
+                    "user_results": {
+                     "result": {
+                      "__typename": "User",
+                      "action_counts": {
+                       "favorites_count": 30460
+                      },
+                      "affiliates_highlighted_label": {},
+                      "avatar": {
+                       "image_url": "https://pbs.twimg.com/profile_images/1222184425775079425/SlyHEo-g_normal.jpg"
+                      },
+                      "banner": {
+                       "image_url": "https://pbs.twimg.com/profile_banners/1222182373867032576/1580226447"
+                      },
+                      "core": {
+                       "created_at": "Tue Jan 28 15:39:33 +0000 2020",
+                       "name": "Physics & Astronomy Zone",
+                       "screen_name": "zone_astronomy"
+                      },
+                      "dm_permissions": {
+                       "can_dm": false
+                      },
+                      "follow_request_sent": false,
+                      "has_graduated_access": true,
+                      "id": "VXNlcjoxMjIyMTgyMzczODY3MDMyNTc2",
+                      "is_blue_verified": true,
+                      "location": {
+                       "location": ""
+                      },
+                      "media_permissions": {
+                       "can_media_tag": true
+                      },
+                      "notifications_settings": {
+                       "notifications_enabled": false
+                      },
+                      "parody_commentary_fan_label": "None",
+                      "pinned_items": {},
+                      "possibly_sensitive": false,
+                      "privacy": {
+                       "protected": false
+                      },
+                      "profile_bio": {
+                       "description": "Science Educational Website \nWelcome to the official page of Physics & Astronomy Zone. This page is primarily Dedicated to physics and astronomy lovers.",
+                       "entities": {
+                        "description": {}
+                       }
+                      },
+                      "profile_description_language": "en",
+                      "profile_image_shape": "Circle",
+                      "profile_metadata": {
+                       "profile_interstitial_type": ""
+                      },
+                      "profile_translation": {
+                       "translator_type": "none"
+                      },
+                      "relationship_counts": {
+                       "followers": 306100,
+                       "following": 8793
+                      },
+                      "relationship_perspectives": {
+                       "blocked_by": false,
+                       "blocking": false,
+                       "followed_by": false,
+                       "following": false,
+                       "live_following": false,
+                       "muting": false
+                      },
+                      "rest_id": "1222182373867032576",
+                      "super_follow_eligible": true,
+                      "super_followed_by": false,
+                      "super_following": false,
+                      "tweet_counts": {
+                       "media_tweets": 5667,
+                       "tweets": 9776
+                      },
+                      "verification": {
+                       "verified": false
+                      },
+                      "website": {
+                       "url": ""
+                      }
+                     }
+                    }
+                   },
+                   "edit_control": {
+                    "edit_tweet_ids": [
+                     "2095724907162194140"
+                    ],
+                    "editable_until_msecs": "1788498329000",
+                    "edits_remaining": "5",
+                    "is_edit_eligible": true
+                   },
+                   "grok_analysis_button": true,
+                   "grok_annotations": {
+                    "is_image_editable_by_grok": true
+                   },
+                   "grok_translated_post_with_availability": {
+                    "is_available": false
+                   },
+                   "is_translatable": false,
+                   "legacy": {
+                    "bookmark_count": 1724,
+                    "bookmarked": false,
+                    "conversation_id_str": "2095724907162194140",
+                    "created_at": "Fri Sep 04 04:05:29 +0000 2026",
+                    "display_text_range": [
+                     0,
+                     273
+                    ],
+                    "entities": {
+                     "media": [
+                      {
+                       "additional_media_info": {
+                        "monetizable": false
+                       },
+                       "display_url": "pic.x.com/13d3pzOUN4",
+                       "expanded_url": "https://x.com/zone_astronomy/status/2095724907162194140/video/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "id_str": "2095724850941755401",
+                       "indices": [
+                        274,
+                        297
+                       ],
+                       "media_key": "7_2095724850941755401",
+                       "media_results": {
+                        "result": {
+                         "media_key": "7_2095724850941755401"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/2095724850941755401/pu/img/FEBZy4SSzJC4d0zf.jpg",
+                       "original_info": {
+                        "focus_rects": [],
+                        "height": 1280,
+                        "width": 720
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1280,
+                         "resize": "fit",
+                         "w": 720
+                        },
+                        "medium": {
+                         "h": 1200,
+                         "resize": "fit",
+                         "w": 675
+                        },
+                        "small": {
+                         "h": 680,
+                         "resize": "fit",
+                         "w": 383
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "video",
+                       "url": "https://t.co/13d3pzOUN4",
+                       "video_info": {
+                        "aspect_ratio": [
+                         9,
+                         16
+                        ],
+                        "duration_millis": 35833,
+                        "variants": [
+                         {
+                          "content_type": "application/x-mpegURL",
+                          "url": "https://video.twimg.com/ext_tw_video/2095724850941755401/pu/pl/9Jfinm1pKBrcHN1M.m3u8?tag=12&v=cfc"
+                         },
+                         {
+                          "bitrate": 632000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095724850941755401/pu/vid/avc1/320x568/PiNRmAq1dfR3N_l4.mp4?tag=12"
+                         },
+                         {
+                          "bitrate": 950000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095724850941755401/pu/vid/avc1/480x852/TbWK0G7jh6HHW5fp.mp4?tag=12"
+                         },
+                         {
+                          "bitrate": 2176000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095724850941755401/pu/vid/avc1/720x1280/J-_4TSRx3fCfXyoP.mp4?tag=12"
+                         }
+                        ]
+                       }
+                      }
+                     ]
+                    },
+                    "extended_entities": {
+                     "media": [
+                      {
+                       "additional_media_info": {
+                        "monetizable": false
+                       },
+                       "display_url": "pic.x.com/13d3pzOUN4",
+                       "expanded_url": "https://x.com/zone_astronomy/status/2095724907162194140/video/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "id_str": "2095724850941755401",
+                       "indices": [
+                        274,
+                        297
+                       ],
+                       "media_key": "7_2095724850941755401",
+                       "media_results": {
+                        "result": {
+                         "media_key": "7_2095724850941755401"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/2095724850941755401/pu/img/FEBZy4SSzJC4d0zf.jpg",
+                       "original_info": {
+                        "focus_rects": [],
+                        "height": 1280,
+                        "width": 720
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1280,
+                         "resize": "fit",
+                         "w": 720
+                        },
+                        "medium": {
+                         "h": 1200,
+                         "resize": "fit",
+                         "w": 675
+                        },
+                        "small": {
+                         "h": 680,
+                         "resize": "fit",
+                         "w": 383
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "video",
+                       "url": "https://t.co/13d3pzOUN4",
+                       "video_info": {
+                        "aspect_ratio": [
+                         9,
+                         16
+                        ],
+                        "duration_millis": 35833,
+                        "variants": [
+                         {
+                          "content_type": "application/x-mpegURL",
+                          "url": "https://video.twimg.com/ext_tw_video/2095724850941755401/pu/pl/9Jfinm1pKBrcHN1M.m3u8?tag=12&v=cfc"
+                         },
+                         {
+                          "bitrate": 632000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095724850941755401/pu/vid/avc1/320x568/PiNRmAq1dfR3N_l4.mp4?tag=12"
+                         },
+                         {
+                          "bitrate": 950000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095724850941755401/pu/vid/avc1/480x852/TbWK0G7jh6HHW5fp.mp4?tag=12"
+                         },
+                         {
+                          "bitrate": 2176000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095724850941755401/pu/vid/avc1/720x1280/J-_4TSRx3fCfXyoP.mp4?tag=12"
+                         }
+                        ]
+                       }
+                      }
+                     ]
+                    },
+                    "favorite_count": 3484,
+                    "favorited": false,
+                    "full_text": "The Helical Truth: Chasing the Sun at 220 km/s\nUpdated version \n\nDiscover the true shape of planetary trajectories as our Solar System travels at ~220 km/s through the Milky Way. This interactive 3D simulation moves beyond the basic heliocentric model to visualize the real https://t.co/13d3pzOUN4",
+                    "id_str": "2095724907162194140",
+                    "is_quote_status": false,
+                    "lang": "en",
+                    "possibly_sensitive": false,
+                    "possibly_sensitive_editable": true,
+                    "quote_count": 44,
+                    "reply_count": 79,
+                    "retweet_count": 811,
+                    "retweeted": false,
+                    "user_id_str": "1222182373867032576"
+                   },
+                   "note_tweet": {
+                    "is_expandable": true,
+                    "note_tweet_results": {
+                     "result": {
+                      "entity_set": {
+                       "hashtags": [
+                        {
+                         "indices": [
+                          305,
+                          317
+                         ],
+                         "text": "SolarSystem"
+                        },
+                        {
+                         "indices": [
+                          318,
+                          331
+                         ],
+                         "text": "Astrophysics"
+                        }
+                       ],
+                       "smarttags": [],
+                       "symbols": [],
+                       "timestamps": [],
+                       "urls": [],
+                       "user_mentions": []
+                      },
+                      "id": "Tm90ZVR3ZWV0OjIwOTU3MjQ5MDcwOTA4MjUyMTc=",
+                      "text": "The Helical Truth: Chasing the Sun at 220 km/s\nUpdated version \n\nDiscover the true shape of planetary trajectories as our Solar System travels at ~220 km/s through the Milky Way. This interactive 3D simulation moves beyond the basic heliocentric model to visualize the real helical motion of the planets.\n#SolarSystem #Astrophysics"
+                     }
+                    }
+                   },
+                   "rest_id": "2095724907162194140",
+                   "source": "<a href=\"https://buffer.com\" rel=\"nofollow\">Buffer</a>",
+                   "unmention_data": {},
+                   "views": {
+                    "count": "176878",
+                    "state": "EnabledWithCount"
+                   }
+                  }
+                 }
+                }
+               }
+              },
+              {
+               "entryId": "tweet-2095959151967469576-tweet-2095600678471168377",
+               "item": {
+                "clientEventInfo": {
+                 "component": "tweets_for_you",
+                 "details": {
+                  "timelinesDetails": {
+                   "controllerData": "DAACDAAODAABCgAB6UBxLLCs2nwKAAIAAAGgbev8wgAAAAA="
+                  }
+                 },
+                 "element": "tweet"
+                },
+                "itemContent": {
+                 "__typename": "TimelineTweet",
+                 "itemType": "TimelineTweet",
+                 "tweetDisplayType": "Tweet",
+                 "tweet_results": {
+                  "result": {
+                   "__typename": "Tweet",
+                   "cashtag_attachments": [],
+                   "core": {
+                    "user_results": {
+                     "result": {
+                      "__typename": "User",
+                      "action_counts": {
+                       "favorites_count": 1
+                      },
+                      "affiliates_highlighted_label": {},
+                      "avatar": {
+                       "image_url": "https://pbs.twimg.com/profile_images/2009552240114081792/OldSOaw3_normal.jpg"
+                      },
+                      "banner": {
+                       "image_url": ""
+                      },
+                      "core": {
+                       "created_at": "Fri Jan 09 08:49:04 +0000 2026",
+                       "name": "LPC",
+                       "screen_name": "landpalestine"
+                      },
+                      "dm_permissions": {
+                       "can_dm": true
+                      },
+                      "follow_request_sent": false,
+                      "has_graduated_access": true,
+                      "id": "VXNlcjoyMDA5NTQ3ODcyNDYzOTI1MjQ4",
+                      "is_blue_verified": true,
+                      "location": {
+                       "location": ""
+                      },
+                      "media_permissions": {
+                       "can_media_tag": true
+                      },
+                      "notifications_settings": {
+                       "notifications_enabled": false
+                      },
+                      "parody_commentary_fan_label": "None",
+                      "pinned_items": {
+                       "tweet_ids_str": [
+                        "2070449085358756315"
+                       ]
+                      },
+                      "possibly_sensitive": false,
+                      "privacy": {
+                       "protected": false
+                      },
+                      "profile_bio": {
+                       "description": "1.8 million on IG\n\napoiwuatt@gmail.com",
+                       "entities": {
+                        "description": {}
+                       }
+                      },
+                      "profile_image_shape": "Circle",
+                      "profile_metadata": {
+                       "profile_interstitial_type": ""
+                      },
+                      "profile_translation": {
+                       "translator_type": "none"
+                      },
+                      "relationship_counts": {
+                       "followers": 35729,
+                       "following": 183
+                      },
+                      "relationship_perspectives": {
+                       "blocked_by": false,
+                       "blocking": false,
+                       "followed_by": false,
+                       "following": false,
+                       "live_following": false,
+                       "muting": false
+                      },
+                      "rest_id": "2009547872463925248",
+                      "super_follow_eligible": false,
+                      "super_followed_by": false,
+                      "super_following": false,
+                      "tweet_counts": {
+                       "media_tweets": 3767,
+                       "tweets": 5006
+                      },
+                      "verification": {
+                       "verified": false
+                      },
+                      "website": {
+                       "url": ""
+                      }
+                     }
+                    }
+                   },
+                   "edit_control": {
+                    "edit_tweet_ids": [
+                     "2095600678471168377"
+                    ],
+                    "editable_until_msecs": "1788468710000",
+                    "edits_remaining": "5",
+                    "is_edit_eligible": false
+                   },
+                   "grok_analysis_button": true,
+                   "grok_annotations": {
+                    "is_image_editable_by_grok": false
+                   },
+                   "grok_translated_post_with_availability": {
+                    "is_available": false
+                   },
+                   "is_translatable": false,
+                   "legacy": {
+                    "bookmark_count": 7370,
+                    "bookmarked": false,
+                    "conversation_id_str": "2095600678471168377",
+                    "created_at": "Thu Sep 03 19:51:50 +0000 2026",
+                    "display_text_range": [
+                     0,
+                     43
+                    ],
+                    "entities": {
+                     "media": [
+                      {
+                       "allow_download_status": {
+                        "allow_download": true
+                       },
+                       "display_url": "pic.x.com/3VmV1JZykN",
+                       "expanded_url": "https://x.com/landpalestine/status/2095600678471168377/photo/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "features": {
+                        "large": {
+                         "faces": [
+                          {
+                           "h": 53,
+                           "w": 53,
+                           "x": 850,
+                           "y": 467
+                          },
+                          {
+                           "h": 95,
+                           "w": 95,
+                           "x": 374,
+                           "y": 523
+                          },
+                          {
+                           "h": 89,
+                           "w": 89,
+                           "x": 1018,
+                           "y": 1101
+                          }
+                         ]
+                        },
+                        "medium": {
+                         "faces": [
+                          {
+                           "h": 42,
+                           "w": 42,
+                           "x": 675,
+                           "y": 371
+                          },
+                          {
+                           "h": 75,
+                           "w": 75,
+                           "x": 297,
+                           "y": 415
+                          },
+                          {
+                           "h": 70,
+                           "w": 70,
+                           "x": 808,
+                           "y": 874
+                          }
+                         ]
+                        },
+                        "orig": {
+                         "faces": [
+                          {
+                           "h": 53,
+                           "w": 53,
+                           "x": 850,
+                           "y": 467
+                          },
+                          {
+                           "h": 95,
+                           "w": 95,
+                           "x": 374,
+                           "y": 523
+                          },
+                          {
+                           "h": 89,
+                           "w": 89,
+                           "x": 1018,
+                           "y": 1101
+                          }
+                         ]
+                        },
+                        "small": {
+                         "faces": [
+                          {
+                           "h": 23,
+                           "w": 23,
+                           "x": 383,
+                           "y": 210
+                          },
+                          {
+                           "h": 42,
+                           "w": 42,
+                           "x": 168,
+                           "y": 235
+                          },
+                          {
+                           "h": 40,
+                           "w": 40,
+                           "x": 458,
+                           "y": 496
+                          }
+                         ]
+                        }
+                       },
+                       "id_str": "2095600667922690048",
+                       "indices": [
+                        44,
+                        67
+                       ],
+                       "media_key": "3_2095600667922690048",
+                       "media_results": {
+                        "result": {
+                         "media_key": "3_2095600667922690048"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/media/HRURtFqacAABLHv.jpg",
+                       "original_info": {
+                        "focus_rects": [
+                         {
+                          "h": 630,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1125,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1283,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1510,
+                          "w": 755,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1510,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         }
+                        ],
+                        "height": 1510,
+                        "width": 1125
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1510,
+                         "resize": "fit",
+                         "w": 1125
+                        },
+                        "medium": {
+                         "h": 1200,
+                         "resize": "fit",
+                         "w": 894
+                        },
+                        "small": {
+                         "h": 680,
+                         "resize": "fit",
+                         "w": 507
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "photo",
+                       "url": "https://t.co/3VmV1JZykN"
+                      },
+                      {
+                       "allow_download_status": {
+                        "allow_download": true
+                       },
+                       "display_url": "pic.x.com/3VmV1JZykN",
+                       "expanded_url": "https://x.com/landpalestine/status/2095600678471168377/photo/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "features": {
+                        "large": {
+                         "faces": [
+                          {
+                           "h": 306,
+                           "w": 306,
+                           "x": 157,
+                           "y": 547
+                          }
+                         ]
+                        },
+                        "medium": {
+                         "faces": [
+                          {
+                           "h": 274,
+                           "w": 274,
+                           "x": 140,
+                           "y": 491
+                          }
+                         ]
+                        },
+                        "orig": {
+                         "faces": [
+                          {
+                           "h": 306,
+                           "w": 306,
+                           "x": 157,
+                           "y": 547
+                          }
+                         ]
+                        },
+                        "small": {
+                         "faces": [
+                          {
+                           "h": 155,
+                           "w": 155,
+                           "x": 79,
+                           "y": 278
+                          }
+                         ]
+                        }
+                       },
+                       "id_str": "2095600667880796160",
+                       "indices": [
+                        44,
+                        67
+                       ],
+                       "media_key": "3_2095600667880796160",
+                       "media_results": {
+                        "result": {
+                         "media_key": "3_2095600667880796160"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/media/HRURtFgbMAAxd6E.jpg",
+                       "original_info": {
+                        "focus_rects": [
+                         {
+                          "h": 630,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1125,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1283,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1337,
+                          "w": 669,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1337,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         }
+                        ],
+                        "height": 1337,
+                        "width": 1125
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1337,
+                         "resize": "fit",
+                         "w": 1125
+                        },
+                        "medium": {
+                         "h": 1200,
+                         "resize": "fit",
+                         "w": 1010
+                        },
+                        "small": {
+                         "h": 680,
+                         "resize": "fit",
+                         "w": 572
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "photo",
+                       "url": "https://t.co/3VmV1JZykN"
+                      }
+                     ]
+                    },
+                    "extended_entities": {
+                     "media": [
+                      {
+                       "allow_download_status": {
+                        "allow_download": true
+                       },
+                       "display_url": "pic.x.com/3VmV1JZykN",
+                       "expanded_url": "https://x.com/landpalestine/status/2095600678471168377/photo/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "features": {
+                        "large": {
+                         "faces": [
+                          {
+                           "h": 53,
+                           "w": 53,
+                           "x": 850,
+                           "y": 467
+                          },
+                          {
+                           "h": 95,
+                           "w": 95,
+                           "x": 374,
+                           "y": 523
+                          },
+                          {
+                           "h": 89,
+                           "w": 89,
+                           "x": 1018,
+                           "y": 1101
+                          }
+                         ]
+                        },
+                        "medium": {
+                         "faces": [
+                          {
+                           "h": 42,
+                           "w": 42,
+                           "x": 675,
+                           "y": 371
+                          },
+                          {
+                           "h": 75,
+                           "w": 75,
+                           "x": 297,
+                           "y": 415
+                          },
+                          {
+                           "h": 70,
+                           "w": 70,
+                           "x": 808,
+                           "y": 874
+                          }
+                         ]
+                        },
+                        "orig": {
+                         "faces": [
+                          {
+                           "h": 53,
+                           "w": 53,
+                           "x": 850,
+                           "y": 467
+                          },
+                          {
+                           "h": 95,
+                           "w": 95,
+                           "x": 374,
+                           "y": 523
+                          },
+                          {
+                           "h": 89,
+                           "w": 89,
+                           "x": 1018,
+                           "y": 1101
+                          }
+                         ]
+                        },
+                        "small": {
+                         "faces": [
+                          {
+                           "h": 23,
+                           "w": 23,
+                           "x": 383,
+                           "y": 210
+                          },
+                          {
+                           "h": 42,
+                           "w": 42,
+                           "x": 168,
+                           "y": 235
+                          },
+                          {
+                           "h": 40,
+                           "w": 40,
+                           "x": 458,
+                           "y": 496
+                          }
+                         ]
+                        }
+                       },
+                       "id_str": "2095600667922690048",
+                       "indices": [
+                        44,
+                        67
+                       ],
+                       "media_key": "3_2095600667922690048",
+                       "media_results": {
+                        "result": {
+                         "media_key": "3_2095600667922690048"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/media/HRURtFqacAABLHv.jpg",
+                       "original_info": {
+                        "focus_rects": [
+                         {
+                          "h": 630,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1125,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1283,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1510,
+                          "w": 755,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1510,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         }
+                        ],
+                        "height": 1510,
+                        "width": 1125
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1510,
+                         "resize": "fit",
+                         "w": 1125
+                        },
+                        "medium": {
+                         "h": 1200,
+                         "resize": "fit",
+                         "w": 894
+                        },
+                        "small": {
+                         "h": 680,
+                         "resize": "fit",
+                         "w": 507
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "photo",
+                       "url": "https://t.co/3VmV1JZykN"
+                      },
+                      {
+                       "allow_download_status": {
+                        "allow_download": true
+                       },
+                       "display_url": "pic.x.com/3VmV1JZykN",
+                       "expanded_url": "https://x.com/landpalestine/status/2095600678471168377/photo/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "features": {
+                        "large": {
+                         "faces": [
+                          {
+                           "h": 306,
+                           "w": 306,
+                           "x": 157,
+                           "y": 547
+                          }
+                         ]
+                        },
+                        "medium": {
+                         "faces": [
+                          {
+                           "h": 274,
+                           "w": 274,
+                           "x": 140,
+                           "y": 491
+                          }
+                         ]
+                        },
+                        "orig": {
+                         "faces": [
+                          {
+                           "h": 306,
+                           "w": 306,
+                           "x": 157,
+                           "y": 547
+                          }
+                         ]
+                        },
+                        "small": {
+                         "faces": [
+                          {
+                           "h": 155,
+                           "w": 155,
+                           "x": 79,
+                           "y": 278
+                          }
+                         ]
+                        }
+                       },
+                       "id_str": "2095600667880796160",
+                       "indices": [
+                        44,
+                        67
+                       ],
+                       "media_key": "3_2095600667880796160",
+                       "media_results": {
+                        "result": {
+                         "media_key": "3_2095600667880796160"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/media/HRURtFgbMAAxd6E.jpg",
+                       "original_info": {
+                        "focus_rects": [
+                         {
+                          "h": 630,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1125,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1283,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1337,
+                          "w": 669,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1337,
+                          "w": 1125,
+                          "x": 0,
+                          "y": 0
+                         }
+                        ],
+                        "height": 1337,
+                        "width": 1125
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1337,
+                         "resize": "fit",
+                         "w": 1125
+                        },
+                        "medium": {
+                         "h": 1200,
+                         "resize": "fit",
+                         "w": 1010
+                        },
+                        "small": {
+                         "h": 680,
+                         "resize": "fit",
+                         "w": 572
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "photo",
+                       "url": "https://t.co/3VmV1JZykN"
+                      }
+                     ]
+                    },
+                    "favorite_count": 214004,
+                    "favorited": false,
+                    "full_text": "Iam sorry but something weird\n is happening https://t.co/3VmV1JZykN",
+                    "id_str": "2095600678471168377",
+                    "is_quote_status": false,
+                    "lang": "en",
+                    "possibly_sensitive": false,
+                    "possibly_sensitive_editable": true,
+                    "quote_count": 153,
+                    "reply_count": 106,
+                    "retweet_count": 8825,
+                    "retweeted": false,
+                    "user_id_str": "2009547872463925248"
+                   },
+                   "rest_id": "2095600678471168377",
+                   "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+                   "unmention_data": {},
+                   "views": {
+                    "count": "6055640",
+                    "state": "EnabledWithCount"
+                   }
+                  }
+                 }
+                }
+               }
+              },
+              {
+               "entryId": "tweet-2095959151967469576-tweet-2095682271831359624",
+               "item": {
+                "clientEventInfo": {
+                 "component": "tweets_for_you",
+                 "details": {
+                  "timelinesDetails": {
+                   "controllerData": "DAACDAAODAABCgAB6UBxLLCs2nwKAAIAAAGgbev8wgAAAAA="
+                  }
+                 },
+                 "element": "tweet"
+                },
+                "itemContent": {
+                 "__typename": "TimelineTweet",
+                 "itemType": "TimelineTweet",
+                 "tweetDisplayType": "Tweet",
+                 "tweet_results": {
+                  "result": {
+                   "__typename": "Tweet",
+                   "cashtag_attachments": [],
+                   "core": {
+                    "user_results": {
+                     "result": {
+                      "__typename": "User",
+                      "action_counts": {
+                       "favorites_count": 968
+                      },
+                      "affiliates_highlighted_label": {},
+                      "avatar": {
+                       "image_url": "https://pbs.twimg.com/profile_images/2062225897642766336/F_wNDK5A_normal.jpg"
+                      },
+                      "banner": {
+                       "image_url": "https://pbs.twimg.com/profile_banners/1011001688298278912/1780507945"
+                      },
+                      "core": {
+                       "created_at": "Sun Jun 24 21:42:40 +0000 2018",
+                       "name": "Physics-astronomy",
+                       "screen_name": "Physicsastronmy"
+                      },
+                      "dm_permissions": {
+                       "can_dm": false
+                      },
+                      "follow_request_sent": false,
+                      "has_graduated_access": true,
+                      "id": "VXNlcjoxMDExMDAxNjg4Mjk4Mjc4OTEy",
+                      "is_blue_verified": true,
+                      "location": {
+                       "location": ""
+                      },
+                      "media_permissions": {
+                       "can_media_tag": true
+                      },
+                      "notifications_settings": {
+                       "notifications_enabled": false
+                      },
+                      "parody_commentary_fan_label": "None",
+                      "pinned_items": {},
+                      "possibly_sensitive": false,
+                      "privacy": {
+                       "protected": false
+                      },
+                      "profile_bio": {
+                       "description": "Exploring physics beyond Earth 🌌\nBlack holes, galaxies & the secrets of the universe.\nhttps://t.co/4qT3CNb6Gw?",
+                       "entities": {
+                        "description": {
+                         "urls": [
+                          {
+                           "display_url": "facebook.com/Physics_astron…",
+                           "expanded_url": "https://www.facebook.com/Physics_astronomy-442069859569101/",
+                           "indices": [
+                            86,
+                            109
+                           ],
+                           "url": "https://t.co/4qT3CNb6Gw"
+                          }
+                         ]
+                        },
+                        "url": {
+                         "urls": [
+                          {
+                           "display_url": "sciencenatures.com",
+                           "expanded_url": "https://www.sciencenatures.com",
+                           "indices": [
+                            0,
+                            23
+                           ],
+                           "url": "https://t.co/PTUWbbHimy"
+                          }
+                         ]
+                        }
+                       }
+                      },
+                      "profile_description_language": "en",
+                      "profile_image_shape": "Circle",
+                      "profile_metadata": {
+                       "profile_interstitial_type": ""
+                      },
+                      "profile_translation": {
+                       "translator_type": "none"
+                      },
+                      "relationship_counts": {
+                       "followers": 154444,
+                       "following": 5640
+                      },
+                      "relationship_perspectives": {
+                       "blocked_by": false,
+                       "blocking": false,
+                       "followed_by": false,
+                       "following": false,
+                       "live_following": false,
+                       "muting": false
+                      },
+                      "rest_id": "1011001688298278912",
+                      "super_follow_eligible": true,
+                      "super_followed_by": false,
+                      "super_following": false,
+                      "tweet_counts": {
+                       "media_tweets": 6767,
+                       "tweets": 12975
+                      },
+                      "verification": {
+                       "verified": false
+                      },
+                      "website": {
+                       "url": "https://t.co/PTUWbbHimy"
+                      }
+                     }
+                    }
+                   },
+                   "edit_control": {
+                    "edit_tweet_ids": [
+                     "2095682271831359624"
+                    ],
+                    "editable_until_msecs": "1788488164000",
+                    "edits_remaining": "5",
+                    "is_edit_eligible": true
+                   },
+                   "grok_analysis_button": true,
+                   "grok_annotations": {
+                    "is_image_editable_by_grok": false
+                   },
+                   "grok_translated_post_with_availability": {
+                    "is_available": false
+                   },
+                   "is_translatable": false,
+                   "legacy": {
+                    "bookmark_count": 531,
+                    "bookmarked": false,
+                    "conversation_id_str": "2095682271831359624",
+                    "created_at": "Fri Sep 04 01:16:04 +0000 2026",
+                    "display_text_range": [
+                     0,
+                     31
+                    ],
+                    "entities": {
+                     "media": [
+                      {
+                       "additional_media_info": {
+                        "monetizable": false
+                       },
+                       "display_url": "pic.x.com/WvZARGnNNo",
+                       "expanded_url": "https://x.com/Physicsastronmy/status/2095682271831359624/video/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "id_str": "2095682258908663816",
+                       "indices": [
+                        32,
+                        55
+                       ],
+                       "media_key": "7_2095682258908663816",
+                       "media_results": {
+                        "result": {
+                         "media_key": "7_2095682258908663816"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/2095682258908663816/pu/img/bsWSxbGtd8dnSCHk.jpg",
+                       "original_info": {
+                        "focus_rects": [],
+                        "height": 640,
+                        "width": 460
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 640,
+                         "resize": "fit",
+                         "w": 460
+                        },
+                        "medium": {
+                         "h": 640,
+                         "resize": "fit",
+                         "w": 460
+                        },
+                        "small": {
+                         "h": 640,
+                         "resize": "fit",
+                         "w": 460
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "video",
+                       "url": "https://t.co/WvZARGnNNo",
+                       "video_info": {
+                        "aspect_ratio": [
+                         23,
+                         32
+                        ],
+                        "duration_millis": 15458,
+                        "variants": [
+                         {
+                          "content_type": "application/x-mpegURL",
+                          "url": "https://video.twimg.com/ext_tw_video/2095682258908663816/pu/pl/6Y0M7Lm0In4lqlr8.m3u8?tag=12&v=cfc"
+                         },
+                         {
+                          "bitrate": 632000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095682258908663816/pu/vid/avc1/320x444/ocQ_LXWJ4v1PZJ85.mp4?tag=12"
+                         },
+                         {
+                          "bitrate": 950000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095682258908663816/pu/vid/avc1/460x640/HmbJ1fnN16MQqpx6.mp4?tag=12"
+                         }
+                        ]
+                       }
+                      }
+                     ]
+                    },
+                    "extended_entities": {
+                     "media": [
+                      {
+                       "additional_media_info": {
+                        "monetizable": false
+                       },
+                       "display_url": "pic.x.com/WvZARGnNNo",
+                       "expanded_url": "https://x.com/Physicsastronmy/status/2095682271831359624/video/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "id_str": "2095682258908663816",
+                       "indices": [
+                        32,
+                        55
+                       ],
+                       "media_key": "7_2095682258908663816",
+                       "media_results": {
+                        "result": {
+                         "media_key": "7_2095682258908663816"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/2095682258908663816/pu/img/bsWSxbGtd8dnSCHk.jpg",
+                       "original_info": {
+                        "focus_rects": [],
+                        "height": 640,
+                        "width": 460
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 640,
+                         "resize": "fit",
+                         "w": 460
+                        },
+                        "medium": {
+                         "h": 640,
+                         "resize": "fit",
+                         "w": 460
+                        },
+                        "small": {
+                         "h": 640,
+                         "resize": "fit",
+                         "w": 460
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "video",
+                       "url": "https://t.co/WvZARGnNNo",
+                       "video_info": {
+                        "aspect_ratio": [
+                         23,
+                         32
+                        ],
+                        "duration_millis": 15458,
+                        "variants": [
+                         {
+                          "content_type": "application/x-mpegURL",
+                          "url": "https://video.twimg.com/ext_tw_video/2095682258908663816/pu/pl/6Y0M7Lm0In4lqlr8.m3u8?tag=12&v=cfc"
+                         },
+                         {
+                          "bitrate": 632000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095682258908663816/pu/vid/avc1/320x444/ocQ_LXWJ4v1PZJ85.mp4?tag=12"
+                         },
+                         {
+                          "bitrate": 950000,
+                          "content_type": "video/mp4",
+                          "url": "https://video.twimg.com/ext_tw_video/2095682258908663816/pu/vid/avc1/460x640/HmbJ1fnN16MQqpx6.mp4?tag=12"
+                         }
+                        ]
+                       }
+                      }
+                     ]
+                    },
+                    "favorite_count": 13263,
+                    "favorited": false,
+                    "full_text": "When you understand physics law https://t.co/WvZARGnNNo",
+                    "id_str": "2095682271831359624",
+                    "is_quote_status": false,
+                    "lang": "en",
+                    "possibly_sensitive": false,
+                    "possibly_sensitive_editable": true,
+                    "quote_count": 30,
+                    "reply_count": 193,
+                    "retweet_count": 490,
+                    "retweeted": false,
+                    "user_id_str": "1011001688298278912"
+                   },
+                   "rest_id": "2095682271831359624",
+                   "source": "<a href=\"https://buffer.com\" rel=\"nofollow\">Buffer</a>",
+                   "unmention_data": {},
+                   "views": {
+                    "count": "3482972",
+                    "state": "EnabledWithCount"
+                   }
+                  }
+                 }
+                }
+               }
+              },
+              {
+               "entryId": "tweet-2095959151967469576-tweet-2095724036793704664",
+               "item": {
+                "clientEventInfo": {
+                 "component": "tweets_for_you",
+                 "details": {
+                  "timelinesDetails": {
+                   "controllerData": "DAACDAAODAABCgAB6UBxLLCs2nwKAAIAAAGgbev8wgAAAAA="
+                  }
+                 },
+                 "element": "tweet"
+                },
+                "itemContent": {
+                 "__typename": "TimelineTweet",
+                 "itemType": "TimelineTweet",
+                 "tweetDisplayType": "Tweet",
+                 "tweet_results": {
+                  "result": {
+                   "__typename": "Tweet",
+                   "cashtag_attachments": [],
+                   "core": {
+                    "user_results": {
+                     "result": {
+                      "__typename": "User",
+                      "action_counts": {
+                       "favorites_count": 3317
+                      },
+                      "affiliates_highlighted_label": {},
+                      "avatar": {
+                       "image_url": "https://pbs.twimg.com/profile_images/1973717834636443649/RKR2XM57_normal.jpg"
+                      },
+                      "banner": {
+                       "image_url": "https://pbs.twimg.com/profile_banners/16548023/1759405987"
+                      },
+                      "core": {
+                       "created_at": "Wed Oct 01 18:46:32 +0000 2008",
+                       "name": "9GAG ❤️ Memeland",
+                       "screen_name": "9GAG"
+                      },
+                      "dm_permissions": {
+                       "can_dm": false
+                      },
+                      "follow_request_sent": false,
+                      "has_graduated_access": true,
+                      "id": "VXNlcjoxNjU0ODAyMw==",
+                      "is_blue_verified": true,
+                      "location": {
+                       "location": "Memeland"
+                      },
+                      "media_permissions": {
+                       "can_media_tag": true
+                      },
+                      "notifications_settings": {
+                       "notifications_enabled": false
+                      },
+                      "parody_commentary_fan_label": "None",
+                      "pinned_items": {
+                       "tweet_ids_str": [
+                        "2095768832552100283"
+                       ]
+                      },
+                      "possibly_sensitive": false,
+                      "privacy": {
+                       "protected": false
+                      },
+                      "profile_bio": {
+                       "description": "Building @MEMELAND one meme at a time • 📧 9gag@9gag.com • CEO ➡️ @9gagceo.",
+                       "entities": {
+                        "description": {},
+                        "url": {
+                         "urls": [
+                          {
+                           "display_url": "9gag.com",
+                           "expanded_url": "https://9gag.com",
+                           "indices": [
+                            0,
+                            23
+                           ],
+                           "url": "https://t.co/rfsbI4dnyD"
+                          }
+                         ]
+                        }
+                       }
+                      },
+                      "profile_description_language": "en",
+                      "profile_image_shape": "Circle",
+                      "profile_metadata": {
+                       "profile_interstitial_type": ""
+                      },
+                      "profile_translation": {
+                       "translator_type": "regular"
+                      },
+                      "relationship_counts": {
+                       "followers": 15717216,
+                       "following": 23
+                      },
+                      "relationship_perspectives": {
+                       "blocked_by": false,
+                       "blocking": false,
+                       "followed_by": false,
+                       "following": false,
+                       "live_following": false,
+                       "muting": false
+                      },
+                      "rest_id": "16548023",
+                      "super_follow_eligible": false,
+                      "super_followed_by": false,
+                      "super_following": false,
+                      "tweet_counts": {
+                       "media_tweets": 39730,
+                       "tweets": 67013
+                      },
+                      "verification": {
+                       "verified": false
+                      },
+                      "website": {
+                       "url": "https://t.co/rfsbI4dnyD"
+                      }
+                     }
+                    }
+                   },
+                   "edit_control": {
+                    "edit_tweet_ids": [
+                     "2095724036793704664"
+                    ],
+                    "editable_until_msecs": "1788498121000",
+                    "edits_remaining": "5",
+                    "is_edit_eligible": true
+                   },
+                   "grok_analysis_button": true,
+                   "grok_annotations": {
+                    "is_image_editable_by_grok": true
+                   },
+                   "grok_translated_post_with_availability": {
+                    "is_available": false
+                   },
+                   "is_translatable": false,
+                   "legacy": {
+                    "bookmark_count": 1014,
+                    "bookmarked": false,
+                    "conversation_id_str": "2095724036793704664",
+                    "created_at": "Fri Sep 04 04:02:01 +0000 2026",
+                    "display_text_range": [
+                     0,
+                     17
+                    ],
+                    "entities": {
+                     "media": [
+                      {
+                       "display_url": "pic.x.com/f7HsoPHlZC",
+                       "expanded_url": "https://x.com/9GAG/status/2095724036793704664/photo/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "features": {
+                        "large": {
+                         "faces": [
+                          {
+                           "h": 51,
+                           "w": 51,
+                           "x": 783,
+                           "y": 938
+                          },
+                          {
+                           "h": 183,
+                           "w": 183,
+                           "x": 696,
+                           "y": 112
+                          },
+                          {
+                           "h": 209,
+                           "w": 209,
+                           "x": 730,
+                           "y": 855
+                          }
+                         ]
+                        },
+                        "medium": {
+                         "faces": [
+                          {
+                           "h": 45,
+                           "w": 45,
+                           "x": 696,
+                           "y": 834
+                          },
+                          {
+                           "h": 162,
+                           "w": 162,
+                           "x": 618,
+                           "y": 99
+                          },
+                          {
+                           "h": 185,
+                           "w": 185,
+                           "x": 649,
+                           "y": 760
+                          }
+                         ]
+                        },
+                        "orig": {
+                         "faces": [
+                          {
+                           "h": 51,
+                           "w": 51,
+                           "x": 783,
+                           "y": 938
+                          },
+                          {
+                           "h": 183,
+                           "w": 183,
+                           "x": 696,
+                           "y": 112
+                          },
+                          {
+                           "h": 209,
+                           "w": 209,
+                           "x": 730,
+                           "y": 855
+                          }
+                         ]
+                        },
+                        "small": {
+                         "faces": [
+                          {
+                           "h": 25,
+                           "w": 25,
+                           "x": 394,
+                           "y": 472
+                          },
+                          {
+                           "h": 92,
+                           "w": 92,
+                           "x": 350,
+                           "y": 56
+                          },
+                          {
+                           "h": 105,
+                           "w": 105,
+                           "x": 367,
+                           "y": 430
+                          }
+                         ]
+                        }
+                       },
+                       "id_str": "2095724034411401219",
+                       "indices": [
+                        18,
+                        41
+                       ],
+                       "media_key": "3_2095724034411401219",
+                       "media_results": {
+                        "result": {
+                         "media_key": "3_2095724034411401219"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/media/HRWB59pXEAMkyCD.jpg",
+                       "original_info": {
+                        "focus_rects": [
+                         {
+                          "h": 602,
+                          "w": 1075,
+                          "x": 0,
+                          "y": 677
+                         },
+                         {
+                          "h": 1075,
+                          "w": 1075,
+                          "x": 0,
+                          "y": 275
+                         },
+                         {
+                          "h": 1226,
+                          "w": 1075,
+                          "x": 0,
+                          "y": 124
+                         },
+                         {
+                          "h": 1350,
+                          "w": 675,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1350,
+                          "w": 1075,
+                          "x": 0,
+                          "y": 0
+                         }
+                        ],
+                        "height": 1350,
+                        "width": 1075
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1350,
+                         "resize": "fit",
+                         "w": 1075
+                        },
+                        "medium": {
+                         "h": 1200,
+                         "resize": "fit",
+                         "w": 956
+                        },
+                        "small": {
+                         "h": 680,
+                         "resize": "fit",
+                         "w": 541
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "photo",
+                       "url": "https://t.co/f7HsoPHlZC"
+                      }
+                     ]
+                    },
+                    "extended_entities": {
+                     "media": [
+                      {
+                       "display_url": "pic.x.com/f7HsoPHlZC",
+                       "expanded_url": "https://x.com/9GAG/status/2095724036793704664/photo/1",
+                       "ext_media_availability": {
+                        "status": "Available"
+                       },
+                       "features": {
+                        "large": {
+                         "faces": [
+                          {
+                           "h": 51,
+                           "w": 51,
+                           "x": 783,
+                           "y": 938
+                          },
+                          {
+                           "h": 183,
+                           "w": 183,
+                           "x": 696,
+                           "y": 112
+                          },
+                          {
+                           "h": 209,
+                           "w": 209,
+                           "x": 730,
+                           "y": 855
+                          }
+                         ]
+                        },
+                        "medium": {
+                         "faces": [
+                          {
+                           "h": 45,
+                           "w": 45,
+                           "x": 696,
+                           "y": 834
+                          },
+                          {
+                           "h": 162,
+                           "w": 162,
+                           "x": 618,
+                           "y": 99
+                          },
+                          {
+                           "h": 185,
+                           "w": 185,
+                           "x": 649,
+                           "y": 760
+                          }
+                         ]
+                        },
+                        "orig": {
+                         "faces": [
+                          {
+                           "h": 51,
+                           "w": 51,
+                           "x": 783,
+                           "y": 938
+                          },
+                          {
+                           "h": 183,
+                           "w": 183,
+                           "x": 696,
+                           "y": 112
+                          },
+                          {
+                           "h": 209,
+                           "w": 209,
+                           "x": 730,
+                           "y": 855
+                          }
+                         ]
+                        },
+                        "small": {
+                         "faces": [
+                          {
+                           "h": 25,
+                           "w": 25,
+                           "x": 394,
+                           "y": 472
+                          },
+                          {
+                           "h": 92,
+                           "w": 92,
+                           "x": 350,
+                           "y": 56
+                          },
+                          {
+                           "h": 105,
+                           "w": 105,
+                           "x": 367,
+                           "y": 430
+                          }
+                         ]
+                        }
+                       },
+                       "id_str": "2095724034411401219",
+                       "indices": [
+                        18,
+                        41
+                       ],
+                       "media_key": "3_2095724034411401219",
+                       "media_results": {
+                        "result": {
+                         "media_key": "3_2095724034411401219"
+                        }
+                       },
+                       "media_url_https": "https://pbs.twimg.com/media/HRWB59pXEAMkyCD.jpg",
+                       "original_info": {
+                        "focus_rects": [
+                         {
+                          "h": 602,
+                          "w": 1075,
+                          "x": 0,
+                          "y": 677
+                         },
+                         {
+                          "h": 1075,
+                          "w": 1075,
+                          "x": 0,
+                          "y": 275
+                         },
+                         {
+                          "h": 1226,
+                          "w": 1075,
+                          "x": 0,
+                          "y": 124
+                         },
+                         {
+                          "h": 1350,
+                          "w": 675,
+                          "x": 0,
+                          "y": 0
+                         },
+                         {
+                          "h": 1350,
+                          "w": 1075,
+                          "x": 0,
+                          "y": 0
+                         }
+                        ],
+                        "height": 1350,
+                        "width": 1075
+                       },
+                       "sizes": {
+                        "large": {
+                         "h": 1350,
+                         "resize": "fit",
+                         "w": 1075
+                        },
+                        "medium": {
+                         "h": 1200,
+                         "resize": "fit",
+                         "w": 956
+                        },
+                        "small": {
+                         "h": 680,
+                         "resize": "fit",
+                         "w": 541
+                        },
+                        "thumb": {
+                         "h": 150,
+                         "resize": "crop",
+                         "w": 150
+                        }
+                       },
+                       "type": "photo",
+                       "url": "https://t.co/f7HsoPHlZC"
+                      }
+                     ]
+                    },
+                    "favorite_count": 30428,
+                    "favorited": false,
+                    "full_text": "and student loans https://t.co/f7HsoPHlZC",
+                    "id_str": "2095724036793704664",
+                    "is_quote_status": false,
+                    "lang": "en",
+                    "possibly_sensitive": false,
+                    "possibly_sensitive_editable": true,
+                    "quote_count": 72,
+                    "reply_count": 50,
+                    "retweet_count": 4146,
+                    "retweeted": false,
+                    "user_id_str": "16548023"
+                   },
+                   "rest_id": "2095724036793704664",
+                   "source": "<a href=\"https://buffer.com\" rel=\"nofollow\">Buffer</a>",
+                   "unmention_data": {},
+                   "views": {
+                    "count": "410658",
+                    "state": "EnabledWithCount"
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             ]
+            },
+            "entryId": "tweet-2095959151967469576",
+            "sortIndex": "2095959151967469560"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineCursor",
+             "cursorType": "Top",
+             "entryType": "TimelineTimelineCursor",
+             "value": "DAAJAAA"
+            },
+            "entryId": "cursor-top-2095959151967469569",
+            "sortIndex": "2095959151967469569"
+           },
+           {
+            "content": {
+             "__typename": "TimelineTimelineCursor",
+             "cursorType": "Bottom",
+             "entryType": "TimelineTimelineCursor",
+             "value": "DAADCgABHRZXvmy___UPAAIKAAAABR0VDTlWmvFUHRWCsw5XUNwdFRG2z1dxeR0VW-w-l4CIHRWB6GhWINgAAA"
+            },
+            "entryId": "cursor-bottom-2095959151967469559",
+            "sortIndex": "2095959151967469559"
+           }
+          ],
+          "type": "TimelineAddEntries"
+         }
+        ],
+        "responseObjects": {
+         "feedbackActions": [
+          {
+           "key": "-619311538",
+           "value": {
+            "confirmation": "Thanks. Refresh this page to update these trends.",
+            "confirmationDisplayType": "Inline",
+            "feedbackType": "SeeFewer",
+            "feedbackUrl": "/2/guide/insert_feedback/trend_not_interested_in_this_feedback_key.json",
+            "hasUndoAction": false,
+            "prompt": "Not interested in this"
+           }
+          },
+          {
+           "key": "15718569",
+           "value": {
+            "confirmation": "Thanks. Refresh this page to update these trends.",
+            "confirmationDisplayType": "Inline",
+            "feedbackType": "SeeFewer",
+            "feedbackUrl": "/2/guide/insert_feedback/trend_abusive_feedback_key.json",
+            "hasUndoAction": false,
+            "prompt": "This trend is abusive or harmful"
+           }
+          },
+          {
+           "key": "-1457103155",
+           "value": {
+            "confirmation": "Thanks. Refresh this page to update these trends.",
+            "confirmationDisplayType": "Inline",
+            "feedbackType": "SeeFewer",
+            "feedbackUrl": "/2/guide/insert_feedback/trend_duplicate_feedback_key.json",
+            "hasUndoAction": false,
+            "prompt": "This trend is a duplicate"
+           }
+          },
+          {
+           "key": "-1336659320",
+           "value": {
+            "confirmation": "Thanks. Refresh this page to update these trends.",
+            "confirmationDisplayType": "BottomSheet",
+            "feedbackType": "SeeFewer",
+            "feedbackUrl": "/2/guide/insert_feedback/trend_irrelevant_content_feedback_key.json",
+            "hasUndoAction": false,
+            "prompt": "The associated content is not relevant"
+           }
+          },
+          {
+           "key": "1628041751",
+           "value": {
+            "confirmation": "Thanks. Refresh this page to update these trends.",
+            "confirmationDisplayType": "Inline",
+            "feedbackType": "SeeFewer",
+            "feedbackUrl": "/2/guide/insert_feedback/trend_spam_feedback_key.json",
+            "hasUndoAction": false,
+            "prompt": "This trend is spam"
+           }
+          },
+          {
+           "key": "2103484841",
+           "value": {
+            "confirmation": "Thanks. Refresh this page to update these trends.",
+            "confirmationDisplayType": "BottomSheet",
+            "feedbackType": "SeeFewer",
+            "feedbackUrl": "/2/guide/insert_feedback/trend_abusive_or_harmful_feedback_key.json",
+            "hasUndoAction": false,
+            "prompt": "This trend is harmful or spammy"
+           }
+          }
+         ]
+        }
+       }
+      }
+     },
+     "timelines": [
+      {
+       "id": "for_you",
+       "labelText": "Explore",
+       "refreshIntervalSec": 1200,
+       "scribeConfig": {
+        "page": "explore",
+        "section": "for_you"
+       },
+       "timeline": {
+        "id": "VGltZWxpbmU6DAC2CwABAAAAB2Zvcl95b3UAAA=="
+       }
+      },
+      {
+       "id": "trending",
+       "labelText": "Trending",
+       "refreshIntervalSec": 1200,
+       "scribeConfig": {
+        "page": "explore",
+        "section": "trending"
+       },
+       "timeline": {
+        "id": "VGltZWxpbmU6DAC2CwABAAAACHRyZW5kaW5nAAA="
+       }
+      },
+      {
+       "id": "news",
+       "labelText": "News",
+       "refreshIntervalSec": 1200,
+       "scribeConfig": {
+        "page": "explore",
+        "section": "news"
+       },
+       "timeline": {
+        "id": "VGltZWxpbmU6DAC2CwABAAAABG5ld3MAAA=="
+       }
+      },
+      {
+       "id": "sports",
+       "labelText": "Sports",
+       "refreshIntervalSec": 1200,
+       "scribeConfig": {
+        "page": "explore",
+        "section": "sports"
+       },
+       "timeline": {
+        "id": "VGltZWxpbmU6DAC2CwABAAAABnNwb3J0cwAA"
+       }
+      },
+      {
+       "id": "entertainment",
+       "labelText": "Entertainment",
+       "refreshIntervalSec": 1200,
+       "scribeConfig": {
+        "page": "explore",
+        "section": "entertainment"
+       },
+       "timeline": {
+        "id": "VGltZWxpbmU6DAC2CwABAAAADWVudGVydGFpbm1lbnQAAA=="
+       }
+      }
+     ]
+    },
+    "id": "ExplorePageProduct-Page"
+   }
+  }
+ }
+}

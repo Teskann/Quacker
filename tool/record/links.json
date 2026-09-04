@@ -1,0 +1,214 @@
+{
+  "_comment": [
+    "Capture scenarios. One entry = one page to open.",
+    "Run:  fvm dart run tool/record/capture.dart",
+    "Every GraphQL response the page makes is saved, without exception, so the",
+    "fixtures describe X's behaviour rather than a guess about what QuaX needs.",
+    "The description is copied into every fixture the link produces, under the",
+    "\"scenario\" key, so a test can say why the fixture exists.",
+    "A profile URL triggers UserByScreenName AND the profile timeline at once,",
+    "and the script scrolls, so later pages and cursors come for free."
+  ],
+  "scenarios": [
+    {
+      "url": "https://x.com/quax_tests",
+      "description": "Full profile: avatar, banner, bio with two links and a mention that has no entity"
+    },
+    {
+      "url": "https://x.com/quax_tests/with_replies",
+      "description": "Replies tab, the only place threads come from"
+    },
+    {
+      "url": "https://x.com/quax_tests/media",
+      "description": "Media tab of an account with 17 media tweets"
+    },
+    {
+      "url": "https://x.com/quax_tests/followers",
+      "description": "Followers of an account that has none"
+    },
+    {
+      "url": "https://x.com/quax_tests/following",
+      "description": "Following list of an account that follows nobody"
+    },
+    {
+      "url": "https://x.com/quax_tests_2",
+      "description": "Default avatar, no banner, empty bio, zero followers"
+    },
+    {
+      "url": "https://x.com/quax_tests_2/with_replies",
+      "description": "Replies tab of an account that only ever quoted"
+    },
+    {
+      "url": "https://x.com/quax_tests_2/media",
+      "description": "Empty media tab"
+    },
+    {
+      "url": "https://x.com/ce_pseudo_nexiste_pas_quax",
+      "description": "Unknown handle: X answers {\"data\": {}} with no errors array"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095921351106146703",
+      "description": "Multi-codepoint emoji before the entities: 103 code points for 112 UTF-16 units, plus a summary card carrying @FlutterDev"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095921599056658635",
+      "description": "HTML escaping: entity indices count the escaped text, not the text on screen"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095922103644028999",
+      "description": "Unicode normalisation: precomposed against decomposed e-acute, plus compatibility forms"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095921998094331981",
+      "description": "Arabic: bidirectional text, Arabic-Indic digits, lang ar, is_translatable true"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095921800731345271",
+      "description": "Japanese with no spaces and a flag emoji in the middle, lang ja"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095922394959421815",
+      "description": "All four entity types at once, and an @handle that does not exist so produces no entity"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095912922601975848",
+      "description": "Bare tweet: entities is the empty object, without a single key"
+    },
+    {
+      "url": "https://x.com/quax_tests_2/status/2095923354242834733",
+      "description": "Quote with a mention, quoting a bare tweet"
+    },
+    {
+      "url": "https://x.com/quax_tests_2/status/2095923466830553371",
+      "description": "Quote with no entities at all, quoting a four-video tweet"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095918742400082069",
+      "description": "One square photo, 1200 by 1200"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095918809576091964",
+      "description": "One portrait photo, 900 by 1600"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095918861925163239",
+      "description": "One panoramic photo, 2000 by 800"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095918939641356306",
+      "description": "Two photos"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095919007438139510",
+      "description": "Three photos"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095919075536826410",
+      "description": "Four photos, four different ratios"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095919166830084474",
+      "description": "One 16:9 video, 1280 by 720, twelve seconds, HLS plus three MP4 variants"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095919923553775839",
+      "description": "One portrait 9:16 video"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095919982970282273",
+      "description": "One 640 by 360 video: X only derives two MP4 variants, which exercises the quality clamp"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095920036523172091",
+      "description": "One square 1:1 video"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095920085445619715",
+      "description": "Two videos in one tweet"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095920135890506153",
+      "description": "Three videos in one tweet"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095920215234138129",
+      "description": "Four videos in one tweet, different durations and ratios"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095920289687150903",
+      "description": "Two photos and two videos mixed; the photos carry an expanded_url ending in /video/1, so only the type field tells the truth"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095918053468848131",
+      "description": "Poll with two options"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095917352416108908",
+      "description": "Poll with four options"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095918535159472442",
+      "description": "Tweet with an animated GIF, which takes a different path from video"
+    },
+    {
+      "url": "https://x.com/quax_tests/status/2095916385209651546",
+      "description": "Thread with a deleted tweet in the middle: the simplest tombstone there is"
+    },
+    {
+      "url": "https://x.com/quax_tests_2/status/2095934584533680451",
+      "description": "Quote of a deleted tweet: the quoted result comes back unavailable"
+    },
+    {
+      "url": "https://x.com/quax_tests_2/status/2095951992489152745",
+      "description": "Quote of a tweet with limited replies: TweetWithVisibilityResults, unwrapped twice"
+    },
+    {
+      "url": "https://x.com/quax_tests/highlights",
+      "description": "Highlights tab"
+    },
+    {
+      "url": "https://x.com/quax_tests_2/reposts",
+      "description": "Reposts view: the only place a retweeted_status_result shows up"
+    },
+    {
+      "url": "https://x.com/quax_tests/reposts",
+      "description": "Reposts view of an account that has none"
+    },
+    {
+      "url": "https://x.com/quax_tests_2/all",
+      "description": "All view: posts, reposts and replies in one timeline"
+    },
+    {
+      "url": "https://x.com/quax_tests/all",
+      "description": "All view of the busier account, with the four-video and mixed-media posts"
+    },
+    {
+      "url": "https://x.com/quax_tests?sort=popular",
+      "description": "Profile timeline sorted by Popular instead of Most recent"
+    },
+    {
+      "url": "https://x.com/UKLabour/status/2026390853309063292",
+      "description": "Tweet carrying a community note, read from birdwatch_pivot.subtitle on the tweet itself"
+    },
+    {
+      "url": "https://x.com/home",
+      "description": "Home timeline"
+    },
+    {
+      "url": "https://x.com/search?q=quax&f=live",
+      "description": "Search, Latest tab"
+    },
+    {
+      "url": "https://x.com/search?q=quax&f=user",
+      "description": "Search, People tab"
+    },
+    {
+      "url": "https://x.com/explore/tabs/trending",
+      "description": "Trends"
+    }
+  ],
+  "_to_publish_then_add": [
+    "a suspended or deactivated account to point at (UserUnavailable)",
+    "whatever makes X answer with a real errors array — trigger still unknown"
+  ]
+}

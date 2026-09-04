@@ -1,0 +1,432 @@
+{
+ "scenario": "Full profile: avatar, banner, bio with two links and a mention that has no entity",
+ "sourceUrl": "https://x.com/quax_tests",
+ "operation": "ExploreSidebar",
+ "host": "x.com",
+ "queryId": "qjhLfJKwuRiKMQ6zBgkfYQ",
+ "features": {
+  "rweb_video_screen_enabled": false,
+  "rweb_cashtags_enabled": true,
+  "profile_label_improvements_pcf_label_in_post_enabled": true,
+  "responsive_web_profile_redirect_enabled": true,
+  "rweb_tipjar_consumption_enabled": false,
+  "verified_phone_label_enabled": false,
+  "creator_subscriptions_tweet_preview_api_enabled": true,
+  "responsive_web_graphql_timeline_navigation_enabled": true,
+  "premium_content_api_read_enabled": false,
+  "communities_web_enable_tweet_community_results_fetch": true,
+  "c9s_tweet_anatomy_moderator_badge_enabled": true,
+  "responsive_web_grok_analyze_button_fetch_trends_enabled": false,
+  "responsive_web_grok_analyze_post_followups_enabled": true,
+  "rweb_cashtags_composer_attachment_enabled": true,
+  "responsive_web_jetfuel_frame": true,
+  "responsive_web_grok_share_attachment_enabled": true,
+  "responsive_web_grok_annotations_enabled": true,
+  "articles_preview_enabled": true,
+  "responsive_web_edit_tweet_api_enabled": true,
+  "rweb_conversational_replies_downvote_enabled": false,
+  "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
+  "view_counts_everywhere_api_enabled": true,
+  "longform_notetweets_consumption_enabled": true,
+  "responsive_web_twitter_article_tweet_consumption_enabled": true,
+  "content_disclosure_indicator_enabled": true,
+  "content_disclosure_ai_generated_indicator_enabled": true,
+  "responsive_web_grok_show_grok_translated_post": true,
+  "responsive_web_grok_analysis_button_from_backend": true,
+  "post_ctas_fetch_enabled": false,
+  "freedom_of_speech_not_reach_fetch_enabled": true,
+  "standardized_nudges_misinfo": true,
+  "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true,
+  "longform_notetweets_rich_text_read_enabled": true,
+  "longform_notetweets_inline_media_enabled": false,
+  "responsive_web_grok_image_annotation_enabled": true,
+  "responsive_web_grok_imagine_annotation_enabled": true,
+  "responsive_web_grok_community_note_auto_translation_is_enabled": true,
+  "responsive_web_enhance_cards_enabled": false
+ },
+ "fieldToggles": null,
+ "variables": {},
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "500",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "498",
+  "x-rate-limit-reset": "1788551337"
+ },
+ "body": {
+  "data": {
+   "explore_sidebar": {
+    "timeline": {
+     "instructions": [
+      {
+       "type": "TimelineClearCache"
+      },
+      {
+       "direction": "Bottom",
+       "type": "TimelineTerminateTimeline"
+      },
+      {
+       "entries": [
+        {
+         "content": {
+          "__typename": "TimelineTimelineModule",
+          "clientEventInfo": {
+           "component": "unified_events"
+          },
+          "displayType": "Vertical",
+          "entryType": "TimelineTimelineModule",
+          "footer": {
+           "displayType": "Classic",
+           "landingUrl": {
+            "url": "https://twitter.com/explore/tabs/for-you",
+            "urlType": "ExternalUrl"
+           },
+           "text": "Show more"
+          },
+          "header": {
+           "displayType": "Classic",
+           "text": "What’s happening"
+          },
+          "items": [
+           {
+            "entryId": "trend-2095958573581336576-trend-Joao Neves",
+            "item": {
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB68lOOahfeOcKAAIAAAGgbeniyQAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAAKSm9hbyBOZXZlcwoAA/O/x9zJKJd/BgAEAAEIAAYAAAACAA=="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Joao Neves",
+              "trend_metadata": {
+               "domain_context": "Sports · Trending",
+               "url": {
+                "url": "twitter://search/?query=%22Joao+Neves%22&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgKSm9hbyBOZXZlcwAA"
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=%22Joao+Neves%22&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgKSm9hbyBOZXZlcwAA"
+                 }
+                ]
+               }
+              }
+             }
+            }
+           },
+           {
+            "entryId": "trend-2095958573581336576-trend-Greg Guillotin",
+            "item": {
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB68lOOahfeOcKAAIAAAGgbeniyQAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAAOR3JlZyBHdWlsbG90aW4KAAPzv8fcySiXfwYABAACCAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Greg Guillotin",
+              "trend_metadata": {
+               "domain_context": "Trending in France",
+               "url": {
+                "url": "twitter://search/?query=%22Greg+Guillotin%22&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgOR3JlZyBHdWlsbG90aW4AAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=%22Greg+Guillotin%22&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgOR3JlZyBHdWlsbG90aW4AAA=="
+                 }
+                ]
+               }
+              }
+             }
+            }
+           },
+           {
+            "entryId": "trend-2095958573581336576-trend-Tootatis",
+            "item": {
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB68lOOahfeOcKAAIAAAGgbeniyQAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAAIVG9vdGF0aXMKAAPzv8fcySiXfwYABAADCAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Tootatis",
+              "trend_metadata": {
+               "domain_context": "Trending in France",
+               "url": {
+                "url": "twitter://search/?query=Tootatis&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgIVG9vdGF0aXMAAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=Tootatis&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgIVG9vdGF0aXMAAA=="
+                 }
+                ]
+               }
+              }
+             }
+            }
+           },
+           {
+            "entryId": "trend-2095958573581336576-trend-Anyme",
+            "item": {
+             "clientEventInfo": {
+              "component": "unified_events",
+              "details": {
+               "timelinesDetails": {
+                "controllerData": "DAACDAAQDAABCgAB68lOOahfeOcKAAIAAAGgbeniyQAAAAA="
+               }
+              },
+              "element": "trend"
+             },
+             "feedbackInfo": {
+              "clientEventInfo": {
+               "action": "click",
+               "component": "trends",
+               "element": "feedback"
+              },
+              "feedbackKeys": [
+               "-1336659320",
+               "1628041751",
+               "15718569",
+               "-619311538",
+               "-1457103155",
+               "2103484841"
+              ],
+              "feedbackMetadata": "DwABCwAAAAEAAAAFQW55bWUKAAPzv8fcySiXfwYABAAECAAGAAAAAgA="
+             },
+             "itemContent": {
+              "__typename": "TimelineTrend",
+              "itemType": "TimelineTrend",
+              "name": "Anyme",
+              "trend_metadata": {
+               "domain_context": "Trending in France",
+               "url": {
+                "url": "twitter://search/?query=Anyme&src=trend_click&pc=true&vertical=trends",
+                "urlType": "DeepLink",
+                "urtEndpointOptions": {
+                 "requestParams": [
+                  {
+                   "key": "cd",
+                   "value": "HBgFQW55bWUAAA=="
+                  }
+                 ]
+                }
+               }
+              },
+              "trend_url": {
+               "url": "twitter://search/?query=Anyme&src=trend_click&pc=true&vertical=trends",
+               "urlType": "DeepLink",
+               "urtEndpointOptions": {
+                "requestParams": [
+                 {
+                  "key": "cd",
+                  "value": "HBgFQW55bWUAAA=="
+                 }
+                ]
+               }
+              }
+             }
+            }
+           }
+          ]
+         },
+         "entryId": "trend-2095958573581336576",
+         "sortIndex": "2095958573581336576"
+        },
+        {
+         "content": {
+          "__typename": "TimelineTimelineCursor",
+          "cursorType": "Top",
+          "entryType": "TimelineTimelineCursor",
+          "value": "DAAJAAA"
+         },
+         "entryId": "cursor-top-2095958573581336577",
+         "sortIndex": "2095958573581336577"
+        }
+       ],
+       "type": "TimelineAddEntries"
+      }
+     ],
+     "responseObjects": {
+      "feedbackActions": [
+       {
+        "key": "-619311538",
+        "value": {
+         "confirmation": "Thanks. Refresh this page to update these trends.",
+         "confirmationDisplayType": "Inline",
+         "feedbackType": "SeeFewer",
+         "feedbackUrl": "/2/guide/insert_feedback/trend_not_interested_in_this_feedback_key.json",
+         "hasUndoAction": false,
+         "prompt": "Not interested in this"
+        }
+       },
+       {
+        "key": "15718569",
+        "value": {
+         "confirmation": "Thanks. Refresh this page to update these trends.",
+         "confirmationDisplayType": "Inline",
+         "feedbackType": "SeeFewer",
+         "feedbackUrl": "/2/guide/insert_feedback/trend_abusive_feedback_key.json",
+         "hasUndoAction": false,
+         "prompt": "This trend is abusive or harmful"
+        }
+       },
+       {
+        "key": "-1457103155",
+        "value": {
+         "confirmation": "Thanks. Refresh this page to update these trends.",
+         "confirmationDisplayType": "Inline",
+         "feedbackType": "SeeFewer",
+         "feedbackUrl": "/2/guide/insert_feedback/trend_duplicate_feedback_key.json",
+         "hasUndoAction": false,
+         "prompt": "This trend is a duplicate"
+        }
+       },
+       {
+        "key": "-1336659320",
+        "value": {
+         "confirmation": "Thanks. Refresh this page to update these trends.",
+         "confirmationDisplayType": "BottomSheet",
+         "feedbackType": "SeeFewer",
+         "feedbackUrl": "/2/guide/insert_feedback/trend_irrelevant_content_feedback_key.json",
+         "hasUndoAction": false,
+         "prompt": "The associated content is not relevant"
+        }
+       },
+       {
+        "key": "1628041751",
+        "value": {
+         "confirmation": "Thanks. Refresh this page to update these trends.",
+         "confirmationDisplayType": "Inline",
+         "feedbackType": "SeeFewer",
+         "feedbackUrl": "/2/guide/insert_feedback/trend_spam_feedback_key.json",
+         "hasUndoAction": false,
+         "prompt": "This trend is spam"
+        }
+       },
+       {
+        "key": "2103484841",
+        "value": {
+         "confirmation": "Thanks. Refresh this page to update these trends.",
+         "confirmationDisplayType": "BottomSheet",
+         "feedbackType": "SeeFewer",
+         "feedbackUrl": "/2/guide/insert_feedback/trend_abusive_or_harmful_feedback_key.json",
+         "hasUndoAction": false,
+         "prompt": "This trend is harmful or spammy"
+        }
+       }
+      ]
+     }
+    }
+   }
+  }
+ }
+}

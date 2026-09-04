@@ -1,0 +1,24 @@
+{
+ "scenario": "Full profile: avatar, banner, bio with two links and a mention that has no entity",
+ "sourceUrl": "https://x.com/quax_tests",
+ "operation": "DataSaverMode",
+ "host": "x.com",
+ "queryId": "xF6sXnKJfS2AOylzxRjf6A",
+ "features": null,
+ "fieldToggles": null,
+ "variables": {
+  "device_id": "Linux/Chrome"
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "500",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "498",
+  "x-rate-limit-reset": "1788551336"
+ },
+ "body": {
+  "data": {
+   "viewer": {}
+  }
+ }
+}

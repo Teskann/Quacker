@@ -1,0 +1,480 @@
+{
+ "scenario": "Tweet carrying a community note, read from birdwatch_pivot.subtitle on the tweet itself",
+ "sourceUrl": "https://x.com/UKLabour/status/2026390853309063292",
+ "operation": "TweetResultByRestId",
+ "host": "x.com",
+ "queryId": "GZsN2Pc4knAoit6pXa4HSA",
+ "features": {
+  "creator_subscriptions_tweet_preview_api_enabled": true,
+  "premium_content_api_read_enabled": false,
+  "communities_web_enable_tweet_community_results_fetch": true,
+  "c9s_tweet_anatomy_moderator_badge_enabled": true,
+  "responsive_web_grok_analyze_button_fetch_trends_enabled": false,
+  "responsive_web_grok_analyze_post_followups_enabled": true,
+  "rweb_cashtags_composer_attachment_enabled": true,
+  "responsive_web_jetfuel_frame": true,
+  "responsive_web_grok_share_attachment_enabled": true,
+  "responsive_web_grok_annotations_enabled": true,
+  "articles_preview_enabled": true,
+  "responsive_web_edit_tweet_api_enabled": true,
+  "rweb_conversational_replies_downvote_enabled": false,
+  "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
+  "view_counts_everywhere_api_enabled": true,
+  "longform_notetweets_consumption_enabled": true,
+  "responsive_web_twitter_article_tweet_consumption_enabled": true,
+  "content_disclosure_indicator_enabled": true,
+  "content_disclosure_ai_generated_indicator_enabled": true,
+  "responsive_web_grok_show_grok_translated_post": true,
+  "responsive_web_grok_analysis_button_from_backend": true,
+  "post_ctas_fetch_enabled": false,
+  "rweb_cashtags_enabled": true,
+  "freedom_of_speech_not_reach_fetch_enabled": true,
+  "standardized_nudges_misinfo": true,
+  "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true,
+  "longform_notetweets_rich_text_read_enabled": true,
+  "longform_notetweets_inline_media_enabled": false,
+  "profile_label_improvements_pcf_label_in_post_enabled": true,
+  "responsive_web_profile_redirect_enabled": true,
+  "rweb_tipjar_consumption_enabled": false,
+  "verified_phone_label_enabled": false,
+  "responsive_web_grok_image_annotation_enabled": true,
+  "responsive_web_grok_imagine_annotation_enabled": true,
+  "responsive_web_grok_community_note_auto_translation_is_enabled": true,
+  "responsive_web_graphql_timeline_navigation_enabled": true
+ },
+ "fieldToggles": {
+  "withArticleRichContentState": true,
+  "withArticlePlainText": false,
+  "withArticleSummaryText": true,
+  "withArticleVoiceOver": true
+ },
+ "variables": {
+  "tweetId": "2026390853309063292",
+  "includePromotedContent": true,
+  "withBirdwatchNotes": true,
+  "withVoice": true,
+  "withCommunity": true
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "500",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "470",
+  "x-rate-limit-reset": "1788551366"
+ },
+ "body": {
+  "data": {
+   "tweetResult": {
+    "result": {
+     "__typename": "Tweet",
+     "birdwatch_pivot": {
+      "callToAction": {
+       "destinationUrl": "https://twitter.com/i/birdwatch/n/2026499345198293272",
+       "prompt": "Do you find this helpful?",
+       "title": "Rate it"
+      },
+      "destinationUrl": "https://twitter.com/i/birdwatch/n/2026499345198293272",
+      "footer": {
+       "entities": [
+        {
+         "fromIndex": 83,
+         "ref": {
+          "type": "TimelineUrl",
+          "url": "https://x.com/i/flow/join-birdwatch",
+          "urlType": "ExternalUrl"
+         },
+         "toIndex": 96
+        }
+       ],
+       "text": "Context is written by people who use X, and appears when rated helpful by others.  Find out more."
+      },
+      "footerIconType": "BirdwatchEyeOff",
+      "iconType": "BirdwatchV1Icon",
+      "note": {
+       "grok_translated_community_note_with_availability": {
+        "is_available": false
+       },
+       "is_community_note_translatable": false,
+       "language": "",
+       "rest_id": "2026499345198293272"
+      },
+      "shorttitle": "Readers added context",
+      "subtitle": {
+       "entities": [
+        {
+         "fromIndex": 216,
+         "ref": {
+          "type": "TimelineUrl",
+          "url": "https://t.co/S2l95QlDsc",
+          "urlType": "ExternalUrl"
+         },
+         "toIndex": 237
+        },
+        {
+         "fromIndex": 238,
+         "ref": {
+          "type": "TimelineUrl",
+          "url": "https://t.co/0jzScQ20ky",
+          "urlType": "ExternalUrl"
+         },
+         "toIndex": 269
+        },
+        {
+         "fromIndex": 270,
+         "ref": {
+          "type": "TimelineUrl",
+          "url": "https://t.co/F85M48rm5X",
+          "urlType": "ExternalUrl"
+         },
+         "toIndex": 298
+        }
+       ],
+       "text": "Opinium poll shows Greens tied with Labour at 28%, Reform at 27% among voters; Greens at 30%, Labour/Reform at 28% among likely voters. Post's graphic omits Greens. Sample of 401; high uncertainty due to small size. x.com/OpiniumResearc… bylinetimes.com/2026/02/24/exc… fullfact.org/politics/gorto…"
+      },
+      "title": "Readers added context they thought people might want to know",
+      "visualStyle": "Default"
+     },
+     "cashtag_attachments": [],
+     "core": {
+      "user_results": {
+       "result": {
+        "__typename": "User",
+        "action_counts": {
+         "favorites_count": 603
+        },
+        "affiliates_highlighted_label": {},
+        "avatar": {
+         "image_url": "https://pbs.twimg.com/profile_images/1572133535703605249/Ap0Mz-Qj_normal.jpg"
+        },
+        "banner": {
+         "image_url": "https://pbs.twimg.com/profile_banners/14291684/1784302286"
+        },
+        "core": {
+         "created_at": "Thu Apr 03 08:57:48 +0000 2008",
+         "name": "The Labour Party",
+         "screen_name": "UKLabour"
+        },
+        "dm_permissions": {
+         "can_dm": true
+        },
+        "follow_request_sent": false,
+        "has_graduated_access": true,
+        "id": "VXNlcjoxNDI5MTY4NA==",
+        "is_blue_verified": true,
+        "location": {
+         "location": ""
+        },
+        "media_permissions": {
+         "can_media_tag": false
+        },
+        "notifications_settings": {
+         "notifications_enabled": false
+        },
+        "parody_commentary_fan_label": "None",
+        "pinned_items": {},
+        "possibly_sensitive": false,
+        "privacy": {
+         "protected": false
+        },
+        "profile_bio": {
+         "description": "Labour is the party of working people.",
+         "entities": {
+          "description": {},
+          "url": {
+           "urls": [
+            {
+             "display_url": "labour.org.uk",
+             "expanded_url": "https://labour.org.uk",
+             "indices": [
+              0,
+              23
+             ],
+             "url": "https://t.co/GFy3SnGW7Q"
+            }
+           ]
+          }
+         }
+        },
+        "profile_description_language": "en",
+        "profile_image_shape": "Circle",
+        "profile_metadata": {
+         "profile_interstitial_type": ""
+        },
+        "profile_translation": {
+         "translator_type": "none"
+        },
+        "relationship_counts": {
+         "followers": 989472,
+         "following": 10029
+        },
+        "relationship_perspectives": {
+         "blocked_by": false,
+         "blocking": false,
+         "followed_by": false,
+         "following": false,
+         "live_following": false,
+         "muting": false
+        },
+        "rest_id": "14291684",
+        "super_follow_eligible": false,
+        "super_followed_by": false,
+        "super_following": false,
+        "tweet_counts": {
+         "media_tweets": 11907,
+         "tweets": 41743
+        },
+        "verification": {
+         "verified": false
+        },
+        "website": {
+         "url": "https://t.co/GFy3SnGW7Q"
+        }
+       }
+      }
+     },
+     "edit_control": {
+      "edit_tweet_ids": [
+       "2026390853309063292"
+      ],
+      "editable_until_msecs": "1771967802000",
+      "edits_remaining": "5",
+      "is_edit_eligible": true
+     },
+     "grok_analysis_button": true,
+     "grok_annotations": {
+      "is_image_editable_by_grok": false
+     },
+     "grok_translated_post_with_availability": {
+      "is_available": false
+     },
+     "has_birdwatch_notes": true,
+     "is_translatable": false,
+     "legacy": {
+      "bookmark_count": 102,
+      "bookmarked": false,
+      "conversation_id_str": "2026390853309063292",
+      "created_at": "Tue Feb 24 20:16:42 +0000 2026",
+      "display_text_range": [
+       0,
+       189
+      ],
+      "entities": {
+       "media": [
+        {
+         "display_url": "pic.x.com/q8ocoMqKCP",
+         "expanded_url": "https://x.com/UKLabour/status/2026390853309063292/photo/1",
+         "ext_media_availability": {
+          "status": "Available"
+         },
+         "features": {
+          "large": {
+           "faces": []
+          },
+          "medium": {
+           "faces": []
+          },
+          "orig": {
+           "faces": []
+          },
+          "small": {
+           "faces": []
+          }
+         },
+         "id_str": "2026390850570235904",
+         "indices": [
+          190,
+          213
+         ],
+         "media_key": "3_2026390850570235904",
+         "media_results": {
+          "result": {
+           "media_key": "3_2026390850570235904"
+          }
+         },
+         "media_url_https": "https://pbs.twimg.com/media/HB8vvghXMAAi98T.jpg",
+         "original_info": {
+          "focus_rects": [
+           {
+            "h": 1075,
+            "w": 1920,
+            "x": 0,
+            "y": 483
+           },
+           {
+            "h": 1920,
+            "w": 1920,
+            "x": 0,
+            "y": 60
+           },
+           {
+            "h": 2189,
+            "w": 1920,
+            "x": 0,
+            "y": 0
+           },
+           {
+            "h": 2400,
+            "w": 1200,
+            "x": 180,
+            "y": 0
+           },
+           {
+            "h": 2400,
+            "w": 1920,
+            "x": 0,
+            "y": 0
+           }
+          ],
+          "height": 2400,
+          "width": 1920
+         },
+         "sizes": {
+          "large": {
+           "h": 2048,
+           "resize": "fit",
+           "w": 1638
+          },
+          "medium": {
+           "h": 1200,
+           "resize": "fit",
+           "w": 960
+          },
+          "small": {
+           "h": 680,
+           "resize": "fit",
+           "w": 544
+          },
+          "thumb": {
+           "h": 150,
+           "resize": "crop",
+           "w": 150
+          }
+         },
+         "type": "photo",
+         "url": "https://t.co/q8ocoMqKCP"
+        }
+       ]
+      },
+      "extended_entities": {
+       "media": [
+        {
+         "display_url": "pic.x.com/q8ocoMqKCP",
+         "expanded_url": "https://x.com/UKLabour/status/2026390853309063292/photo/1",
+         "ext_media_availability": {
+          "status": "Available"
+         },
+         "features": {
+          "large": {
+           "faces": []
+          },
+          "medium": {
+           "faces": []
+          },
+          "orig": {
+           "faces": []
+          },
+          "small": {
+           "faces": []
+          }
+         },
+         "id_str": "2026390850570235904",
+         "indices": [
+          190,
+          213
+         ],
+         "media_key": "3_2026390850570235904",
+         "media_results": {
+          "result": {
+           "media_key": "3_2026390850570235904"
+          }
+         },
+         "media_url_https": "https://pbs.twimg.com/media/HB8vvghXMAAi98T.jpg",
+         "original_info": {
+          "focus_rects": [
+           {
+            "h": 1075,
+            "w": 1920,
+            "x": 0,
+            "y": 483
+           },
+           {
+            "h": 1920,
+            "w": 1920,
+            "x": 0,
+            "y": 60
+           },
+           {
+            "h": 2189,
+            "w": 1920,
+            "x": 0,
+            "y": 0
+           },
+           {
+            "h": 2400,
+            "w": 1200,
+            "x": 180,
+            "y": 0
+           },
+           {
+            "h": 2400,
+            "w": 1920,
+            "x": 0,
+            "y": 0
+           }
+          ],
+          "height": 2400,
+          "width": 1920
+         },
+         "sizes": {
+          "large": {
+           "h": 2048,
+           "resize": "fit",
+           "w": 1638
+          },
+          "medium": {
+           "h": 1200,
+           "resize": "fit",
+           "w": 960
+          },
+          "small": {
+           "h": 680,
+           "resize": "fit",
+           "w": 544
+          },
+          "thumb": {
+           "h": 150,
+           "resize": "crop",
+           "w": 150
+          }
+         },
+         "type": "photo",
+         "url": "https://t.co/q8ocoMqKCP"
+        }
+       ]
+      },
+      "favorite_count": 1184,
+      "favorited": false,
+      "full_text": "🚨BREAKING: new poll suggests there is just one point between Labour and Reform in Gorton and Denton.\n\nEvery vote will count on Thursday. Back Labour and choose unity over Reform’s division. https://t.co/q8ocoMqKCP",
+      "id_str": "2026390853309063292",
+      "is_quote_status": false,
+      "lang": "en",
+      "possibly_sensitive": false,
+      "possibly_sensitive_editable": true,
+      "quote_count": 425,
+      "reply_count": 2006,
+      "retweet_count": 274,
+      "retweeted": false,
+      "user_id_str": "14291684"
+     },
+     "rest_id": "2026390853309063292",
+     "source": "<a href=\"https://buffer.com\" rel=\"nofollow\">Buffer</a>",
+     "unmention_data": {},
+     "views": {
+      "count": "1216935",
+      "state": "EnabledWithCount"
+     }
+    }
+   }
+  }
+ }
+}

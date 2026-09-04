@@ -1,0 +1,20 @@
+{
+ "scenario": "Multi-codepoint emoji before the entities: 103 code points for 112 UTF-16 units, plus a summary card carrying @FlutterDev",
+ "sourceUrl": "https://x.com/quax_tests/status/2095921351106146703",
+ "operation": "getAltTextPromptPreference",
+ "host": "x.com",
+ "queryId": "PFIxTk8owMoZgiMccP0r4g",
+ "features": null,
+ "fieldToggles": null,
+ "variables": {},
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "500",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "498",
+  "x-rate-limit-reset": "1788551337"
+ },
+ "body": {
+  "data": {}
+ }
+}
