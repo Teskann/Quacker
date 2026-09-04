@@ -54,7 +54,7 @@ class TweetVideoMetadata {
         mp4Variants.map((e) => TweetVideoQuality(e.url!, _qualityLabel(e.url!, e.bitrate))).toList();
 
     var mp4Url = qualities.isNotEmpty ? qualities.first.url : null;
-    var streamUrl = mp4Url ?? variants[0].url!;
+    var streamUrl = mp4Url ?? variants.firstWhereOrNull((e) => e.url != null)?.url ?? '';
 
     return () async => TweetVideoUrls(streamUrl, mp4Url, qualities: qualities);
   }

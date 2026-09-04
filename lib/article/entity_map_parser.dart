@@ -60,6 +60,9 @@ class EntityMapParser {
               final mediaId = firstItem['mediaId']?.toString();
               if (mediaId != null && mediaId.isNotEmpty) {
                 final res = mediaEntitiesJson.firstWhereOrNull((e) => e["media_id"] == mediaId);
+                if (res == null) {
+                  break;
+                }
                 if (res["media_info"]?["__typename"] == "ApiImage") {
                   final url = res["media_info"]?["original_img_url"] ?? "";
                   result[key] = ImageEntity(imageUrl: url);
