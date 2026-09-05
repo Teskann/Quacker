@@ -1176,7 +1176,7 @@ class TweetWithCard extends Tweet {
     tweetWithCard.inReplyToStatusIdStr = tweet.inReplyToStatusIdStr;
     tweetWithCard.inReplyToUserIdStr = tweet.inReplyToUserIdStr;
     tweetWithCard.isQuoteStatus = tweet.isQuoteStatus;
-    tweetWithCard.isTombstone = e['is_tombstone'];
+    tweetWithCard.isTombstone = e['isTombstone'];
     tweetWithCard.lang = tweet.lang;
     tweetWithCard.quoteCount = tweet.quoteCount;
     tweetWithCard.quotedStatusIdStr = tweet.quotedStatusIdStr;
