@@ -1,13 +1,7 @@
-## QuaX v4.13.1
+## QuaX v4.13.2
 
-What's new in QuaX v4.13.1:
-  - Migrated to Flutter 3.47.2, migrated dependencies, migrated to Java 25, Gradle 9.3.1 <sup>[[view modified code]](https://github.com/teskann/quax/commit/9dbbc84831820b1b75af4c47cf5d12a0f9d3f898)</sup>
-  - Added automated tests to improve QuaX stability over time. <sup>[[view modified code]](https://github.com/teskann/quax/commit/3b8d37280d79c5a83f6dbbd98d5f7bdb72669a39)</sup>
-  - Added tests for X API response parsing, with data that is automatically extracted from a regular x.com browsing session. This will improve a lot the maintainability and reduce the time needed to release an update in case X breaks their APIs, which happens often. This will also help us a lot to provide a reliable solution for the **feed issues** that have been reported lately. <sup>[[view modified code]](https://github.com/teskann/quax/commit/081106c407dcc689c0eff5b0a4dfb6db9a95f50e)</sup>
-  - Fixed #178 - Keep screen awake while a video is playing <sup>[[view modified code]](https://github.com/teskann/quax/commit/ff0277779d888ae0167e89ba17eeb1277ac966dc)</sup>
-  - Fixed #173 - Hide retweets and replies if asked in the feed/groups <sup>[[view modified code]](https://github.com/teskann/quax/commit/9b54768fa6650f2480be1c2d1906b9cfc081d70f)</sup>
-  - Fixed UI issues that have been introduced by the migration to `material_ui` <sup>[[view modified code]](https://github.com/teskann/quax/commit/6897bf874dcee903d9f14c122203d850f83de9d2)</sup>
-  - Hot fixed a crash at startup on release builds <sup>[[view modified code]](https://github.com/teskann/quax/commit/15b7f32eff920db963dc37e81088934cc4e09c84)</sup>
+What's new in QuaX v4.13.2:
+  - Fixed display of some deleted tweets that lead to errors <sup>[[view modified code]](https://github.com/teskann/quax/commit/486111982963c25b027ed45f8e8da39dc4cf98c9)</sup>
 
 
 ---

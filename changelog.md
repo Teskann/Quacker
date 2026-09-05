@@ -1,3 +1,8 @@
+## QuaX v4.13.2
+
+What's new in QuaX v4.13.2:
+  - Fixed display of some deleted tweets that lead to errors <sup>[[view modified code]](https://github.com/teskann/quax/commit/486111982963c25b027ed45f8e8da39dc4cf98c9)</sup>
+
 ## QuaX v4.13.1
 
 What's new in QuaX v4.13.1:
