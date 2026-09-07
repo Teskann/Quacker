@@ -1,0 +1,367 @@
+{
+ "scenario": "Full profile: avatar, banner, bio with two links and a mention that has no entity",
+ "sourceUrl": "https://x.com/quax_tests",
+ "operation": "SidebarUserRecommendations",
+ "host": "x.com",
+ "queryId": "HFQRXDuKe1r3EAN-vH1GiA",
+ "features": {
+  "profile_label_improvements_pcf_label_in_post_enabled": true,
+  "responsive_web_profile_redirect_enabled": true,
+  "rweb_tipjar_consumption_enabled": false,
+  "verified_phone_label_enabled": false,
+  "responsive_web_graphql_timeline_navigation_enabled": true
+ },
+ "fieldToggles": null,
+ "variables": {
+  "profileUserId": "1760749820346580992"
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "500",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "498",
+  "x-rate-limit-reset": "1788551337"
+ },
+ "body": {
+  "data": {
+   "sidebar_user_recommendations": [
+    {
+     "token": "CgABHUkxS+xeYRcIAAIAAAAACAAEAAAEYQA=",
+     "user_results": {
+      "result": {
+       "__typename": "User",
+       "action_counts": {
+        "favorites_count": 2096
+       },
+       "affiliates_highlighted_label": {
+        "label": {
+         "badge": {
+          "url": "https://pbs.twimg.com/profile_images/1197956262169907201/IVvLdsS4_bigger.jpg"
+         },
+         "description": "Insider",
+         "url": {
+          "url": "https://twitter.com/thisisinsider",
+          "urlType": "DeepLink"
+         },
+         "userLabelDisplayType": "Badge",
+         "userLabelType": "BusinessLabel"
+        }
+       },
+       "avatar": {
+        "image_url": "https://pbs.twimg.com/profile_images/1724403357094141952/g5KVAmVz_normal.jpg"
+       },
+       "banner": {
+        "image_url": "https://pbs.twimg.com/profile_banners/20562637/1699967231"
+       },
+       "core": {
+        "created_at": "Wed Feb 11 01:18:18 +0000 2009",
+        "name": "Business Insider",
+        "screen_name": "BusinessInsider"
+       },
+       "dm_permissions": {
+        "can_dm": false
+       },
+       "follow_request_sent": false,
+       "has_graduated_access": true,
+       "id": "VXNlcjoyMDU2MjYzNw==",
+       "is_blue_verified": true,
+       "location": {
+        "location": "New York, NY"
+       },
+       "media_permissions": {
+        "can_media_tag": true
+       },
+       "notifications_settings": {
+        "notifications_enabled": false
+       },
+       "parody_commentary_fan_label": "None",
+       "pinned_items": {},
+       "possibly_sensitive": false,
+       "privacy": {
+        "protected": false
+       },
+       "profile_bio": {
+        "description": "What you want to know about business. Love Business Insider? Add us as a preferred source on Google.",
+        "entities": {
+         "description": {},
+         "url": {
+          "urls": [
+           {
+            "display_url": "businessinsider.com",
+            "expanded_url": "https://www.businessinsider.com/",
+            "indices": [
+             0,
+             23
+            ],
+            "url": "https://t.co/lb5OEQiQbN"
+           }
+          ]
+         }
+        }
+       },
+       "profile_description_language": "en",
+       "profile_image_shape": "Square",
+       "profile_metadata": {
+        "profile_interstitial_type": ""
+       },
+       "profile_translation": {
+        "translator_type": "none"
+       },
+       "relationship_counts": {
+        "followers": 4344031,
+        "following": 431
+       },
+       "relationship_perspectives": {
+        "blocked_by": false,
+        "blocking": false,
+        "followed_by": false,
+        "following": false,
+        "live_following": false,
+        "muting": false
+       },
+       "rest_id": "20562637",
+       "super_follow_eligible": false,
+       "super_followed_by": false,
+       "super_following": false,
+       "tweet_counts": {
+        "media_tweets": 357230,
+        "tweets": 787685
+       },
+       "verification": {
+        "verified": false,
+        "verified_type": "Business"
+       },
+       "website": {
+        "url": "https://t.co/lb5OEQiQbN"
+       }
+      }
+     }
+    },
+    {
+     "token": "CgABHUkxS+xeYRcIAAIAAAAACAAEAAAEYQA=",
+     "user_results": {
+      "result": {
+       "__typename": "User",
+       "action_counts": {
+        "favorites_count": 13
+       },
+       "affiliates_highlighted_label": {},
+       "avatar": {
+        "image_url": "https://pbs.twimg.com/profile_images/1908236155046236160/OGv6cHg0_normal.png"
+       },
+       "banner": {
+        "image_url": "https://pbs.twimg.com/profile_banners/71567590/1737734250"
+       },
+       "core": {
+        "created_at": "Fri Sep 04 15:57:18 +0000 2009",
+        "name": "St. Louis Fed",
+        "screen_name": "stlouisfed"
+       },
+       "dm_permissions": {
+        "can_dm": false
+       },
+       "follow_request_sent": false,
+       "has_graduated_access": true,
+       "id": "VXNlcjo3MTU2NzU5MA==",
+       "is_blue_verified": true,
+       "location": {
+        "location": "St. Louis, MO"
+       },
+       "media_permissions": {
+        "can_media_tag": false
+       },
+       "notifications_settings": {
+        "notifications_enabled": false
+       },
+       "parody_commentary_fan_label": "None",
+       "pinned_items": {},
+       "possibly_sensitive": false,
+       "privacy": {
+        "protected": false
+       },
+       "profile_bio": {
+        "description": "Official Federal Reserve Bank of St. Louis account. We share economic data and insights. Home to FRED®.",
+        "entities": {
+         "description": {},
+         "url": {
+          "urls": [
+           {
+            "display_url": "stlouisfed.org",
+            "expanded_url": "http://www.stlouisfed.org/",
+            "indices": [
+             0,
+             23
+            ],
+            "url": "https://t.co/43SyZQSKOF"
+           }
+          ]
+         }
+        }
+       },
+       "profile_description_language": "en",
+       "profile_image_shape": "Square",
+       "profile_metadata": {
+        "profile_interstitial_type": ""
+       },
+       "profile_translation": {
+        "translator_type": "none"
+       },
+       "relationship_counts": {
+        "followers": 335548,
+        "following": 37
+       },
+       "relationship_perspectives": {
+        "blocked_by": false,
+        "blocking": false,
+        "followed_by": false,
+        "following": false,
+        "live_following": false,
+        "muting": false
+       },
+       "rest_id": "71567590",
+       "super_follow_eligible": false,
+       "super_followed_by": false,
+       "super_following": false,
+       "tweet_counts": {
+        "media_tweets": 36228,
+        "tweets": 56461
+       },
+       "verification": {
+        "verified": false,
+        "verified_type": "Government"
+       },
+       "website": {
+        "url": "https://t.co/43SyZQSKOF"
+       }
+      }
+     }
+    },
+    {
+     "token": "CgABHUkxS+xeYRcIAAIAAAAACAAEAAAEYAA=",
+     "user_results": {
+      "result": {
+       "__typename": "User",
+       "action_counts": {
+        "favorites_count": 7763
+       },
+       "affiliates_highlighted_label": {},
+       "avatar": {
+        "image_url": "https://pbs.twimg.com/profile_images/1029084163780079616/KL96wS4C_normal.jpg"
+       },
+       "banner": {
+        "image_url": "https://pbs.twimg.com/profile_banners/19722699/1709768018"
+       },
+       "core": {
+        "created_at": "Thu Jan 29 17:46:28 +0000 2009",
+        "name": "Popular Science",
+        "screen_name": "PopSci"
+       },
+       "dm_permissions": {
+        "can_dm": true
+       },
+       "follow_request_sent": false,
+       "has_graduated_access": true,
+       "id": "VXNlcjoxOTcyMjY5OQ==",
+       "is_blue_verified": true,
+       "location": {
+        "location": ""
+       },
+       "media_permissions": {
+        "can_media_tag": true
+       },
+       "notifications_settings": {
+        "notifications_enabled": false
+       },
+       "parody_commentary_fan_label": "None",
+       "pinned_items": {
+        "tweet_ids_str": [
+         "2040885557144834368"
+        ]
+       },
+       "possibly_sensitive": false,
+       "privacy": {
+        "protected": false
+       },
+       "professional": {
+        "category": [
+         {
+          "icon_name": "IconBriefcaseStroke",
+          "id": 580,
+          "name": "Media & News Company"
+         }
+        ],
+        "professional_type": "Business",
+        "rest_id": "1488240910542462986"
+       },
+       "profile_bio": {
+        "description": "Awe-inspiring science, tech, and DIY. Subscribe to our newsletter: https://t.co/k3JnXX3JNw",
+        "entities": {
+         "description": {
+          "urls": [
+           {
+            "display_url": "popsci.com/email-signup/",
+            "expanded_url": "https://www.popsci.com/email-signup/",
+            "indices": [
+             67,
+             90
+            ],
+            "url": "https://t.co/k3JnXX3JNw"
+           }
+          ]
+         },
+         "url": {
+          "urls": [
+           {
+            "display_url": "popsci.com",
+            "expanded_url": "https://www.popsci.com/",
+            "indices": [
+             0,
+             23
+            ],
+            "url": "https://t.co/EJniFa6cjX"
+           }
+          ]
+         }
+        }
+       },
+       "profile_description_language": "en",
+       "profile_image_shape": "Circle",
+       "profile_metadata": {
+        "profile_interstitial_type": ""
+       },
+       "profile_translation": {
+        "translator_type": "regular"
+       },
+       "relationship_counts": {
+        "followers": 1599807,
+        "following": 1396
+       },
+       "relationship_perspectives": {
+        "blocked_by": false,
+        "blocking": false,
+        "followed_by": false,
+        "following": false,
+        "live_following": false,
+        "muting": false
+       },
+       "rest_id": "19722699",
+       "super_follow_eligible": false,
+       "super_followed_by": false,
+       "super_following": false,
+       "tweet_counts": {
+        "media_tweets": 95269,
+        "tweets": 160670
+       },
+       "verification": {
+        "verified": false
+       },
+       "website": {
+        "url": "https://t.co/EJniFa6cjX"
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}

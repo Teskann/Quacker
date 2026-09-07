@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:quax/group/group_model.dart';
 import 'package:quax/user.dart';
 import 'package:intl/intl.dart';
 
-final DateFormat sqliteDateFormat = DateFormat('yyyy-MM-dd hh:mm:ss');
+final DateFormat sqliteDateFormat = DateFormat('yyyy-MM-dd HH:mm:ss');
 
 mixin ToMappable {
   Map<String, dynamic> toMap();
@@ -106,6 +106,9 @@ abstract class Subscription with ToMappable {
       required this.createdAt,
       required this.inFeed,
       });
+
+  /// How X looks this subscription up in a search query.
+  String get searchTerm;
 }
 
 class SearchSubscription extends Subscription {
@@ -122,6 +125,9 @@ class SearchSubscription extends Subscription {
 
   @override
   int get hashCode => id.hashCode;
+
+  @override
+  String get searchTerm => '"$id"';
 
   @override
   Map<String, dynamic> toMap() {
@@ -175,6 +181,9 @@ class UserSubscription extends Subscription {
 
   @override
   int get hashCode => id.hashCode;
+
+  @override
+  String get searchTerm => 'from:$screenName';
 
   @override
   Map<String, dynamic> toMap() {

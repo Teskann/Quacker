@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build & Development Commands
 
-Use `fvm flutter` instead of raw `flutter` to enforce the pinned SDK version (3.44.1).
+Use `fvm flutter` instead of raw `flutter` to enforce the pinned SDK version (3.47.2).
 
 ```bash
 # Install the pinned Flutter SDK and activate it for this project
@@ -110,3 +110,10 @@ Strings live in `lib/l10n/*.arb` files. The `L10n` class in `lib/generated/l10n.
 - `/parse-api` — guidance for safely parsing reverse-engineered X API responses
 - `/port-from-squawker` — port a bug fix or feature from the Squawker codebase
 - `/translate` — user asked anything about translation, or you tried to add/remove/edit a text that appears in the UI
+
+## Writing tests
+
+When writing tests:
+- Use the Should convention, and always use a concise `reason` message in assertions to make it
+  perfectly clear what's broken when a test fails
+  Look at other tests to mimicate the style.

@@ -1,0 +1,30 @@
+{
+ "scenario": "Home timeline",
+ "sourceUrl": "https://x.com/home",
+ "operation": "PinnedTimelines",
+ "host": "x.com",
+ "queryId": "-cgbxu1bOQbapAA31bo1mA",
+ "features": {
+  "profile_label_improvements_pcf_label_in_post_enabled": true,
+  "responsive_web_profile_redirect_enabled": true,
+  "rweb_tipjar_consumption_enabled": false,
+  "verified_phone_label_enabled": false,
+  "responsive_web_graphql_timeline_navigation_enabled": true
+ },
+ "fieldToggles": null,
+ "variables": {},
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "500",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "498",
+  "x-rate-limit-reset": "1788551337"
+ },
+ "body": {
+  "data": {
+   "pinned_timelines": {
+    "pinned_timelines": []
+   }
+  }
+ }
+}

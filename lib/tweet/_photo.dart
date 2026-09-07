@@ -1,5 +1,5 @@
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 List<double> _doubleTapScales = <double>[1.0, 4.0];
 
@@ -32,6 +32,12 @@ class _TweetPhotoState extends State<TweetPhoto> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return ExtendedImageSlidePage(
       slideAxis: SlideAxis.vertical,
+      slidePageBackgroundHandler: (offset, pageSize) => defaultSlidePageBackgroundHandler(
+        offset: offset,
+        pageSize: pageSize,
+        color: Theme.of(context).scaffoldBackgroundColor,
+        pageGestureAxis: SlideAxis.vertical,
+      ),
       child: ExtendedImage.network(
         widget.size != null ? '${widget.uri}:${widget.size}' : widget.uri,
         cache: true,

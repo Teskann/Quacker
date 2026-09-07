@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:quax/client/client.dart';
@@ -21,7 +21,7 @@ class SearchTweetsPagination {
     if (_query.isEmpty) {
       return (chains: <TweetChain>[], nextCursor: null);
     }
-    final result = await Twitter.searchTweets(_query, true, product: product, cursor: cursor);
+    final result = await Twitter.searchTweets(_query, product: product, cursor: cursor);
     return (chains: result.chains, nextCursor: result.cursorBottom);
   }
 
@@ -48,7 +48,7 @@ class SearchMediaPagination {
     if (_query.isEmpty) {
       return (items: const <MediaGridItem>[], nextCursor: null);
     }
-    final result = await Twitter.searchTweets(_query, true, product: 'Media', cursor: cursor);
+    final result = await Twitter.searchTweets(_query, product: 'Media', cursor: cursor);
     return mediaPageFromStatus(result, cursor);
   }
 

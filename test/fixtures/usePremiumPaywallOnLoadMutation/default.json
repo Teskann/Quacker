@@ -1,0 +1,27 @@
+{
+ "scenario": "Home timeline",
+ "sourceUrl": "https://x.com/home",
+ "operation": "usePremiumPaywallOnLoadMutation",
+ "host": "x.com",
+ "queryId": "F6gikc1Bwzry7oHMrdrYzg",
+ "features": null,
+ "fieldToggles": null,
+ "variables": null,
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "50",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "48",
+  "x-rate-limit-reset": "1788551337"
+ },
+ "body": {
+  "data": {
+   "journeys_to_route_path": {
+    "__typename": "SubscriptionJourneysToRouteSuccess",
+    "occurred_moment_config": {
+     "__typename": "SubscriptionJourneyNoActionConfig"
+    }
+   }
+  }
+ }
+}

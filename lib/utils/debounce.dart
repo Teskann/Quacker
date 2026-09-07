@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 // Based on easy_debounce by magnuswikihog, released under the MIT License: https://github.com/magnuswikhog/easy_debounce
 typedef DebounceCallback = VoidCallback;

@@ -1,0 +1,139 @@
+{
+ "scenario": "Default avatar, no banner, empty bio, zero followers",
+ "sourceUrl": "https://x.com/quax_tests_2",
+ "operation": "UserByScreenName",
+ "host": "x.com",
+ "queryId": "Gb-d6r0vxPOADdG62OEBpQ",
+ "features": {
+  "hidden_profile_subscriptions_enabled": true,
+  "profile_label_improvements_pcf_label_in_post_enabled": true,
+  "responsive_web_profile_redirect_enabled": true,
+  "rweb_tipjar_consumption_enabled": false,
+  "verified_phone_label_enabled": false,
+  "subscriptions_verification_info_is_identity_verified_enabled": true,
+  "subscriptions_verification_info_verified_since_enabled": true,
+  "highlights_tweets_tab_ui_enabled": true,
+  "responsive_web_twitter_article_notes_tab_enabled": true,
+  "subscriptions_feature_can_gift_premium": true,
+  "creator_subscriptions_tweet_preview_api_enabled": true,
+  "responsive_web_graphql_timeline_navigation_enabled": true
+ },
+ "fieldToggles": {
+  "withPayments": false,
+  "withAuxiliaryUserLabels": true
+ },
+ "variables": {
+  "screen_name": "quax_tests_2",
+  "withGrokTranslatedBio": true
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "150",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "144",
+  "x-rate-limit-reset": "1788551339"
+ },
+ "body": {
+  "data": {
+   "user": {
+    "result": {
+     "__typename": "User",
+     "action_counts": {
+      "favorites_count": 0
+     },
+     "affiliates_highlighted_label": {},
+     "avatar": {
+      "image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
+     },
+     "banner": {
+      "image_url": ""
+     },
+     "business_account": {},
+     "core": {
+      "created_at": "Fri Sep 04 16:37:22 +0000 2026",
+      "name": "Moluyts",
+      "screen_name": "quax_tests_2"
+     },
+     "creator_subscriptions_count": 0,
+     "dm_permissions": {
+      "can_dm": false
+     },
+     "follow_request_sent": false,
+     "grok_translated_bio_with_availability": {
+      "is_available": false
+     },
+     "has_graduated_access": false,
+     "has_hidden_subscriptions_on_profile": false,
+     "highlights_info": {
+      "can_highlight_tweets": false,
+      "highlighted_tweets": "0"
+     },
+     "id": "VXNlcjoyMDk1OTE0MTIzOTA1MTE4MjEx",
+     "is_blue_verified": false,
+     "is_profile_translatable": false,
+     "legacy_extended_profile": {},
+     "location": {
+      "location": ""
+     },
+     "media_permissions": {
+      "can_media_tag": true
+     },
+     "notifications_settings": {
+      "notifications_enabled": false
+     },
+     "parody_commentary_fan_label": "None",
+     "pinned_items": {},
+     "possibly_sensitive": false,
+     "premium_gifting_eligible": true,
+     "privacy": {
+      "protected": false
+     },
+     "profile_bio": {
+      "description": "",
+      "entities": {
+       "description": {}
+      }
+     },
+     "profile_image_shape": "Circle",
+     "profile_metadata": {
+      "profile_interstitial_type": ""
+     },
+     "profile_sort_enabled": false,
+     "profile_translation": {
+      "translator_type": "none"
+     },
+     "relationship_counts": {
+      "followers": 0,
+      "following": 0
+     },
+     "relationship_perspectives": {
+      "blocked_by": false,
+      "blocking": false,
+      "followed_by": false,
+      "following": false,
+      "live_following": false,
+      "muting": false
+     },
+     "rest_id": "2095914123905118211",
+     "super_follow_eligible": false,
+     "super_followed_by": false,
+     "super_following": false,
+     "tweet_counts": {
+      "media_tweets": 0,
+      "tweets": 17
+     },
+     "user_seed_tweet_count": 0,
+     "verification": {
+      "verified": false
+     },
+     "verification_info": {
+      "is_identity_verified": false
+     },
+     "website": {
+      "url": ""
+     }
+    }
+   }
+  }
+ }
+}

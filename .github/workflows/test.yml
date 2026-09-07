@@ -1,0 +1,35 @@
+name: test
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repository
+        uses: actions/checkout@v5
+
+      - name: Install and set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version-file: .fvmrc
+          cache: true
+
+      - name: Install the dependencies
+        run: |
+          flutter config --no-analytics
+          flutter pub get
+
+      # lib/generated and lib/oss_licenses.dart are gitignored, so nothing compiles from a fresh
+      # checkout until they have been generated.
+      - name: Generate the sources
+        run: |
+          dart run dart_pubspec_licenses:generate
+          dart run intl_utils:generate
+          dart run flutter_iconpicker:generate_packs --packs material
+
+      - name: Run the tests
+        run: flutter test --reporter github

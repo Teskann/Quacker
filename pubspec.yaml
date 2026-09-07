@@ -16,24 +16,25 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 
-version: 4.13.0+400001042
+version: 4.13.2+400001044
 
 environment:
-  sdk: "3.12.2"
-  flutter: 3.44.8
+  sdk: "3.13.2"
+  flutter: 3.47.2
 
 dependency_overrides:
   # auto_direction pins an old intl (^0.17/^0.18) that conflicts with
   # dart_twitter_api's intl ^0.20.0. auto_direction only uses the stable
   # Bidi.detectRtlDirectionality API, so forcing the modern intl is safe.
   intl: ^0.20.2
-  # file_picker 12-beta / package_info_plus 10 / share_plus 13 need win32 ^6,
-  # but flutter_iconpicker (dcli <8) and arb_utils (dcli <=10) pull dcli 7.x /
-  # dart_console 4.x, whose Windows FFI code is written against the win32 ^5 API
-  # and fails to *compile* (even on Linux, since dcli uses runtime Platform
-  # checks, not conditional imports). Forcing dcli/dart_console to their win32-6
-  # majors lets the codegen CLIs build. These are dev-only codegen tools never
-  # imported by app code, and win32 is a no-op off Windows, so this is safe.
+  # file_picker 12 (via windows_file_picker) / package_info_plus 10 / share_plus
+  # 13 need win32 ^6, but flutter_iconpicker (dcli <8) and arb_utils (dcli <=10)
+  # pull dcli 7.x / dart_console 4.x, whose Windows FFI code is written against
+  # the win32 ^5 API and fails to *compile* (even on Linux, since dcli uses
+  # runtime Platform checks, not conditional imports). Forcing dcli/dart_console
+  # to their win32-6 majors lets the codegen CLIs build. These are dev-only
+  # codegen tools never imported by app code, and win32 is a no-op off Windows,
+  # so this is safe.
   win32: ^6.2.0
   dcli: ^9.0.0
   dart_console: ^5.0.0
@@ -43,8 +44,7 @@ dependencies:
     sdk: flutter
 
   # Core Flutter dependencies
-  flutter_localizations:
-    sdk: flutter
+  material_ui: ^1.1.1
 
   # API & Networking
   http: ^1.2.1
@@ -59,27 +59,27 @@ dependencies:
   infinite_scroll_pagination: ^5.1.1
   flutter_cache: ^0.1.0
   flutter_material_color_picker: ^1.2.0
-  # 12.0.0-beta moves to win32 ^6.2.0, letting package_info_plus 10 / share_plus
-  # 13 / wakelock_plus 1.6 / chewie 1.14 (all win32 ^6) resolve alongside it.
-  # Pinned to beta.2: the plugin's Android sources import kotlinx.coroutines but
-  # never declare it. beta.2's androidx deps (lifecycle-runtime 2.8.7, core-ktx
-  # 1.15.0) still put coroutines on the compile classpath; beta.3+ bumped those
-  # versions so coroutines drops off, and the Android build then fails with
-  # cascading "unresolved reference" errors. beta.2 keeps win32-6 Dart support.
-  file_picker: 12.0.0-beta.2
+  file_picker: ^12.2.0
   flutter_file_dialog: ^3.0.1
   flutter_iconpicker: ^4.0.1
   flutter_portal: ^1.1.4
-  webview_flutter: 4.14.0
+  webview_flutter: 4.14.1
   webview_cookie_manager_plus: ^2.0.16
 
   # Localization & Styling
   intl: any
   flutter_localized_locales: ^2.0.3
-  dynamic_color: ^1.7.0
+  dynamic_color: ^2.1.0
 
   # State Management & Data
-  pref: ^2.7.0
+  # material_ui migration merged upstream but not yet released on pub.dev
+  # (latest there is 2.8.0, from 2024-01-04). Pin the merge commit until 2.9.0
+  # ships, then switch back to a hosted constraint.
+  pref:
+    git:
+      url: https://github.com/DavBfr/flutter_pref.git
+      ref: 7fa597165e0e20d3a5379869846b98f6222ac9ff
+      path: pref
   provider: ^6.0.4
   flutter_triple: ^3.0.0
   multi_select_flutter: ^4.1.3
@@ -92,10 +92,10 @@ dependencies:
   package_info_plus: ^10.1.0
   path: ^1.8.2
   path_provider: ^2.0.11
-  permission_handler: ^12.0.0+1
+  permission_handler: ^13.0.1
   quiver: ^3.1.0
   scroll_to_index: ^3.0.1
-  secure_content: ^1.0.1
+  secure_content: ^2.0.0
   share_plus: ^13.1.0
   sqflite: ^2.2.2
   sqflite_common: ^2.4.0+2
@@ -123,6 +123,8 @@ dev_dependencies:
   intl_utils: ^2.8.1
   sqflite_common_ffi: ^2.2.0+1
   arb_utils: ^0.11.1
+  puppeteer: ^3.26.0
+  wakelock_plus_platform_interface: ^1.7.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

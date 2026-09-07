@@ -1,5 +1,5 @@
 import 'package:crypto/crypto.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:quax/client/client.dart';
 import 'package:quax/database/entities.dart';

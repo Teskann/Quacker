@@ -1,0 +1,115 @@
+{
+ "scenario": "Home timeline",
+ "sourceUrl": "https://x.com/home",
+ "operation": "useStoryTopicQuery",
+ "host": "x.com",
+ "queryId": "I3V_Tt32aTZdw7cBdKUJbg",
+ "features": null,
+ "fieldToggles": null,
+ "variables": {
+  "rest_id": "For You",
+  "limit": 3
+ },
+ "status": 200,
+ "headers": {
+  "x-rate-limit-limit": "50",
+  "content-type": "application/json",
+  "x-rate-limit-remaining": "48",
+  "x-rate-limit-reset": "1788551337"
+ },
+ "body": {
+  "data": {
+   "story_topic": {
+    "id": "U3RvcnlUb3BpYzpGb3IgWW91",
+    "stories": {
+     "items": [
+      {
+       "trend_results": {
+        "id": "QWlUcmVuZFJlc3VsdHM6MjA5NTU5MTU5MzgyMjYxNzkwNQ==",
+        "result": {
+         "__typename": "AiTrend",
+         "core": {
+          "category": "Entertainment",
+          "created_at_ms": 1788462944833,
+          "hook": "Elon Musk declared chess will one day be fully solved by AI, only for Chess.com to fire back with a cheeky 'skill issue' and universe-sized numbers.",
+          "name": "Elon Musk and Chess.com Debate If AI Will Solve Chess"
+         },
+         "id": "QWlUcmVuZDoyMDk1NTkxNTkzODIyNjE3OTA1",
+         "post_count": "15282",
+         "rest_id": "2095591593822617905",
+         "social_proof": [
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_normal.jpg"
+          },
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/1781029462576107528/nXArvaQa_normal.jpg"
+          },
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/1836047002712363008/Iaw1-QEl_normal.png"
+          }
+         ]
+        }
+       }
+      },
+      {
+       "trend_results": {
+        "id": "QWlUcmVuZFJlc3VsdHM6MjA5NTg3Mzk3NjgzMjc3MDQ4NQ==",
+        "result": {
+         "__typename": "AiTrend",
+         "core": {
+          "category": "Entertainment",
+          "created_at_ms": 1788530270189,
+          "hook": "Nintendo fans get a double treat next week: a special 30-minute celebration of Zelda's 40th birthday, followed by a full reveal of Switch 2 games.",
+          "name": "Nintendo Announces Zelda 40th Anniversary Direct and Switch 2 Showcase"
+         },
+         "id": "QWlUcmVuZDoyMDk1ODczOTc2ODMyNzcwNDg1",
+         "post_count": "166941",
+         "rest_id": "2095873976832770485",
+         "social_proof": [
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/1686609010307248131/PwXJ2X01_normal.jpg"
+          },
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/1539293929031421958/cy-uzR2t_normal.jpg"
+          },
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/823439425593954305/j0L7_KyW_normal.jpg"
+          }
+         ]
+        }
+       }
+      },
+      {
+       "trend_results": {
+        "id": "QWlUcmVuZFJlc3VsdHM6MjA5NTI1MDgzNDkxMzM3NDYzNg==",
+        "result": {
+         "__typename": "AiTrend",
+         "core": {
+          "category": "News",
+          "created_at_ms": 1788381701578,
+          "hook": "Imagine hopping into a gold Cybercab with no steering wheel or pedals, feeling like a VIP as it glides through Austin traffic—all for under $10.",
+          "name": "Tesla Cybercab Robotaxis Launch Paying Rides in Austin"
+         },
+         "id": "QWlUcmVuZDoyMDk1MjUwODM0OTEzMzc0NjM2",
+         "post_count": "17851",
+         "rest_id": "2095250834913374636",
+         "social_proof": [
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/2093210219954479104/d1TudWkr_normal.jpg"
+          },
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/1498070100393754625/C2V-fbll_normal.jpg"
+          },
+          {
+           "img_url": "https://pbs.twimg.com/profile_images/2015564739363901440/k35jBKUH_normal.jpg"
+          }
+         ]
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

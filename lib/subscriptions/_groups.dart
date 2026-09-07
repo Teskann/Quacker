@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_iconpicker/Models/configuration.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 import 'package:flutter_iconpicker/flutter_iconpicker.dart';

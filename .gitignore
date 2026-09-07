@@ -35,6 +35,7 @@
 
 /android/.kotlin/
 /android/app/.cxx/
+/android/build
 
 
 lib/generated
@@ -55,3 +56,11 @@ app.*.map.json
 .gradle/
 .venv/
 assets/icon-*.png
+
+.claude/tmp
+
+tool/record/.chrome-profile/
+tool/record/media/*.mp4
+tool/record/media/*.gif
+tool/record/media/*.png
+*.har

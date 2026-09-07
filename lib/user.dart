@@ -1,7 +1,7 @@
 import 'package:dart_twitter_api/src/utils/date_utils.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:quax/constants.dart';
 import 'package:quax/database/entities.dart';
@@ -276,15 +276,46 @@ class UserWithExtra extends User {
   }
 
   factory UserWithExtra.fromNonLegacyJson(Map<String, dynamic> json) {
-    var userWithExtra = UserWithExtra.fromJson(json["legacy"]);
-    userWithExtra
-      ..name = json["core"]?["name"] ?? userWithExtra.name
-      ..createdAt = convertTwitterDateTime(json["core"]?["created_at"]) ?? userWithExtra.createdAt
-      ..screenName = json["core"]?["screen_name"] ?? userWithExtra.screenName
-      ..verified = json["is_blue_verified"] ?? userWithExtra.verified
-      ..profileImageUrlHttps = json["avatar"]?["image_url"] ?? userWithExtra.profileImageUrlHttps
-      ..idStr = json["rest_id"] ?? userWithExtra.idStr;
-    return userWithExtra;
+    var legacy = json['legacy'] as Map<String, dynamic>? ?? const {};
+    return UserWithExtra.fromJson({...legacy, ..._flattenModernUser(json)});
+  }
+
+  static Map<String, dynamic> _flattenModernUser(Map<String, dynamic> json) {
+    var avatar = _text(json['avatar']?['image_url']);
+    var modern = <String, dynamic>{
+      'id_str': json['rest_id'],
+      'name': json['core']?['name'],
+      'screen_name': json['core']?['screen_name'],
+      'created_at': json['core']?['created_at'],
+      'location': _text(json['location']?['location']),
+      'url': _text(json['website']?['url']),
+      'description': json['profile_bio']?['description'],
+      'entities': json['profile_bio']?['entities'],
+      'protected': json['privacy']?['protected'],
+      'verified': json['verification']?['verified'],
+      'verified_type': json['verification']?['verified_type'],
+      'is_blue_verified': json['is_blue_verified'],
+      'followers_count': json['relationship_counts']?['followers'],
+      'friends_count': json['relationship_counts']?['following'],
+      'favorites_count': json['action_counts']?['favorites_count'],
+      'statuses_count': json['tweet_counts']?['tweets'],
+      'profile_banner_url': _text(json['banner']?['image_url']),
+      'profile_image_url_https': avatar,
+      'possibly_sensitive': json['possibly_sensitive'],
+      'default_profile_image': avatar == null ? null : avatar.contains('default_profile_images'),
+    };
+    modern.removeWhere((_, value) => value == null);
+    return modern;
+  }
+
+  static String? _text(Object? value) {
+    var text = value as String?;
+    return (text == null || text.isEmpty) ? null : text;
+  }
+
+  static List<String> pinnedTweetIdsOf(Map<String, dynamic> json) {
+    var ids = json['pinned_items']?['tweet_ids_str'] ?? json['legacy']?['pinned_tweet_ids_str'];
+    return List<String>.from(ids as List<dynamic>? ?? const []);
   }
 
   factory UserWithExtra.fromJson(Map<String, dynamic> json) {

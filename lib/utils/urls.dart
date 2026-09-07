@@ -46,6 +46,11 @@ class ProfileUriInfo extends UriParseResult {
 ProfileUriInfo? _parseAsProfileLink(List<String> parts) {
   if (parts.isEmpty) return null;
 
+  // https://x.com/i/... does not refer to a profile
+  if (parts[0] == "i") {
+    return null;
+  }
+
   // https://x.com/DogsTrust
   if (parts.length == 1) {
     return ProfileUriInfo(parts.first, null);
