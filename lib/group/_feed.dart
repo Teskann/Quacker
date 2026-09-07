@@ -208,90 +208,129 @@ class _SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> {
         });
   }
 
+  /// Separator between the chunk index, the number of pages consumed for that
+  /// chunk, and the per-chunk search cursor inside a feed cursor. An empty
+  /// search cursor means "start this chunk fresh"; an empty page count is 0.
+  static const String feedCursorSeparator = '|';
+
+  /// Maximum number of pages a single chunk contributes before the feed moves
+  /// on to the next chunk. Bounds how much one tweet-heavy chunk can dominate
+  /// the scroll (and the rate-limit budget).
+  static const int maxPagesPerChunk = 3;
+
+  /// The index of the chunk the given feed [cursor] points at (`null` for the
+  /// very first page, which starts at chunk 0).
+  int? _chunkIndexFromCursor(String? cursor) {
+    if (cursor == null) return 0;
+    return int.tryParse(cursor.split(feedCursorSeparator)[0]);
+  }
+
+  /// The number of pages already consumed for the chunk in the given feed
+  /// [cursor] (0 for a fresh entry or a malformed cursor).
+  int _pageCountFromCursor(String? cursor) {
+    if (cursor == null) return 0;
+    final parts = cursor.split(feedCursorSeparator);
+    if (parts.length < 2) return 0;
+    return int.tryParse(parts[1]) ?? 0;
+  }
+
+  /// The per-chunk search cursor encoded in the given feed [cursor], or `null`
+  /// when the chunk should be loaded fresh from its newest tweets.
+  String? _searchCursorFromCursor(String? cursor) {
+    if (cursor == null) return null;
+    final parts = cursor.split(feedCursorSeparator);
+    // Old two-part cursor ("<chunk>|<searchCursor>") kept working.
+    if (parts.length == 2) {
+      return parts[1].isNotEmpty ? parts[1] : null;
+    }
+    return parts.length > 2 && parts[2].isNotEmpty ? parts[2] : null;
+  }
+
   /// Search for our next "page" of tweets.
   ///
-  /// Here, each page is actually a set of mappings, where the ID of each set is the hash of all the user IDs in that
-  /// set. We store this along with the top and bottom pagination cursors, which we use to perform pagination for all
-  /// sets at the same time, allowing us to create a feed made up of individual search queries.
+  /// Each page fetches a single chunk (one search request): the active chunk is
+  /// paged to exhaustion via its bottom cursor, then we move on to the next
+  /// chunk, oldest first. Unlike the old "all chunks at once" paging, a group
+  /// of N subscriptions costs ~1 request per page instead of one request per
+  /// chunk, so large groups stay within the rate limit while scrolling.
   Future<TweetPageResult> _listTweets(String? cursorKey) async {
-    List<Future<List<TweetChain>>> futures = [];
-
     var repository = await Repository.writable();
-    var nextCursor = await createCursor(repository);
+    var startChunk = _chunkIndexFromCursor(cursorKey) ?? 0;
     bool shouldShowUnrelatedPostsInFeedWarning = false;
 
-    for (var chunk in widget.chunks) {
+    for (var i = startChunk; i < widget.chunks.length; i++) {
+      if (!mounted) {
+        return (chains: <TweetChain>[], nextCursor: null);
+      }
+
+      var chunk = widget.chunks[i];
       var hash = chunk.hash;
+      var tweets = <TweetChain>[];
 
-      futures.add(Future(() async {
-        var tweets = <TweetChain>[];
+      // Entering a chunk fresh: reuse any cached tweets, and use the latest
+      // stored top cursor to fetch only what's new since we last checked.
+      // Only apply the cursor encoded in the feed cursor when it belongs to
+      // this chunk; a paged chunk that returned an empty page leaves its cursor
+      // behind, so the next chunk must start fresh instead of reusing it.
+      var cursorBelongsToChunk = _chunkIndexFromCursor(cursorKey) == i;
+      var searchCursor = cursorBelongsToChunk ? _searchCursorFromCursor(cursorKey) : null;
+      var pagesUsed = cursorBelongsToChunk ? _pageCountFromCursor(cursorKey) : 0;
+      if (searchCursor == null) {
+        var storedChunks = await repository.query(tableFeedGroupChunk,
+            where: 'hash = ?', whereArgs: [hash], orderBy: 'created_at DESC');
+        tweets.addAll(chainsFromStoredChunks(storedChunks));
+        searchCursor = storedChunks.firstOrNull?['cursor_top'] as String?;
+      }
 
-        String? searchCursor;
+      var query = buildFeedSearchQuery(chunk.users,
+          includeReplies: widget.includeReplies, includeRetweets: widget.includeRetweets);
+      TweetStatus result = await Twitter.searchTweets(query, cursor: searchCursor);
+      shouldShowUnrelatedPostsInFeedWarning |= feedContainsUnrelatedTweets(result, chunk.users);
 
-        if (cursorKey == null) {
-          // We're loading the initial content for the feed screen, so load all the chunks we already have
-          var storedChunks = await repository.query(tableFeedGroupChunk,
-              where: 'hash = ?', whereArgs: [hash], orderBy: 'created_at DESC');
+      if (result.chains.isNotEmpty) {
+        tweets.addAll(result.chains);
 
-          // Make sure we load any existing stored tweets from the chunk
-          tweets.addAll(chainsFromStoredChunks(storedChunks));
+        // Persist this page's cursors and tweets so the chunk cache keeps working.
+        var nextCursor = await createCursor(repository);
+        await repository.insert(tableFeedGroupChunk, {
+          'cursor_id': int.parse(nextCursor),
+          'hash': hash,
+          'cursor_top': result.cursorTop,
+          'cursor_bottom': result.cursorBottom,
+          'response': jsonEncode(result.chains.map((e) => e.toJson()).toList())
+        });
+      }
 
-          // Use the latest chunk's top cursor to load any new tweets since the last time we checked
-          var latestChunk = storedChunks.firstOrNull;
-          if (latestChunk != null) {
-            searchCursor = latestChunk['cursor_top'] as String;
-          } else {
-            // Otherwise we need to perform a fresh load from scratch for this chunk
-            searchCursor = null;
-          }
-        } else {
-          // We're currently at the end of our current feed, so load the oldest chunk and use its cursor to load more
-          var storedChunks = await repository.query(tableFeedGroupChunk,
-              where: 'cursor_id = ? AND hash = ?', whereArgs: [int.parse(cursorKey), hash]);
-          if (storedChunks.isNotEmpty) {
-            searchCursor = storedChunks.first['cursor_bottom'] as String;
-          } else {
-            searchCursor = null;
-          }
+      if (tweets.isNotEmpty) {
+        if (!mounted) {
+          return (chains: <TweetChain>[], nextCursor: null);
         }
 
-        // Perform our search for the next page of results for this chunk, and add those tweets to our collection
-        var query = buildFeedSearchQuery(chunk.users,
-            includeReplies: widget.includeReplies, includeRetweets: widget.includeRetweets);
-        TweetStatus result = await Twitter.searchTweets(query, cursor: searchCursor);
-        shouldShowUnrelatedPostsInFeedWarning |= feedContainsUnrelatedTweets(result, chunk.users);
-
-        if (result.chains.isNotEmpty) {
-          tweets.addAll(result.chains);
-
-          // Make sure we insert the set of cursors for this latest chunk, ready for the next time we paginate
-          await repository.insert(tableFeedGroupChunk, {
-            'cursor_id': int.parse(nextCursor),
-            'hash': hash,
-            'cursor_top': result.cursorTop,
-            'cursor_bottom': result.cursorBottom,
-            'response': jsonEncode(result.chains.map((e) => e.toJson()).toList())
-          });
+        // Keep paging this chunk while its bottom cursor advances and we have
+        // not yet hit the per-chunk page cap; otherwise move on to the next
+        // chunk (top-first), and end after the last one.
+        var bottomCursor = result.cursorBottom;
+        var pagesAfterThisPage = pagesUsed + 1;
+        String? feedNextCursor;
+        if (pagesAfterThisPage < maxPagesPerChunk &&
+            bottomCursor != null &&
+            bottomCursor.isNotEmpty &&
+            bottomCursor != searchCursor) {
+          feedNextCursor = '$i$feedCursorSeparator$pagesAfterThisPage$feedCursorSeparator$bottomCursor';
+        } else if (i + 1 < widget.chunks.length) {
+          feedNextCursor = '${i + 1}$feedCursorSeparator$feedCursorSeparator';
         }
 
-        return tweets;
-      }));
+        if (shouldShowUnrelatedPostsInFeedWarning &&
+            !PrefService.of(context).get(optionDisableWarningsForUnrelatedPostsInFeed)) {
+          await showUnrelatedPostsInFeedWarning();
+        }
+
+        return (chains: sortChainsNewestFirst(tweets), nextCursor: feedNextCursor);
+      }
     }
 
-    // Wait for all our searches to complete, then build our list of tweet conversations
-    var result = (await Future.wait(futures));
-    var threads = sortChainsNewestFirst(result.expand((element) => element).toList());
-
-    if (!mounted) {
-      return (chains: <TweetChain>[], nextCursor: null);
-    }
-
-    if (shouldShowUnrelatedPostsInFeedWarning &&
-        !PrefService.of(context).get(optionDisableWarningsForUnrelatedPostsInFeed)) {
-      await showUnrelatedPostsInFeedWarning();
-    }
-
-    return (chains: threads, nextCursor: nextCursor);
+    return (chains: <TweetChain>[], nextCursor: null);
   }
 
   @override
