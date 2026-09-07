@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'package:quax/client/client.dart';
 import 'package:quax/constants.dart';
@@ -10,10 +10,10 @@ import 'package:quax/generated/l10n.dart';
 import 'package:quax/group/feed_cache.dart';
 import 'package:quax/group/feed_session_cache.dart';
 import 'package:quax/group/group_screen.dart';
+import 'package:quax/group/search_query.dart';
 import 'package:quax/tweet/paginated_tweet_list.dart';
 import 'package:quax/tweet/tweet_context_scope.dart';
 import 'package:quax/utils/iterables.dart';
-import 'package:logging/logging.dart';
 import 'package:pref/pref.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -49,10 +49,6 @@ class SubscriptionGroupFeed extends StatefulWidget {
 }
 
 class _SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> {
-  static final log = Logger('GroupFeed');
-
-  String _ts() => DateTime.now().toIso8601String();
-
   late final TweetFeedController _feedController;
   FeedSessionCache? _cache;
   ScrollController? _innerScrollController;
@@ -212,46 +208,6 @@ class _SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> {
         });
   }
 
-  String _buildSearchQuery(List<Subscription> users) {
-    var query = '';
-
-    var remainingLength = 512 - query.length;
-
-    for (var user in users) {
-      var queryToAdd = '';
-      if (user is UserSubscription) {
-        queryToAdd = 'from:${user.screenName}';
-      } else if (user is SearchSubscription) {
-        queryToAdd = '"${user.id}"';
-      }
-
-      // If we can add this user to the query and still be less than ~512 characters, do so
-      if (query.length + queryToAdd.length < remainingLength) {
-        if (query != '' && query.isNotEmpty) {
-          query += ' OR ';
-        }
-
-        query += queryToAdd;
-      } else {
-        // Otherwise, add the search future and start a new one
-        assert(false, 'should never reach here');
-        query = queryToAdd;
-      }
-    }
-
-    if (!widget.includeReplies) {
-      query += ' -filter:replies ';
-    }
-
-    if (!widget.includeRetweets) {
-      query += ' -filter:retweets ';
-    } else {
-      query += ' include:nativeretweets ';
-    }
-
-    return query;
-  }
-
   /// Separator between the chunk index, the number of pages consumed for that
   /// chunk, and the per-chunk search cursor inside a feed cursor. An empty
   /// search cursor means "start this chunk fresh"; an empty page count is 0.
@@ -326,11 +282,9 @@ class _SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> {
         searchCursor = storedChunks.firstOrNull?['cursor_top'] as String?;
       }
 
-      var query = _buildSearchQuery(chunk.users);
-      log.info(
-          '[DEBUG] ${_ts()} GroupFeed: firing chunk $i/${widget.chunks.length} (${chunk.users.length} subscriptions, page $pagesUsed/$maxPagesPerChunk, ${searchCursor == null ? 'fresh/top' : 'paging'})');
-      TweetStatus result =
-          await Twitter.searchTweets(query, widget.includeReplies, cursor: searchCursor);
+      var query = buildFeedSearchQuery(chunk.users,
+          includeReplies: widget.includeReplies, includeRetweets: widget.includeRetweets);
+      TweetStatus result = await Twitter.searchTweets(query, cursor: searchCursor);
       shouldShowUnrelatedPostsInFeedWarning |= feedContainsUnrelatedTweets(result, chunk.users);
 
       if (result.chains.isNotEmpty) {
@@ -367,9 +321,6 @@ class _SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> {
           feedNextCursor = '${i + 1}$feedCursorSeparator$feedCursorSeparator';
         }
 
-        log.info(
-            '[DEBUG] ${_ts()} GroupFeed: chunk $i/${widget.chunks.length} returned ${result.chains.length} chains -> next "${feedNextCursor ?? 'feed end'}"');
-
         if (shouldShowUnrelatedPostsInFeedWarning &&
             !PrefService.of(context).get(optionDisableWarningsForUnrelatedPostsInFeed)) {
           await showUnrelatedPostsInFeedWarning();
@@ -377,12 +328,7 @@ class _SubscriptionGroupFeedState extends State<SubscriptionGroupFeed> {
 
         return (chains: sortChainsNewestFirst(tweets), nextCursor: feedNextCursor);
       }
-
-      log.info(
-          '[DEBUG] ${_ts()} GroupFeed: chunk $i/${widget.chunks.length} empty, skipping');
     }
-
-    log.info('[DEBUG] ${_ts()} GroupFeed: all ${widget.chunks.length} chunks exhausted, feed end');
 
     return (chains: <TweetChain>[], nextCursor: null);
   }
