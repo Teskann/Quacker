@@ -41,6 +41,44 @@ class TweetCard extends StatelessWidget {
     );
   }
 
+  Container _createUnsupportedCard(BuildContext context) {
+    return _createBaseCard(
+      Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              L10n.of(context).unsupported_card,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  child: Text(L10n.of(context).report),
+                  onPressed: () => openUri(context, 'https://github.com/teskann/quax/issues'),
+                ),
+                ElevatedButton(
+                  child: Text(L10n.of(context).open_in_browser),
+                  onPressed: () {
+                    openInDefaultBrowser('https://x.com/${tweet.user!.screenName}/status/${tweet.idStr}');
+                    if(context.mounted) {
+                      Navigator.of(context).pop();
+                    }
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      context,
+    );
+  }
+
   Widget _createImage(String size, Map<String, dynamic>? image, BoxFit fit, {double? aspectRatio}) {
     if (image == null) {
       return Container();
@@ -168,8 +206,28 @@ class TweetCard extends StatelessWidget {
         context);
   }
 
+  Map<String, dynamic>? _extractUnifiedCard(dynamic bindingValues) {
+    if (bindingValues is Map) {
+      return jsonDecode(bindingValues['unified_card']['string_value']);
+    }
+
+    if (bindingValues is List) {
+      for (final e in bindingValues) {
+        if (e is Map && e['key'] == 'unified_card') {
+          return jsonDecode(e['value']['string_value']);
+        }
+      }
+    }
+
+    return null;
+  }
+
   dynamic _createUnifiedCard(BuildContext context, Map<String, dynamic> card, String imageKey, String imageSize) {
-    var unifiedCard = jsonDecode(card['binding_values']['unified_card']['string_value']) as Map<String, dynamic>;
+    final unifiedCard = _extractUnifiedCard(card['binding_values']);
+
+    if (unifiedCard == null) {
+      return _createUnsupportedCard(context);
+    }
 
     switch (unifiedCard['type']) {
       case 'image_website':
@@ -192,8 +250,17 @@ class TweetCard extends StatelessWidget {
 
         var child = TweetMedia(media: [Media.fromJson(media)], username: tweet.user!.screenName!, sensitive: false);
         return _createWebsiteCard(context, unifiedCard, uri, imageSize, child);
+      case 'image_carousel_website':
+        // https://x.com/UEFA/status/2082854732020760880
+        String uri = unifiedCard['destination_objects']['browser_1']['data']['url_data']['url'];
+        List<dynamic> mediaList = unifiedCard['component_objects']['swipeable_media_1']['data']['media_list'];
+        List<Media> mediaObjects = mediaList
+            .map((e) => Media.fromJson(unifiedCard['media_entities'][e['id']]))
+            .toList();
+        TweetMedia child = TweetMedia(media: mediaObjects, username: tweet.user!.screenName!, sensitive: false);
+        return _createWebsiteCard(context, unifiedCard, uri, imageSize, child);
       default:
-        return Container();
+        return _createUnsupportedCard(context);
     }
   }
 
@@ -424,7 +491,7 @@ class TweetCard extends StatelessWidget {
             ),
             context);
       default:
-        return Container();
+        return _createUnsupportedCard(context);
     }
   }
 }
